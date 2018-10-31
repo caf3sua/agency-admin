@@ -1,0 +1,62 @@
+<div class="col-lg-12 margin-top-20  col-md-12 col-sm-12 col-xs-12 padding0">
+	<p class="bv-result-search-dh">Tìm thấy <span>{{vm.orders.length}}</span> đơn hàng phù hợp</p>
+</div>
+<div class="table-responsive col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+    <table class="table bv-home-block-left-table bv-table-kh">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Mã đơn hàng</th>
+                <th>Tên khách hàng</th>
+                <th>Sản phẩm</th>
+                <th>Số điện thoại</th>
+                <th>Trạng thái</th>
+                <th>Hiệu lực từ</th>
+                <th>Hiệu lực đến</th>
+                <th>Phí bảo hiểm</th>
+            </tr>
+        </thead>
+        <tbody>
+	        <tr ng-repeat-start="order in vm.orders track by $index" ng-click="order.expand = !order.expand">
+	            <td>
+	                <p class="bv-home-table-stt margin-0">{{$index + 1}}</p>
+	            </td>
+	            <td>
+	                <p class="bv-table-text-colorBlue">{{order.gycbhNumber}}</p>
+	            </td>
+	            <td>
+	                <p class="">{{order.contactName}}</p>
+	            </td>
+	            <td>
+	                <p class="text-center">
+	                	<span uib-tooltip="{{order.lineName}}">
+	                		<i class="icon-{{order.lineId}} bv-table-text-colorBlue txt-{{order.createType}}"></i>
+	                	</span>
+	                </p>
+	            </td>
+	            <td>
+	                <p class="">{{order.contactPhone}}</p>
+	            </td>
+	            <td>
+	                <p class="">{{order.statusPolicyName}}</p>
+	            </td>
+	            <td>
+	                <p class="">{{order.inceptionDate}}</p>
+	            </td>
+	            <td>
+	                <p class="">{{order.expiredDate}}</p>
+	            </td>
+	            <td>
+	                <p class="">{{order.totalPremium | number:0}}</p>
+	            </td>
+	        </tr>
+	        <tr ng-if="order.expand" ng-repeat-end="">
+           		<td colspan="9"><div ng-include="'apps/order/baoviet-wait/order-BV-wait-context-menu.html'"></div></td>
+          	</tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+    	<bv-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage" ng-show="vm.totalItems > 0"></bv-item-count>
+		<uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

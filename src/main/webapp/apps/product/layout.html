@@ -1,0 +1,69 @@
+<!-- Loading -->
+<div class="bv-loading" ng-show="vm.loading">
+</div>
+
+<!-- Layout -->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0 bv-display-step margin-top-10">
+	<!-- Step title -->
+	<div ng-include="'apps/product/partial/partial.step-title.html'"></div>
+        
+    <!-- Step 1 -->
+    <div class="bv-step-1 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 display-flex widthStep98" id="bv-step-1">
+	    <div class="bv-step-title text-center hidden-xs hidden-sm hidden-md" ng-click="vm.closeOpenStep('step1')">
+	        <p class="fas {{vm.typeArrowOne}}"></p>
+	        <p>1</p>
+	        <span>Tính phí</span>
+	        <span>,thông tin bảo hiểm</span>
+	    </div>
+	    
+	    <!-- Include content of step 1 -->
+    	<div style="width: 100%" ng-if="vm.lineId == 'BVP'" ng-include="'apps/product/bvp/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'CAR'" ng-include="'apps/product/car/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'HHV'" ng-include="'apps/product/hhvc/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'HOM'" ng-include="'apps/product/home/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'KCR'" ng-include="'apps/product/kcare/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'KHC'" ng-include="'apps/product/khc/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'MOT'" ng-include="'apps/product/moto/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'TNC'" ng-include="'apps/product/tnc/view/step1.html'"></div>
+		<div style="width: 100%"style="width: 100%" ng-if="vm.lineId == 'TVC'" ng-include="'apps/product/tvc/view/step1.html'"></div>
+		<div style="width: 100%" ng-if="vm.lineId == 'TVI'" ng-include="'apps/product/tvi/view/step1.html'"></div>
+    </div>
+    
+    <!-- Step 2 -->
+    <div class="bv-step-2  padding0 display-flex  closeStepTwo" id="bv-step-2" >
+	    <div class="bv-step-title text-center hidden-xs hidden-sm hidden-md " ng-click="vm.closeOpenStep('step2')">
+	        <p class="fas {{ vm.typeArrowTwo }}"></p>
+	        <p>2</p>
+	        <span>Thông tin giao hàng</span>
+	    </div>
+        <div class="bv-step-content" id="bv-step-2-content">
+	        <div ng-include="'apps/product/partial/partial.product-step-2.html'" class="bv-display-step"></div>
+        </div>
+	</div>
+
+    <!-- Step 3 -->
+    <div class="bv-step-3-default  padding0  display-flex" id="bv-step-3" >
+	    <div class="bv-step-title text-center hidden-xs hidden-sm hidden-md " ng-click="vm.closeOpenStep('step3')">
+	        <p class="fas {{ vm.typeArrowThree }}"></p>
+	        <p>3</p>
+	        <span>Tóm tắt đơn hàng</span>
+	    </div>
+	    
+	    <!-- Include summary -->
+	    <div class="bv-step-content">
+	    	<div style="width: 100%" ng-if="vm.lineId == 'BVP'" ng-include="'apps/product/summary_detail/bvp_summary.html'" id="includeStep3"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'CAR'" ng-include="'apps/product/summary_detail/car_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'HHV'" ng-include="'apps/product/summary_detail/hhvc_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'HOM'" ng-include="'apps/product/summary_detail/home_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'KCR'" ng-include="'apps/product/summary_detail/kcare_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'KHC'" ng-include="'apps/product/summary_detail/khc_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'MOT'" ng-include="'apps/product/summary_detail/moto_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'TNC'" ng-include="'apps/product/summary_detail/tnc_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'TVC'" ng-include="'apps/product/summary_detail/tvc_summary.html'"></div>
+			<div style="width: 100%" ng-if="vm.lineId == 'TVI'" ng-include="'apps/product/summary_detail/tvi_summary.html'"></div>
+	    	
+	    	<!-- Button create -->
+	    	<div ng-include="'apps/product/partial/partial.product-btn-save-policy.html'"></div>
+	    </div>
+	</div>
+</div>

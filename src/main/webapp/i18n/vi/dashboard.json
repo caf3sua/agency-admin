@@ -1,0 +1,15 @@
+{
+    "dashboard": {
+    		"title": "Dashboard",
+    		"label" : {
+			"hello" : "Chào {{username}} đã quay trở lại",
+			"time" : {
+				"WEEK" : "trong tuần",
+				"MONTH" : "trong tháng",
+				"YEAR" : "trong năm",
+				"ENHANCE" : "từ ngày đến ngày"
+			}    		
+		}
+    }
+}
+

@@ -1,0 +1,7 @@
+<form class="bv-from" angular-validator-submit="vm.closeOpenStep('step2', true)" name="myForm" novalidate angular-validator>
+    <!-- Left content -->
+	<div ng-include="'apps/product/car/view/step1_content_left.html'" class="bv-step-content" id="bv-step-1-content"></div>
+	
+	<!-- Right content -->
+	<div ng-include="'apps/product/car/view/step1_content_right.html'" id="contact-info" class="bv-step-content disable-all" disable-all="vm.policy.premium == 0"></div>
+</form>

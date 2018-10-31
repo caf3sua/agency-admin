@@ -1,0 +1,51 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+    <p class="bv-text-header-home" ng-init="vm.isCollapsedReport = false" ng-click="vm.isCollapsedReport = !vm.isCollapsedReport">
+    	Theo dõi báo cáo <i class="fas" ng-class="vm.isCollapsedReport ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+    </p>
+</div>
+<div  uib-collapse="vm.isCollapsedReport">
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-home-block-four">
+    <div class="col-lg-8  col-md-12 col-sm-12 col-xs-12 padding0 bv-home-block-four-left">
+        <div class="box-body">
+            <div style="height:200px" e-chart echart-options="vm.chartIncomeOptions">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4  col-md-12 col-sm-12 col-xs-12">
+        <div class="bv-revenue-sum">
+            <p >{{vm.dataIncome.totalIncome|number:0}}</p>
+            <p>Tổng doanh thu</p>
+        </div>
+        <div class="bv-revenue-person">
+            <p>{{vm.dataIncome.totalIncome|number:0}}</p>
+            <p>Doanh thu của tôi</p>
+        </div>
+        <div class="bv-revenue-agency">
+            <p>{{vm.dataIncome.totalIncome|number:0}}</p>
+            <p>Doanh thu của đại lý</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-home-block-four margin-top-10">
+    <div class="col-lg-8  col-md-12 col-sm-12 col-xs-12 padding0 bv-home-block-four-left">
+        <div class="box-body">
+            <div style="height:200px" e-chart echart-options="vm.chartCommissionOptions">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4  col-md-12 col-sm-12 col-xs-12">
+        <div class="bv-revenue-sum">
+            <p >{{vm.dataCommission.totalCommission |number:0}}</p>
+            <p>Tổng Hoa hồng</p>
+        </div>
+        <div class="bv-revenue-person">
+            <p>{{vm.dataCommission.previousCommission |number:0}}</p>
+            <p>Hoa hồng <span data-translate="global.time.{{vm.filterDate}}">trong tuần</span> trước</p>
+        </div>
+        <div class="bv-revenue-agency">
+            <p>{{vm.dataCommission.expectCommission |number:0}}</p>
+            <p>Hoa hồng dự kiến</p>
+        </div>
+    </div>
+</div>
+</div>

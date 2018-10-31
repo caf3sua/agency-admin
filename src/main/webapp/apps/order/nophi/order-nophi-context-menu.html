@@ -1,0 +1,44 @@
+<div class="bv-context-menu">
+	<div ng-click="vm.gotoDetail(order.agreementId)"> 
+		<div class="bv-detail-icon-table">
+			<i class="icon-eye"></i>
+		</div>
+        <span class="bv-detail-text-table">Xem</span>
+	</div>
+
+    <div ng-click="vm.confirmKhachhangnophi(order)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-money"></i>
+        </div>
+        <span class="bv-detail-text-table">Cập nhật nợ phí</span>
+    </div>
+    
+    <div class="" ng-click="vm.confirmDeleteOrder(order.id)">
+        <div  class="bv-detail-icon-table">
+            <i class="icon-cancel"></i>
+        </div>
+		<span class="bv-detail-text-table">Xóa nợ</span>
+	</div>
+
+    <div class="pull-right">
+        <div class="display-inline-block color-0d47a1" ng-show="order.createType == 0">
+            <div  class="bv-detail-icon-table color-0d47a1" >
+                <i class="fas fa-lightbulb color-0d47a1" ></i>
+            </div>
+            <span class="bv-detail-text-table">Đơn online</span>
+        </div>
+        <div class="display-inline-block color-0d47a1"  ng-show="order.createType == 1">
+            <div  class="bv-detail-icon-table color-0d47a1" >
+                <i class="far fa-lightbulb color-0d47a1"></i>
+            </div>
+            <span class="bv-detail-text-table" >Đơn offline</span>
+        </div>
+        <div class="display-inline-block color-0d47a1"  ng-show="order.createType == 2">
+            <div  class="bv-detail-icon-table color-0d47a1"  >
+                <i class="icon-stamp color-0d47a1" ></i>
+            </div>
+            <span class="bv-detail-text-table">Đơn ấn chỉ</span>
+        </div>
+    </div>
+
+</div>

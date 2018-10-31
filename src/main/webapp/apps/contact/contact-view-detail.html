@@ -1,0 +1,185 @@
+<!-- column detail -->
+    <div class="row-col">
+        <div class="p-a-sm">
+            <div>
+    			<div class="pull-right" uib-tooltip="Sửa">
+                	<button ui-sref="app.contact-edit({id: vm.selectedContact.contactId})" class="md-btn md-fab m-b-sm blue-600 btn-contact" ng-disabled="!vm.selectedContact">
+             			<i class="fas fa-pencil-alt"></i>
+             		</button>
+                </div>
+                <div class="pull-right" uib-tooltip="Xóa">
+                	<button class="md-btn md-fab m-b-sm blue-600 btn-contact" ng-disabled="!vm.selectedContact || vm.totalItems > 0" ng-click="vm.confirmDeleteContact()">
+             			<i class="fas fa-times"></i>
+             		</button>
+                </div>
+            </div>
+        </div>
+        <div class="row-row">
+            <div class="row-body">
+                <div class="row-inner">
+                    <div class="padding" ng-show="vm.selectedContact">
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 h-auto m-b-lg">
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 v-m h2 _300 text-center">
+                                <div class="inline">{{vm.selectedContact.contactName}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center padding-bottom-35 padding-bottom-ccc">
+                            <a class="bv-icon-contact-detail display-inline-block" href="tel:{{vm.selectedContact.phone}}">
+                                <i class="icon-telephone"></i>
+                                <p class="bv-text-icon-contact-detail">Gọi điện</p>
+                            </a>
+                            <a class="bv-icon-contact-detail display-inline-block" href="mailto:{{vm.selectedContact.email}}" target="_top">
+                                <i class="icon-mail-black-envelope-symbol"></i>
+                                <p class="bv-text-icon-contact-detail">Gửi thư</p>
+                            </a>
+                            <a class="bv-icon-contact-detail display-inline-block" ui-sref="app.contact-map({id: vm.selectedContact.contactId})">
+                                <i class="icon-signs"></i>
+                                <p class="bv-text-icon-contact-detail">Tìm đường</p>
+                            </a>
+                            <a class="bv-icon-contact-detail display-inline-block" target="_blank" href="{{vm.selectedContact.facebookId}}">
+                                <i class="icon-facebook-logo"></i>
+                                <p class="bv-text-icon-contact-detail">Chat</p>
+                            </a>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="dropdown  pull-right open">
+                                <button class="dropdown-toggle btn-dropdown-bars-contact" type="button" data-toggle="dropdown" aria-expanded="true">
+                                    <div class="">
+                                        <i class="fas fa-bars"></i>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="btn dropdown-toggle bv-dropdown-header text-left" type="button" ui-sref="app.contact-loss({id: vm.selectedContact.contactId})">
+                                            <i class="fa fa-fw m-r-sm fa-user-times"></i>Thông tin tổn thất
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="btn dropdown-toggle bv-dropdown-header text-left" type="button" ui-sref="app.contact-history-purchase({id: vm.selectedContact.contactId})">
+                                            <i class="fa fa-fw m-r-sm fa-history"></i>Lịch sử mua hàng
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div  class="bv-detail-contact">
+                                <p ng-init="vm.isCollapsedAgrement = false" ng-click="vm.isCollapsedAgrement = !vm.isCollapsedAgrement">
+                                	Cấp đơn <i class="fas" ng-class="vm.isCollapsedAgrement ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+                                </p>
+                                <div uib-collapse="vm.isCollapsedAgrement">
+	                                <div class="display-flex table-responsive">
+	                                    <table class="table table-striped">
+									        <thead>
+									            <tr>
+									                <th>STT</th>
+									                <th>Sản phẩm</th>
+									                <th>Số hợp đồng</th>
+									                <th>Trạng thái hợp đồng</th>
+									            </tr>
+									        </thead>
+									        <tbody>
+										        <tr ng-repeat="item in vm.Agreements track by $index">
+										            <td>
+										                <p class="margin-0">{{$index + 1}}</p>
+										            </td>
+										            <td>
+										                <p class="">{{item.lineName}}</p>
+										            </td>
+										            <td>
+										                <p class="">{{item.gycbhNumber}}</p>
+										            </td>
+										            <td>
+										                <p class="">{{item.statusPolicyName}}</p>
+										            </td>
+										        </tr>
+									        </tbody>
+									        <!-- <tfoot>
+										        <tr>
+										          <td colspan="5" class="text-center">
+										            <div st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+										          </td>
+										        </tr>
+										     </tfoot> -->
+										     <tfoot>
+												<tr>
+										        	<td colspan="5" class="text-center">
+											            <bv-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage" ng-show="vm.totalItems > 0"></bv-item-count>
+												        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+												    </td>
+										        </tr>
+									     	</tfoot>
+									   </table>
+	                                </div>
+                                </div>
+                            </div>
+                            <div class="bv-detail-contact">
+                                <p ng-init="vm.isCollapsedRelationship = false" ng-click="vm.isCollapsedRelationship = !vm.isCollapsedRelationship">
+                                	Quan hệ <i class="fas" ng-class="vm.isCollapsedRelationship ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+                                </p>
+                                <div uib-collapse="vm.isCollapsedRelationship">
+	                                <div class="display-flex">
+	                                    <table class="table bv-home-block-left-table bv-table-kh" id="relationship" data-page-size="10">
+									        <thead>
+									            <tr>
+									                <th>STT</th>
+									                <th>Quan hệ</th>
+									                <th>Tên khách hàng</th>
+									            </tr>
+									        </thead>
+									        <tbody>
+										        <tr ng-repeat="item in vm.selectedContact.listRelationship track by $index">
+										            <td>
+										                <p class="margin-0">{{$index + 1}}</p>
+										            </td>
+										            <td>
+										                <p class="">{{item.relationName}}</p>
+										            </td>
+										            <td>
+										                <p class="">{{item.contactRelationName}}</p>
+										            </td>
+										        </tr>
+									        </tbody>
+									   </table>
+	                                </div>
+                                </div>
+                            </div>
+                            <div class="bv-detail-contact">
+                                <p ng-init="vm.isCollapsedContact = false" ng-click="vm.isCollapsedContact = !vm.isCollapsedContact">
+                                	Liên hệ <i class="fas" ng-class="vm.isCollapsedContact ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+                                </p>
+                                <div uib-collapse="vm.isCollapsedContact">
+                                	<div class="margin-top-20">
+	                                    <p class="bv-title-from">Mobile</p>
+	                                </div>
+	                                <div>
+	                                    <p class="bv-tile-templateSummary">{{vm.selectedContact.phone}}</p>
+	                                </div>
+	                                <div class="margin-top-10">
+	                                    <p class="bv-title-from">Email</p>
+	                                </div>
+	                                <div>
+	                                    <p class="bv-tile-templateSummary">{{vm.selectedContact.email}}</p>
+	                                </div>
+	                                <div class="margin-top-10">
+	                                    <p class="bv-title-from">Điạ chỉ</p>
+	                                </div>
+	                                <div>
+	                                    <p class="bv-tile-templateSummary">{{vm.selectedContact.homeAddress}}</p>
+	                                </div>
+	                                <div class="margin-top-10">
+	                                    <p class="bv-title-from">Facebook message</p>
+	                                </div>
+	                                <div>
+	                                    <p class="bv-tile-templateSummary">{{vm.selectedContact.facebookId}}</p>
+	                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center pos-abt w-full" style="top:50%;" ng-hide="vm.selectedContact">
+                    	<i class="material-icons md-96" style="color:lightskyblue"></i>
+                    	<p>Không chọn khách hàng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

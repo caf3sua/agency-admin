@@ -1,0 +1,66 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+    <p class="bv-text-header-home" ng-init="vm.isCollapsedOrderWaiting = false" ng-click="vm.isCollapsedOrderWaiting = !vm.isCollapsedOrderWaiting">
+    	Đơn hàng chờ giải quyết <i class="fas" ng-class="vm.isCollapsedOrderWaiting ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+    </p>
+</div>
+<div  uib-collapse="vm.isCollapsedOrderWaiting">
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 bv-home-block-three padding0">
+    <div class=" padding0 bv-home-block-left">
+        <div class="padding030">
+            <p class="bv-home-block-left-number" style="display: inline-block">{{vm.totalItemsAgency}}</p>
+            <i class="fas fa-chevron-right bv-table-arrow-icon" ng-click="vm.goOrder()"></i>
+        </div>
+        <div class="padding030">
+            <p class="bv-home-block-left-title">Danh sách đơn hàng chờ đại lý giải quyết</p>
+        </div>
+        <div>
+            <table style="width:100%" class="bv-home-block-left-table">
+                <tr ng-repeat="item in vm.AllWaitAgency track by $index">
+                    <td>
+                        <p class="bv-home-table-stt margin-0">{{$index + 1}}</p>
+                    </td>
+                    <td>
+                        <p class="bv-table-text-colorBlue">{{item.gycbhNumber}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{item.inceptionDate}}</p>
+                    </td>
+                    <td>
+                        <p class="bv-table-text-colorBlack">{{item.contactName}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{item.contactPhone}}</p>
+                    </td>
+                    <td>
+                        <a href="tel:{{item.contactPhone}}"><i class="icon-telephone margin-right-5 bv-table-icon"></i></a>
+                        <i class="icon-information bv-table-icon" ng-click="vm.confirmViewAgreement(item)"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class=" padding0 bv-home-block-right" >
+        <div class="padding030">
+            <p class="bv-home-block-left-number" style="display: inline-block">{{vm.totalItemsAgreement}}</p>
+            <i class="fas fa-chevron-right bv-table-arrow-icon" ng-click="vm.goOrderWait()"></i>
+        </div>
+        <div class="padding030">
+            <p class="bv-home-block-left-title">Danh sách đơn hàng chờ Bảo Việt giải quyết</p>
+        </div>
+        <div>
+            <table style="width:100%" class="bv-home-block-left-table">
+                <tr ng-repeat="item in vm.AllWaitAgreement track by $index">
+                    <td>
+                        <p class="bv-home-table-stt margin-0">Chờ</p>
+                    </td>
+                    <td>
+                        <p class="margin-0 bv-table-sub-text">{{item.gycbhNumber}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{item.inceptionDate}}</p>
+                    </td>
+                    <td>
+                        <p class="margin-0 bv-table-sub-text">{{item.contactName}}</p>
+                        <p class="bv-table-text-colorBlack">{{item.statusPolicyName}}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</div>

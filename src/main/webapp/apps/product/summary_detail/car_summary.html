@@ -1,0 +1,195 @@
+<div class="display-flex">
+    <div class="border-right-ccc bv-pading-30 width-100">
+        <div class="text-header-sp" style="margin-bottom: 10px">
+            <p>Thông tin chủ xe</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Tên chủ xe</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.insuredName}}</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Địa chỉ</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary" ng-show="vm.isEditMode()">{{vm.policy.insuredAddress | address}}</p>
+            <p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.insuredAddress + ', ' + vm.policy.insuredAddressDistrict.pkDistrict + ', ' + vm.policy.insuredAddressDistrict.pkProvince}}</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Điện thoại</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.receiverUser.mobile}}</p>
+        </div>
+    </div>
+    <div class="border-right-ccc bv-pading-30 width-100">
+        <div class="text-header-sp" style="margin-bottom: 10px">
+            <p>Thông tin về xe tham gia bảo hiểm</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Biển số</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.registrationNumber}}</p>
+        </div>
+        <div class="display-flex">
+            <div class="margin-right-30">
+                <div class="">
+                    <p class="bv-title-from">Số khung</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.chassisNumber}}</p>
+                </div>
+            </div>
+            <div>
+                <div class="-10">
+                    <p class="bv-title-from">Số máy</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.engineNumber}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <p class="bv-title-from">Loại xe</p>
+        </div>
+        <div>
+        	   <div ng-switch="vm.policy.tndsSocho">
+              <div ng-switch-when="1">
+                  <p class="bv-tile-templateSummary">Loại xe dưới 6 chỗ ngồi</p>
+              </div>
+              <div ng-switch-when="2">
+                  <p class="bv-tile-templateSummary">Loại xe từ 6 đến 11 chỗ ngồi</p>
+              </div>
+              <div ng-switch-when="3">
+                  <p class="bv-tile-templateSummary">Loại xe từ 12 đến 24 chỗ ngồi</p>
+              </div>
+              <div ng-switch-when="4">
+                  <p class="bv-tile-templateSummary">Loại xe trên 24 chỗ ngồi</p>
+              </div>
+              <div ng-switch-when="5">
+                  <p class="bv-tile-templateSummary">Xe vừa chở người vừa chở hàng(Pickup, Minivan)</p>
+              </div>
+         </div>
+        </div>
+        <div class="">
+            <p class="bv-title-from">Mục đích sử dụng</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Xe oto chở người không kinh doanh vận tải</p>
+        </div>
+    </div>
+    <div class="width-100 bv-pading-30">
+        <div class="text-header-sp">
+            <p>Thời gian bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Từ ngày {{vm.policy.thoihantu}} đến ngày {{vm.policy.thoihanden}}</p>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="bv-pading-30 margin-top-20 text-header-sp" style="margin-bottom: 10px">
+        <p>Mức trách nhiệm và phí bảo hiểm</p>
+    </div>
+    <div style="background: #fafafa">
+         <div class="bv-pading-table-templateSummary">
+             <table class="width-100 ">
+                 <thead>
+                 <tr>
+                     <th class="bv-title-from">Phạm vi bảo hiểm</th>
+                     <th class="bv-title-from">Mức trách nhiệm</th>
+                     <th class="bv-title-from">Phí bảo hiểm(Đã bao gồm VAT)</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+                     <td>
+                         <p class="bv-tile-templateSummary">Bảo hiểm trách nhiệm dân sự bắt buộc</p></td>
+                     <td>
+                     </td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             {{vm.policy.tndsbbPhi | number}}<span> VND</span>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         <p class="bv-tile-templateSummary">Bảo hiểm trách nhiệm dân sự tự nguyện</p></td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             <p class="margin-bottom-0">
+                                  - Số tiền tham gia bảo hiểm: {{vm.policy.tndstnSoTien | number}} VND/vụ về tài sản
+                             </p>
+                         </div>
+                     </td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             {{vm.policy.tndstnPhi | number}}<span> VND</span>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         <p class="bv-tile-templateSummary">Bảo hiểm tai nạn người ngồi trên xe</p></td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             <p class="margin-bottom-0">
+                                  - Số người: {{vm.policy.nntxSoCho}} người
+                             </p>
+                             <p class="margin-bottom-0">
+                                  - Số tiền tham gia bảo hiểm: {{vm.policy.nntxSoTien | number}} VND/người/vụ
+                             </p>
+                         </div>
+                     </td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             {{vm.policy.nntxPhi | number}}<span> VND</span>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         <p class="bv-tile-templateSummary">Bảo hiểm vật chất</p></td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             <p class="margin-bottom-0">
+                                  - Hãng xe: {{vm.policy.manufacturer}}
+                             </p>
+                             <p class="margin-bottom-0">
+                                  - Dòng xe: {{vm.policy.model}}
+                             </p>
+                             <p class="margin-bottom-0">
+                                  - Năm sản xuất: {{vm.policy.namSX}}
+                             </p>
+                             <p class="margin-bottom-0">
+                                  - Giá trị xe tham gia bảo hiểm: {{vm.policy.vcxSoTien | number}}
+                             </p>
+                         </div>
+                     </td>
+                     <td>
+                         <div class="bv-tile-templateSummary">
+                             {{vm.policy.vcxPhi | number}}<span> VND</span>
+                         </div>
+                     </td>
+                 </tr>
+                 </tbody>
+                 <tfoot>
+                 <tr>
+                     <td></td>
+                     <td>
+                         <p class="bv-title-from">Tổng phí bảo hiểm</p>
+                     </td>
+                     <td>
+                         <p class="bv-tile-templateSummary">{{vm.policy.totalPremium | number}}<span> VND</span></p></td>
+                 </tr>
+                 </tfoot>
+             </table>
+         </div>
+     </div>
+ </div>
+    
+<!-- Include Thông tin giao nhận giấy chứng nhận bảo hiểm và Thông tin hóa đơn giá trị gia tăng -->
+<div ng-include="'apps/product/summary_detail/partial/step2_summary.html'"></div>

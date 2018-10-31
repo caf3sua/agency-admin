@@ -1,0 +1,143 @@
+<!-- Thông tin hóa đơn giá trị gia tăng -->
+<div class="margin-top-20 text-header-sp" ng-init="vm.isCollapsedTableRights = true" ng-click="vm.isCollapsedTableRights = !vm.isCollapsedTableRights">
+  	<p class="header-border-bottom">Thông tin hóa đơn giá trị gia tăng 
+  		<i class="pull-right fas" ng-class="vm.isCollapsedTableRights ? 'fa-angle-down' : 'fa-angle-up'" style="color: #1964af !important;font-size: 20px;"></i> 
+  	</p>
+</div>
+<div uib-collapse="vm.isCollapsedTableRights">
+	<div class="margin-top-10">
+	    <p class="bv-title-from">Họ và tên người mua</p>
+	</div>
+    <div class="margin-top-5 input-group display-flex">
+        <div class="width-100">
+            <input type="text" name="invoiceInfo.name" class="bv-input" placeholder="Họ và tên người mua" ng-model="vm.policy.invoiceInfo.name"/>
+        </div>
+        <div class="input-group-addon bv-date-icon" ng-click="vm.openSearchContactInvoice()">
+            <span class="fa fa-plus"></span>
+        </div>
+    </div>
+	<div class="margin-top-10">
+	    <p class="bv-title-from">Tên đơn vị</p>
+	</div>
+	<div class="margin-top-5">
+	    <input type="text" name="invoiceInfo.company" class="bv-input" placeholder="Tên đơn vị" ng-model="vm.policy.invoiceInfo.company"/>
+	</div>
+	<div class="margin-top-10">
+	    <p class="bv-title-from">Mã số thuế</p>
+	</div>
+	<div class="margin-top-5">
+	    <input type="text" name="invoiceInfo.taxNo" class="bv-input" placeholder="Mã số thuế" ng-model="vm.policy.invoiceInfo.taxNo"/>
+	</div>
+	<div class="margin-top-10">
+	    <p class="bv-title-from">Địa chỉ đơn vị</p>
+	</div>
+	<div class="margin-top-5">
+	    <input type="text" name="invoiceInfo.address" class="bv-input" placeholder="Địa chỉ đơn vị" ng-model="vm.policy.invoiceInfo.address"/>
+	</div>
+	<div class="margin-top-10">
+	    <p class="bv-title-from">Số tài khoản</p>
+	</div>
+	<div class="margin-top-5">
+	    <input type="text" name="invoiceInfo.accountNo" class="bv-input" placeholder="Số tài khoản" ng-model="vm.policy.invoiceInfo.accountNo"/>
+	</div>
+</div>
+
+<!-- Thông tin nhận đơn bảo hiểm -->
+<div class="margin-top-20 text-header-sp" ng-init="vm.isCollapsedReceiverInfo = false" ng-click="vm.isCollapsedReceiverInfo = !vm.isCollapsedReceiverInfo">
+ 	<p class="header-border-bottom">Thông tin nhận đơn bảo hiểm
+ 		<i class="pull-right fas" ng-class="vm.isCollapsedReceiverInfo ? 'fa-angle-down' : 'fa-angle-up'" style="color: #1964af !important;font-size: 20px;"></i>
+ 	</p>
+</div>
+<div uib-collapse="vm.isCollapsedReceiverInfo">
+	<label for="common2" class="label-cbx">
+    	<input id="common2" name="followNycBh" type="checkbox" class="invisible" ng-model="vm.copyFromContact" ng-true-value="true" ng-false-value="false"
+    		ng-change="vm.changeCopyFromContact()">
+        <div class="checkbox">
+            <svg width="18px" height="18px" viewBox="0 0 20 20">
+                <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                <polyline points="4 11 8 15 16 6"></polyline>
+            </svg>
+        </div>
+        <span>Theo thông tin Người Yêu cầu bảo hiểm</span>
+    </label>
+    <div class="" style="position: relative;">
+    	<div class="lock-receiver" ng-show="vm.copyFromContact"></div>
+		<div class="margin-top-10 required">
+		    <p class="bv-title-from">Họ và tên người nhận</p>
+		</div>
+		<div class="margin-top-5 input-group display-flex">
+	        <div class="width-100">
+	           <input type="text" name="receiverUserData.name" class="bv-input" placeholder="Họ và tên người nhận" ng-model="vm.policy.receiverUser.name"
+				required-message="'Chưa nhâp họ và tên người nhận!'"
+			 	required/>
+	        </div>
+	        <div class="input-group-addon bv-date-icon" ng-click="vm.openSearchContactReceiver()">
+	            <span class="fa fa-plus"></span>
+	        </div>
+	    </div>
+		<div class="margin-top-10 required">
+		    <p class="bv-title-from">Địa chỉ người nhận</p>
+		</div>
+		<div class="margin-top-5">
+		    <input type="text" name="receiverUserData.address" class="bv-input" placeholder="Địa chỉ người nhận" ng-model="vm.policy.receiverUser.address"
+		    	required-message="'Chưa nhập địa chỉ người nhận!'"
+			 	required/>
+		</div>
+		<div class="margin-top-10 required">
+		    <p class="bv-title-from">Tên phường xã</p>
+		</div>
+		<div class="margin-top-5">
+			<!-- auto completed list -->
+			<bv-ward-input isRequired="true" placeholder="Phường/Xã" connection-model="vm.policy.receiverUser.addressDistrictData"></bv-ward-input>
+		    <input type="hidden" name="receiverUserData.addressDistrict" class="bv-input" placeholder="Tên phường xã" ng-model="vm.policy.receiverUser.addressDistrictData"
+		    	required-message="'Chưa nhập tên phường xã!'"
+			 	required/>
+		</div>
+		<div class="margin-top-10 required">
+		    <p class="bv-title-from">Số điện thoại liên hệ</p>
+		</div>
+		<div class="margin-top-5">
+		    <input type="text" name="receiverUserData.mobile" min="10" maxlength="11" class="bv-input" placeholder="Số điện thoại liên hệ" ng-model="vm.policy.receiverUser.mobile"
+		    	ng-pattern = "/^[0-9]{10,11}$/"
+		    	validate-on="blur"
+		        invalid-message = "'Số điện thoại không đúng định dạng'"
+		    	required-message="'Chưa nhập số điện thoại liên hệ!'"
+			 	required/>
+		</div>
+		<div class="margin-top-10 required">
+		    <p class="bv-title-from">Email người nhận</p>
+		</div>
+		<div class="margin-top-5">
+		    <input type="text" name="email22" class="bv-input" placeholder="Email người nhận" ng-model="vm.policy.receiverUser.email"
+		    	ng-pattern = "/\S+@\S+\.\S+/"
+		    	validate-on="blur"
+		        invalid-message = "'Email không đúng định dạng'"
+		    	required-message="'Chưa nhập email người nhận!'"
+			 	required/>
+		</div>
+	</div>
+</div>
+
+<!-- Phương thức nhận đơn bảo hiểm -->
+<div class="margin-top-20 text-header-sp" ng-init="vm.isCollapsedReceiveMethodInfo = true" ng-click="vm.isCollapsedReceiveMethodInfo = !vm.isCollapsedReceiveMethodInfo">
+    <p class="header-border-bottom">Phương thức nhận đơn bảo hiểm
+    	<i class="pull-right fas" ng-class="vm.isCollapsedReceiveMethodInfo ? 'fa-angle-down' : 'fa-angle-up'" style="color: #1964af !important;font-size: 20px;"></i>
+    </p>
+</div>
+<div uib-collapse="vm.isCollapsedReceiveMethodInfo">
+	<div class="cntr margin-right-5">
+	    <label for="common1" class="label-cbx">
+	    	<input id="common1" name="receiveMethod" type="checkbox" class="invisible" ng-model="vm.policy.receiveMethod" ng-true-value="'2'" ng-false-value="'1'">
+	        <div class="checkbox">
+	            <svg width="18px" height="18px" viewBox="0 0 20 20">
+	                <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+	                <polyline points="4 11 8 15 16 6"></polyline>
+	            </svg>
+	        </div>
+	        <span>Nhận giấy chứng nhận bảo hiểm gửi qua đường bưu điện</span>
+	        <p class="margin-top-10 bv-title-from-des">Bảo Việt sẽ giao bản cứng Giấy chứng nhận bảo hiểm cho Qúy khách trong khoảng thời gian sau kể từ thời điểm quý khách thanh toán đầy đủ phí bảo hiểm</p>
+	        <p class="bv-title-from-des">- Hà Nội và Trung tâm tỉnh/Thành phố khác: 2-4 ngày</p>
+	        <p class="bv-title-from-des">- Khu vực còn lại: 4-5 ngày</p>
+	    </label>
+	</div>
+</div>

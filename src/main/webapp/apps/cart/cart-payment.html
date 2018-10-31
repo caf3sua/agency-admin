@@ -1,0 +1,125 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 padding0 ">
+            <label for="cbx22" class="label-cbx margin-right-5"> <input
+                    id="cbx22" type="radio" class="invisible" value="agency" ng-model="vm.checkTypePay" checked="checked"
+                    >
+                <div class="checkbox">
+                    <svg width="18px" height="18px" viewBox="0 0 20 20">
+                        <path
+                                d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                        <polyline points="4 11 8 15 16 6"></polyline>
+                    </svg>
+                </div> <span>Thanh toán đại lý</span>
+            </label>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 padding0 ">
+        	<label for="cbx21" class="label-cbx margin-right-5"> <input
+                    id="cbx21" type="radio" class="invisible" value="personal" ng-model="vm.checkTypePay"
+                    >
+                <div class="checkbox">
+                    <svg width="18px" height="18px" viewBox="0 0 20 20">
+                        <path
+                                d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                        <polyline points="4 11 8 15 16 6"></polyline>
+                    </svg>
+                </div> <span>Thanh toán cá nhân</span>
+            </label>
+        </div>
+    </div>
+    <div ng-show="vm.checkTypePay == 'agency' || vm.checkTypePay == 'personal'"
+            class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-cart-text-header margin-top-10">
+        <p>Phương thức thanh toán</p>
+    </div>
+	<div
+		class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center" ng-show="vm.checkTypePay == 'personal'">
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center">
+            <!-- <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0 ">
+                <label for="cbx13" class="label-cbx margin-right-5"> <input
+                        id="cbx13" type="radio" class="invisible" ng-model="vm.typeBank"
+                        value="123pay" ng-change="vm.getListBank()">
+                    <div class="checkbox">
+                        <svg width="18px" height="18px" viewBox="0 0 20 20">
+                            <path
+                                    d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                            <polyline points="4 11 8 15 16 6"></polyline>
+                        </svg>
+                    </div> <span>Thẻ nội địa 123pay</span>
+                    <p class="margin-top-10 bv-img-pay">
+                        <img src="../../content/assets/images/123pay.png">
+                    </p>
+                </label>
+            </div> -->
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0">
+                <label for="cbx15" class="label-cbx margin-right-5"> <input
+                        id="cbx15" type="radio" class="invisible" ng-model="vm.typeBank"
+                        value="Momo">
+                    <div class="checkbox">
+                        <svg width="18px" height="18px" viewBox="0 0 20 20">
+                            <path
+                                    d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                            <polyline points="4 11 8 15 16 6"></polyline>
+                        </svg>
+                    </div> <span>Ví điện tử MoMo</span>
+                    <p class="margin-top-10 bv-img-pay">
+                        <img src="../../content/assets/images/momo.png">
+                    </p>
+                </label>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0">
+                <label for="cbx16" class="label-cbx margin-right-5"> <input
+                        id="cbx16" type="radio" class="invisible" ng-model="vm.typeBank"
+                        value="VnPay" ng-change="vm.getListBank()">
+                    <div class="checkbox">
+                        <svg width="18px" height="18px" viewBox="0 0 20 20">
+                            <path
+                                    d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                            <polyline points="4 11 8 15 16 6"></polyline>
+                        </svg>
+                    </div> <span>VnPayment</span>
+                    <p class="margin-top-10 bv-img-pay">
+                        <img src="../../content/assets/images/vnpay.jpg">
+                    </p>
+                </label>
+            </div>
+        </div>
+        <div
+                class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-cart-text-header margin-top-10" ng-show="vm.typeBank == '123pay' || vm.typeBank == 'VnPay'">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0 text-left">
+                <p class="bv-title-from">Danh sách ngân hàng hỗ trợ:</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
+                <select class="bv-select-box form-control" ng-model="vm.bankCode">
+                    <option value="{{bank.bankCodeView}}"
+                            ng-repeat="bank in vm.getListBankObj">
+                        {{bank.paymentBankName}}</option>
+                </select>
+            </div>
+        </div>
+	</div>
+    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center" ng-show="vm.checkTypePay == 'agency'">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0">
+            <label for="cbx17" class="label-cbx margin-right-5"> <input
+                    id="cbx17" type="radio" class="invisible" ng-model="vm.typeBank"
+                    value="ViettelPay">
+                <div class="checkbox">
+                    <svg width="18px" height="18px" viewBox="0 0 20 20">
+                        <path
+                                d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                        <polyline points="4 11 8 15 16 6"></polyline>
+                    </svg>
+                </div> <span>Viettel Payment</span>
+                <p class="margin-top-10 bv-img-pay">
+                    <img src="../../content/assets/images/viettelpay.jpg">
+                </p>
+            </label>
+        </div>
+    </div>
+
+	<!-- <div
+		class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+		<p class="bv-title-from">Lưu ý:</p>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
+		<p class="bv-title-from bv-color-a">(*)Các ngân hàng phát hành thẻ
+			được hoàn tiền 15% phí bảo hiểm</p>
+	</div> -->

@@ -1,0 +1,21 @@
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 ">
+    <select class="bv-select-box form-control" ng-model="vm.car.makeId" ng-change="vm.onCarMakesSel(vm.car.makeId)">
+    <option value="" selected disabled>--- Lựa chọn hãng xe ---</option>
+	<option ng-repeat="option in vm.makeCars" value="{{option.id}}">{{option.name}}</option>
+	</select>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <select class="bv-select-box form-control" ng-model="vm.car.modelId" ng-change="vm.onCarModelSel(vm.car.modelId)">
+    <option value="" selected>--- Lựa chọn dòng xe ---</option>
+    <option ng-repeat="option in vm.modelCars" value="{{option.carId}}">{{option.carName}}</option>
+    </select>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <select class="bv-select-box form-control" ng-model="vm.car.namSX" ng-change="vm.onYearSel(vm.car.namSX)">
+    <option value="" selected>--- Lựa chọn năm sản xuất ---</option>
+    <option ng-repeat="option in vm.yearOfMakeCars" value="{{option.year}}">{{option.year}}</option>
+    </select>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <input type="text" format="number" class="bv-input-tp" ng-model="vm.car.vcxSoTien" placeholder="Giá trị xe khách hàng"/>
+</div>

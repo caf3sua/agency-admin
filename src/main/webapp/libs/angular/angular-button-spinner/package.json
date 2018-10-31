@@ -1,0 +1,31 @@
+{
+  "name": "angular-button-spinner",
+  "version": "0.0.1",
+  "description": "Directive to show a spinner in a button during loading",
+  "main": "angular-button-spinner.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvdvleuten/angular-button-spinner.git"
+  },
+  "keywords": [
+    "Angular",
+    "AngularJS",
+    "spinner",
+    "loading",
+    "button"
+  ],
+  "author": "Johan van der Vleuten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jvdvleuten/angular-button-spinner/issues"
+  },
+  "homepage": "https://github.com/jvdvleuten/angular-button-spinner"
+}

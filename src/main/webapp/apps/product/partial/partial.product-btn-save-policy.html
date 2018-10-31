@@ -1,0 +1,15 @@
+<div>
+	<button class="bv-btn-step3" ng-click="vm.savePolicy()">
+        <span ng-show="!vm.isEditMode()">Tạo đơn hàng</span>
+        <span ng-show="vm.isEditMode()">Cập nhật đơn hàng</span>
+    </button>
+</div>
+<!-- <div>
+	<button class="bv-btn-step3" ng-click="vm.savePolicy(1)">
+        <span ng-show="!vm.isEditMode() || vm.policy.statusPolicy == 80">Tạo đơn hàng</span>
+        <span ng-show="vm.isEditMode() && vm.policy.statusPolicy != 80">Cập nhật đơn hàng</span>
+    </button>
+	<button class="bv-btn-step3" ng-click="vm.savePolicy(0)" ng-show="vm.policy.statusPolicy == 80 || !vm.isEditMode()">
+        <span>Lưu tạm</span>
+    </button>
+</div> -->

@@ -1,0 +1,73 @@
+<div class="bv-context-menu">
+	<div class="" ng-click="vm.confirmViewAgreement(order)">
+		<div class="bv-detail-icon-table">
+			<i class="icon-eye"></i>
+		</div>
+        <span class="bv-detail-text-table">Xem</span>
+	</div>
+
+	<div class="" ng-click="vm.confirmCancelOrder(order.gycbhNumber)" ng-show="order.statusPolicyId == 90 || order.statusPolicyId == 93">
+        <div  class="bv-detail-icon-table">
+            <i class="icon-cancel"></i>
+        </div>
+		<span class="bv-detail-text-table">Hủy</span>
+	</div>
+    <div ng-show="order.statusPolicyId == 80 || order.statusPolicyId == 81 || order.statusPolicyId == 90 || order.statusPolicyId == 89" ng-click="vm.confirmEditAgreement(order)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-pencil"></i>
+        </div>
+        <span class="bv-detail-text-table">Sửa</span>
+    </div>
+    <div ng-show="order.statusPolicyId == 91" ng-click="vm.confirmResendEmail(order.gycbhNumber)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-mail"></i>
+        </div>
+        <span class="bv-detail-text-table">Gửi lại email xác nhận</span>
+    </div>
+    <div ng-show="order.canTaituc" ng-click="vm.confirmTaituc(order.agreementId)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-reload-arrow"></i>
+        </div>
+        <span class="bv-detail-text-table">Tái tục</span>
+    </div>
+    <div ng-show="order.statusPolicyId != 89 && order.createType != 1" ng-click="vm.confirmKhachhangnophi(order)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-money"></i>
+        </div>
+        <span class="bv-detail-text-table">Khách hàng nợ phí</span>
+    </div>
+    
+    <div ng-click="vm.confirmCopyAgreement(order)">
+        <div class="bv-detail-icon-table">
+            <i class="fas fa-copy"></i>
+        </div>
+        <span class="bv-detail-text-table">Sao chép Đơn hàng</span>
+    </div>
+    <div ng-click="vm.confirmResendOTP(order.gycbhNumber)" ng-show="order.statusPolicyId == 81">
+        <div class="bv-detail-icon-table">
+            <i class="fas fa-sync-alt"></i>
+        </div>
+        <span class="bv-detail-text-table">Gửi lại OTP xác nhận</span>
+    </div>
+    
+    <div class="pull-right">
+        <div class="display-inline-block color-0d47a1" ng-show="order.createType == 0">
+            <div  class="bv-detail-icon-table color-0d47a1"  >
+                <i class="fas fa-lightbulb color-0d47a1" ></i>
+            </div>
+            <span class="bv-detail-text-table">Đơn online</span>
+        </div>
+        <div class="display-inline-block color-0d47a1"   ng-show="order.createType == 1">
+            <div  class="bv-detail-icon-table color-0d47a1"  >
+                <i class="far fa-lightbulb color-0d47a1" ></i>
+            </div>
+            <span class="bv-detail-text-table" >Đơn offline</span>
+        </div>
+        <div class="display-inline-block color-0d47a1"   ng-show="order.createType == 2">
+            <div  class="bv-detail-icon-table v"  >
+                <i class="icon-stamp color-0d47a1" ></i>
+            </div>
+            <span class="bv-detail-text-table">Đơn ấn chỉ</span>
+        </div>
+    </div>
+</div>

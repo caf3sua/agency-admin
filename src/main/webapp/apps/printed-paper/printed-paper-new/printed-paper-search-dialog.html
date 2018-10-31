@@ -1,0 +1,43 @@
+<div class="modal-header">
+	<i class="fas fa-times-circle pte-icon-close-dialog pull-right"  ng-click="vm.cancel()"></i>
+    <h5 class="modal-title">Chọn ấn chỉ</h5>
+</div>
+<div class="row modal-body">
+	<div ng-include="'apps/printed-paper/printed-paper-new/printed-paper-search.html'"></div>
+	
+	<!-- Table content result -->
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 margin-top-10">
+		<div class="box table-responsive">
+		    <table st-table="vm.printedPapersInit" st-safe-src="vm.printedPapers" class="table table-striped">
+		      <thead>
+		        <tr>
+		          <th>STT</th>
+		          <th>Mã ấn chỉ</th>
+		          <th>Số ấn chỉ</th>
+		          <th>Tên ấn chỉ</th>
+		          <th>Mã vạch</th>
+		          <th>Đơn vị</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr ng-repeat="item in vm.printedPapersInit track by $index" ng-dblclick="vm.selectedAnchi(item)">
+		          <td>{{$index + 1}}</td>
+		          <td>{{item.ACHI_KYHIEU_ANCHI_ID}}</td>
+		          <td>{{item.ACHI_SO_ANCHI}}</td>
+		          <td>{{item.ACHI_TEN_ANCHI}}</td>
+		          <td>{{item.ACHI_MAVACH}}</td>
+		          <td>{{item.ACHI_DLQL_NAME}}</td>
+		        </tr>
+		      </tbody>
+		      <tfoot>
+		        <tr>
+		          <td colspan="5" class="text-center">
+		            <div st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+		          </td>
+		        </tr>
+		      </tfoot>
+		    </table>
+		  </div>
+	</div>
+</div>
+

@@ -1,0 +1,178 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0  margin-top-10">
+	<form name="vm.form" role="form" show-validation>
+		<div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Sản phẩm <strong data-translate="global.product.name.{{vm.policy.productCode}}">Bảo hiểm ô tô</strong></p>
+	    </div>
+	    <!-- Số ấn chỉ -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Số ấn chỉ<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" >
+	        <div class="width-100 padding0 margin-right-5">
+	        	<!-- <div class="input-group display-flex">
+	             	<div class="width-100">
+	                 	<input type="text" required name="soAnchi" ng-model="vm.policy.soAnchi" class="bv-input" placeholder="Tên số ấn chỉ">
+	             	</div>
+	             	<div class="input-group-addon bv-date-icon" ng-click="vm.openSearchAnchi()">
+	                 	<span class="fa fa-plus"></span>
+	             	</div>
+	            </div> -->
+	            
+	            <div class="input-group display-flex">
+		         	<div class="width-100" id="bv-combobox-px">
+		             	<ui-select ng-model="vm.selected" theme="bootstrap" on-select="vm.onChange($item)" required required-message="'Chưa nhập số ấn chỉ!'">
+							<ui-select-match class="ui-select-match" placeholder="Số ấn chỉ">{{$select.selected.ACHI_SO_ANCHI}}</ui-select-match>
+							<ui-select-choices class="ui-select-choices" repeat="item in vm.dataAnChiModel | filter: $select.search | limitTo: 20">
+								<div ng-bind-html="item.ACHI_SO_ANCHI | highlight: $select.search"></div>
+								<small ng-bind-html="item.ACHI_TEN_ANCHI | highlight: $select.search"></small>
+							</ui-select-choices>
+						</ui-select>
+		         	</div>
+		         	<div class="input-group-addon bv-date-icon" ng-click="vm.openSearchAnchi()">
+	                 	<span class="fa fa-plus"></span>
+	             	</div>
+		        </div>
+	            
+	        </div>
+	    </div>
+	    
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Tên ấn chỉ : {{vm.policy.tenAnchi}}</p>
+	    </div>
+	    <!-- Khách hàng -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Khách hàng<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 display-flex" >
+	        <div class="width-100 padding0 margin-right-5">
+	        	<div class="input-group display-flex">
+	             	<div class="width-100">
+	                 	<input type="text" name="contactName" ng-model="vm.policy.contactName" class="bv-input" placeholder="Tên khách hàng" disabled="disabled">
+	                 	<input ng-show="false" type="text" name="contactCode" ng-model="vm.policy.contactCode" required>
+	             	</div>
+	             	<div class="input-group-addon bv-date-icon" ng-click="vm.openSearchContact()">
+	                 	<span class="fa fa-plus"></span>
+	             	</div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Ngày hiệu lực -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Ngày hiệu lực<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 display-flex margin-top-5">
+	        <div class="margin-right-5 width-100">
+	            <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+	                <div class="width-100">
+	                    <input type="text"  class="bv-input " placeholder="Từ ngày" ng-model="vm.policy.ngayHieulucTu" required-message="'Cần nhập ngày băt đầu !'" required name="ngayHieulucTu" ng-change="vm.changeDate()">
+	                </div>
+	                <div class="input-group-addon bv-date-icon">
+	                    <span class="glyphicon glyphicon-calendar"></span>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="width-100">
+	            <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d" >
+	                <div class="width-100">
+	                    <input type="text" class="bv-input" placeholder="Đến ngày" ng-model="vm.policy.ngayHieulucDen" required name="ngayHieulucDen" ng-change="vm.changeDate()" disabled="disabled">
+	                </div>
+	                <div class="input-group-addon bv-date-icon">
+	                    <span class="glyphicon glyphicon-calendar"></span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Tình trạng cấp -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Tình trạng cấp<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 display-flex">
+	        <div class="cntr margin-right-5">
+	            <label for="cbx13" class="label-cbx">
+	                <input id="cbx13" name="insuranceTarget" type="radio" class="invisible"  ng-model="vm.policy.tinhTrangCap" value="TTCM" >
+	                <div class="checkbox">
+	                    <svg width="18px" height="18px" viewBox="0 0 20 20">
+	                        <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+	                        <polyline points="4 11 8 15 16 6"></polyline>
+	                    </svg>
+	                </div>
+	                <span>Cấp mới</span>
+	            </label>
+	        </div>
+	        <div class="cntr">
+	            <label for="cbx14" class="label-cbx">
+	                <input id="cbx14" name="insuranceTarget" type="radio" class="invisible" ng-model="vm.policy.tinhTrangCap" value="TTCL">
+	                <div class="checkbox">
+	                    <svg width="18px" height="18px" viewBox="0 0 20 20">
+	                        <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+	                        <polyline points="4 11 8 15 16 6"></polyline>
+	                    </svg>
+	                </div>
+	                <span>Cấp lại</span>
+	            </label>
+	        </div>
+	    </div>
+	    <!-- Ngày cấp -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Ngày cấp<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" >
+	        <div class="margin-right-5 width-100">
+	            <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+	                <div class="width-100">
+	                    <input type="text" required class="bv-input" placeholder="Từ ngày" ng-model="vm.policy.ngayCap" required-message="'Cần nhập ngày băt đầu !'" name="ngayCap" aria-invalid="true" >
+	                </div>
+	                <div class="input-group-addon bv-date-icon">
+	                    <span class="glyphicon glyphicon-calendar"></span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Phí bảo hiểm -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Phí bảo hiểm<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" >
+	        <input type="text" format="number" required ng-model="vm.policy.phiBaoHiem" class="bv-input" placeholder="Nhập phí bảo hiểm"/>
+	    </div>
+	    <!-- Tổng tiền thành toán -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Tổng tiền thành toán<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" >
+	        <input type="text" format="number" required ng-model="vm.policy.phiBaoHiem" class="bv-input" placeholder="Nhập tổng tiền thanh toán" disabled="disabled"/>
+	    </div>
+	    
+	    <!-- GCN Upload-->
+	    <bv-fileupload input-id="upload-1" label="GCN (Ảnh ấn chỉ)" is-required="true"  multiple="true" keep-mode="'distinct'"
+	    	place-holder="Nhập giấy chứng nhận" file-model="vm.gcnFileModel"></bv-fileupload>
+   	    <input type="hidden" name="gcnFile" ng-model="vm.gcnFiles" required>
+   	    
+	    <!-- Giấy tờ khác có liên quan - Upload -->
+	    <bv-fileupload input-id="upload-2" label="Giấy tờ khác có liên quan"  multiple="true" keep-mode="'distinct'"
+	    	place-holder="Nhập giấy tờ khác có liên quan" file-model="vm.gycbhFileModel"></bv-fileupload>
+	    <input type="hidden" name="gycbhFile" ng-model="vm.gycbhFiles">
+	    
+	    <!-- Button -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center" ng-show="!vm.policy.agreementId">
+	    	<button type="button" class="btn primary" ng-disabled="vm.form.$invalid || vm.isLoading" ng-click="vm.saveAnchiPolicyCart()">
+	        	<i class="fa fa-spinner fa-spin" ng-show="vm.isLoading"></i> Thanh toán
+	        </button>
+	        <button type="button" class="btn primary" ng-disabled="vm.form.$invalid || vm.isLoading" ng-click="vm.saveAnchiPolicyReload()">
+	        	<i class="fa fa-spinner fa-spin" ng-show="vm.isLoading"></i> Lưu và tạo mới
+	        </button>
+	        <button type="button" class="bv-btn-default" ng-click="$state.go('order.me')">
+	            Hủy bỏ
+	        </button>
+	    </div>
+	    
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center" ng-show="vm.policy.agreementId">
+	    	<button type="button" class="btn primary" ng-disabled="vm.form.$invalid || vm.isLoading" ng-click="vm.saveAnchiPolicyCart()">
+	        	<i class="fa fa-spinner fa-spin" ng-show="vm.isLoading"></i> Cập nhật
+	        </button>
+	        <button type="button" class="bv-btn-default" ng-click="$state.go('order.me')">
+	            Hủy bỏ
+	        </button>
+	    </div>
+    </form>
+</div>

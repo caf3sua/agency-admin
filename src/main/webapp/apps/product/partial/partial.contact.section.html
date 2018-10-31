@@ -1,0 +1,82 @@
+<div class="text-header-sp">
+    <p>{{title}}</p>
+</div>
+<div class="margin-right-5 width-100 margin-top-5">
+	<div class="margin-top-10 required">
+	    <p class="bv-title-from">Họ và tên</p>
+	</div>
+    <div class="input-group display-flex margin-top-5" >
+        <div class="width-100">
+            <input type="text" name="{{name}}-contactName" class="bv-input" placeholder="Họ và tên" ng-model="contactName" readonly="readonly"
+                   required-message="'Chựa chọn thông tin người yêu cầu bảo hiểm!'"
+                   required/>
+        </div>
+        <div class="input-group-addon bv-date-icon" ng-click="openSearchContact()">
+            <i class="fa fa-plus"></i>
+        </div>
+    </div>
+    <div class="margin-top-10 required">
+	    <p class="bv-title-from">Ngày sinh</p>
+	</div>
+
+    <div class="margin-right-5 width-100">
+        <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" readonly="readonly" disabled="disabled">
+            <div class="width-100">
+                <input name="{{name}}-contactDob" type="text" class="bv-input" placeholder="dd/MM/yyyy" ng-model="contactDob" readonly="readonly" disabled="disabled"
+                       validator = "vm.dobValidator('{{contactDob}}') === true"
+                       invalid-message = "vm.dobValidator('{{contactDob}}')"
+                       required-message="'Chưa chọn ngày sinh!'"
+                       required/>
+            </div>
+            <div class="input-group-addon bv-date-icon" readonly="readonly" disabled="disabled">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+    </div>
+	<div class="margin-top-10 required" ng-if="isShowExtendInfo">
+	    <p class="bv-title-from">Số CMT/Hộ chiếu</p>
+	</div>
+	<div class="margin-top-5" ng-if="isShowExtendInfo">
+        <input type="text" name="{{name}}-contactIdNumber" class="bv-input" placeholder="Số CMT/Hộ chiếu" ng-model="contactExtendInfo.cmnd"
+            required-message="'Chưa nhập thông tin số CMT/Hộ chiếu!'"
+           	required/>
+    </div>
+    <div class="margin-top-10 required" ng-if="isShowExtendInfo">
+        <p class="bv-title-from">Quan hệ với khách hàng</p>
+    </div>
+    <div class="margin-top-5" ng-if="isShowExtendInfo">
+        <select name="{{name}}-contactRelation" class="bv-select-box form-control" ng-model="contactExtendInfo.quanhe"
+        	required-message="'Chưa lựa chọn quan hệ!'"
+           	required>
+            <option value="" selected disabled>--- Lựa chọn quan hệ ---</option>
+            <option value="30">Bản thân</option>
+            <option value="31">Vợ/Chồng</option>
+            <option value="32">Con</option>
+            <option value="33">Bố/Mẹ</option>
+            <option value="34">Bố mẹ của Vợ/Chồng</option>
+        </select>
+    </div>
+    
+    <!-- Người thụ hưởng, người nhận tiền -->
+    <div class="margin-top-10 required" ng-if="isShowExtendInfoNth">
+	    <p class="bv-title-from">Số CMT/Hộ chiếu</p>
+	</div>
+	<div class="margin-top-5" ng-if="isShowExtendInfoNth">
+        <input type="text" name="{{name}}-contactIdNumber" class="bv-input" placeholder="Số CMT/Hộ chiếu" ng-model="contactExtendInfo.cmnd"
+            required-message="'Chưa nhập thông tin số CMT/Hộ chiếu!'"
+           	required/>
+    </div>
+    <div class="margin-top-10 required" ng-if="isShowExtendInfoNth">
+        <p class="bv-title-from">Quan hệ với khách hàng</p>
+    </div>
+    <div class="margin-top-5" ng-if="isShowExtendInfoNth">
+        <select name="{{name}}-contactRelation" class="bv-select-box form-control" ng-model="contactExtendInfo.quanhe"
+        	required-message="'Chưa lựa chọn quan hệ!'"
+           	required>
+            <option value="" selected disabled>--- Lựa chọn quan hệ ---</option>
+            <option value="31">Vợ/Chồng</option>
+            <option value="32">Con</option>
+            <option value="33">Bố/Mẹ</option>
+        </select>
+    </div>
+</div>

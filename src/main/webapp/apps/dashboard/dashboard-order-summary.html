@@ -1,0 +1,43 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+    <p class="bv-text-header-home" ng-init="vm.isCollapsedOrderSummary = false" ng-click="vm.isCollapsedOrderSummary = !vm.isCollapsedOrderSummary">
+    	Đơn hàng <i class="fas" ng-class="vm.isCollapsedOrderSummary ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+    </p>
+</div>
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" uib-collapse="vm.isCollapsedOrderSummary">
+    <table class="table" style="width: 100%">
+        <tr class="bv-block-three">
+            <td class="bv-icon-order">
+                <i class="fas fa-file-alt"></i>
+            </td>
+            <td class="bv-icon-order-blockOne">
+                <p class="bv-icon-order-blockOne-number">{{vm.report.totalOrder | number:0}}</p>
+                <p>Đơn hàng <span data-translate="global.time.{{vm.filterDate}}">trong tuần</span></p>
+            </td>
+            <td  class="bv-icon-order-blockTwo">
+                <p class="bv-icon-order-blockTwo-number">{{vm.report.numberOrderPaid | number:0}}</p>
+                <p>Đơn hàng đã thanh toán</p>
+            </td>
+            <td class="bv-icon-order-blockOne">
+                <p class="bv-icon-order-blockOne-number">{{vm.report.numberOrderNotPaid | number:0}}</p>
+                <p>Đơn hàng chưa thanh toán</p>
+            </td>
+        </tr>
+        <tr class="bv-block-three">
+            <td class="bv-icon-order">
+                <i class="fas fa-dollar-sign"></i>
+            </td>
+            <td class="bv-icon-order-blockOne">
+                <p class="bv-icon-order-blockOne-number">{{vm.report.totalPremmium | number:0}}</p>
+                <p>Tổng số phí bảo hiểm  <span data-translate="global.time.{{vm.filterDate}}"> trong tuần</span></p>
+            </td>
+            <td  class="bv-icon-order-blockTwo">
+                <p class="bv-icon-order-blockTwo-number bv-color-29af00">{{vm.report.premiumPaid | number:0}}</p>
+                <p>Phí bảo hiểm đã thanh toàn</p>
+            </td>
+            <td class="bv-icon-order-blockOne bv-color-ff0000">
+                <p class="bv-icon-order-blockOne-number">{{vm.report.premiumNotPaid | number:0}}</p>
+                <p>Đơn hàng chưa thanh toán</p>
+            </td>
+        </tr>
+    </table>
+</div>

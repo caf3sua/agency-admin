@@ -1,0 +1,243 @@
+<form name="form" role="form" ng-submit="vm.saveContact()" show-validation>
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-3   col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from required">
+	            <p>Họ và tên</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <input type="text" class="bv-input" placeholder="Họ và tên" ng-model="vm.contact.contactName" required/>
+	        </div>
+	    </div>
+	    <div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from required">
+	            <p>Số điện thoại</p>
+	        </div>
+	        <div class="margin-top-5">
+	        	<div class="input-group display-flex">
+	            	<div class="width-100">
+	                	<input type="text" name="phone" class="bv-input" placeholder="Số điện thoại" 
+	                 		ng-model="vm.contact.phone" maxlength="12" numeric-only required>
+	             	</div>
+		             <div class="input-group-addon bv-date-icon">
+		                 <span class="glyphicon glyphicon-earphone"></span>
+		             </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="col-lg-3 bv-kh-padding-left  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from required">
+	            <p>Số CMT/MST</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <div class="input-group display-flex">
+	            	<div class="width-100">
+	                	<input type="text" name="idNumber" class="bv-input" placeholder="Số CMT/MST" 
+	                 		ng-model="vm.contact.idNumber" required>
+	             	</div>
+		             <div class="input-group-addon bv-date-icon">
+		                 <span class="glyphicon glyphicon-credit-card"></span>
+		             </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Ngày sinh -->
+	    <div class="col-lg-3 bv-kh-padding-left  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from required">
+	            <p>Ngày sinh</p>
+	        </div>
+	        <div class="margin-top-5">
+	        	<div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-end-date="0d" data-before-show="vm.dateBeforeShowDate(date)">
+	                <div class="width-100">
+	                    <input type="text" name="ngaySinh" class="bv-input" placeholder="Ngày sinh" ng-model="vm.contact.dateOfBirth" format-date required>
+	                </div>
+	                <div class="input-group-addon bv-date-icon">
+	                    <span class="glyphicon glyphicon-th"></span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-3   col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from required">
+	            <p>Email</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <div class="input-group display-flex">
+	            	<div class="width-100">
+	                	<input type="email" name="email" class="bv-input" placeholder="Email"
+	                 		ng-model="vm.contact.email" required>
+	            	</div>
+	            	<div class="input-group-addon bv-date-icon">
+	                	<span class="glyphicon glyphicon-envelope"></span>
+	            	</div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from">
+	            <p>Nghề nghiệp</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <input type="text" class="bv-input" placeholder="Nghề nghiệp" ng-model="vm.contact.occupation" />
+	        </div>
+	    </div>
+	
+		<div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from">
+	            <p>Loại khách hàng</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <select class="bv-select-box form-control" name="groupType" ng-model="vm.contact.groupType">
+                    <option value="POTENTIAL">Khách hàng tiềm năng</option>
+                    <option value="FAMILIAR">Khách hàng thân thiện</option>
+                    <option value="VIP">Khách hàng VIP</option>
+                </select>
+	        </div>
+	    </div>
+	    <div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	        <div class="bv-title-from">
+	            <p>Link Facebook</p>
+	        </div>
+	        <div class="margin-top-5">
+	            <input rows="5" type="text" class="bv-input" placeholder="Link facebook" ng-model="vm.contact.facebookId" />
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- Địa chỉ -->
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from required">
+	            <p>Địa chỉ</p>
+	        </div>
+	        <div class="margin-top-5">
+	        	<input type="text" name="address" class="bv-input" placeholder="Địa chỉ người nhận" ng-model="vm.contact.address" required/>
+	        </div>
+	    </div>
+	</div>
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-12   col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from required">
+	            <p>Tên phường xã</p>
+	        </div>
+	        <div class="margin-top-5">
+	        	<!-- auto completed list -->
+				<bv-ward-input isRequired="true" placeholder="Phường/Xã" connection-model="vm.contact.addressDistrict"></bv-ward-input>
+			    <input type="hidden" name="addressDistrict" class="bv-input" placeholder="Tên phường xã" ng-model="vm.contact.addressDistrict"
+				 	required/>
+	        </div>
+	    </div>
+	</div>
+	<!-- <textarea rows="5" type="text" class="bv-input" placeholder="Địa chỉ nhà riêng" ng-model="vm.contact.homeAddress" /> -->
+	
+	<!-- Quan hệ với khách hàng -->
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from">
+	            <p>Quan hệ với khách hàng</p>
+	        </div>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-5">
+	        <div class="col-lg-4   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <div class="input-group " >
+	                <input name="contactName" type="text" class="bv-input" placeholder="Họ và tên" ng-model="vm.contactRelationName" readonly="readonly"/>
+	                <div class="input-group-addon" ng-click="vm.openSearchContact()">
+	                    <i class="fa fa-search-plus"></i>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="col-lg-4  bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <select class="bv-select-box form-control" ng-options="selected.relationName for selected in vm.relationships" ng-model="vm.selRelationship"></select>
+	        </div>
+	        <div class="col-lg-4 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+	        	<button class="btn btn-info" type="button" ng-click="vm.addRelationship()"><i class="fa fa-plus"></i> Thêm</button>
+	        </div>
+	    </div>
+	</div>
+	<div>
+		<ul>
+		  <li ng-repeat="item in vm.contact.listRelationship">
+		      <span>{{item.relationName}} - {{item.contactRelationName}} <button ng-click="vm.deleteRelationship($index)">Xóa</button></span>
+		  </li>
+		</ul>
+	</div>
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from">
+	            <p>Mục khai thác</p>
+	        </div>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-5">
+	        <div class="col-lg-4  bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <select class="bv-select-box form-control"  ng-options="selected.productName for selected in vm.products" ng-model="vm.selProduct"></select>
+	        </div>
+	        <div class="col-lg-4   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+	            <button class="btn btn-info" type="button" ng-click="vm.addProduct()"><i class="fa fa-plus"></i> Thêm</button>
+	        </div>
+	    </div>
+	</div>
+	<div>
+		<ul>
+		  <li ng-repeat="item in vm.contact.listContactProduct">
+		      <span>{{item.productName}} <button ng-click="vm.deleteContactProduct($index)">Xóa</button></span>
+		  </li>
+		</ul>
+	</div>
+	<!-- Nhắc nhở -->
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 bv-kh-padding-left">
+	        <div class="bv-title-from">
+	            <p>Nhắc nhở</p>
+	        </div>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-5">
+	        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <select class="bv-select-box form-control"  ng-options="selected.name for selected in vm.reminderProducts" ng-model="vm.selProductReminder"></select>
+	        </div>
+	        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <input name="content" type="text" class="bv-input" placeholder="Nội dung" ng-model="vm.content"/>
+	        </div>
+	        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+	            <div class="margin-top-5">
+		        	<div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="0d">
+		                <div class="width-100">
+		                    <input type="text" name="dateReminder" class="bv-input" placeholder="Ngày nhắc nhở" ng-model="vm.dateReminder">
+		                </div>
+		                <div class="input-group-addon bv-date-icon">
+		                    <span class="glyphicon glyphicon-th"></span>
+		                </div>
+		            </div>
+		        </div>
+	        </div>
+	        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+	            <button class="btn btn-info" type="button" ng-click="vm.addReminder()"><i class="fa fa-plus"></i> Thêm</button>
+	        </div>
+	    </div>
+	</div>
+	<div>
+		<ul>
+		  <li ng-repeat="item in vm.contact.listReminders">
+		      <span>{{item.productCode}} - {{item.remindeDate}} <button ng-click="vm.deleteReminderProduct($index)">Xóa</button></span>
+		  </li>
+		</ul>
+	</div>
+	
+	<!-- Button -->
+    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center">
+    	<button type="submit" class="btn primary" ng-disabled="form.$invalid">
+        	<span ng-show="!vm.contact.contactId">Tạo khách hàng mới</span>
+			<span ng-show="vm.contact.contactId">Cập nhật thông tin khách hàng</span>
+        </button>
+        <button type="button" class="bv-btn-default" ng-click="vm.goBack()">
+            Hủy bỏ
+        </button>
+    </div>
+	    
+	<!-- <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 text-right margin-top-10">
+		<button type="submit" class="btn primary btn-block p-x-md" ng-disabled="form.$invalid">
+			<span ng-show="!vm.contact.contactId">Tạo khách hàng mới</span>
+			<span ng-show="vm.contact.contactId">Cập nhật thông tin khách hàng</span>
+		</button>
+	</div> -->
+</form>

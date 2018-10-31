@@ -1,0 +1,39 @@
+<div class="padding">
+    <!-- Include Button group: Week/Month/Year -->
+	<div ng-include="'views/theme/blocks/partial.button-group.html'"></div>
+
+      <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12  padding0">
+          <div class="box-body">
+            <div style="height:300px" e-chart echart-options="vm.chartOptions">
+            </div>
+        </div>
+      </div>
+    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+        <div class="bv-revenue-sum bv-report-border-right text-center col-lg-4  col-md-4 col-sm-12 col-xs-12">
+            <p>{{vm.report.totalCommission |number:0}}</p>
+            <p>Tổng Hoa hồng</p>
+        </div>
+        <div class="bv-revenue-person bv-report-border-right text-center col-lg-4  col-md-4 col-sm-12 col-xs-12"">
+            <p>{{vm.report.previousCommission |number:0}}</p>
+            <p>Hoa hồng <span data-translate="global.time.{{vm.filterDate}}">trong tuần</span> trước</p>
+        </div>
+        <div class="bv-revenue-agency  text-center col-lg-4  col-md-4 col-sm-12 col-xs-12"">
+            <p>{{vm.report.expectCommission |number:0}}</p>
+            <p>Hoa hồng dự kiến</p>
+        </div>
+    </div>
+    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10 background-fff bv-border-ccc">
+        <div class="bv-revenue-sum bv-report-border-right text-center col-lg-4  col-md-4 col-sm-12 col-xs-12">
+            <p>{{vm.report.totalIncome |number:0}}</p>
+            <p>Tổng doanh thu</p>
+        </div>
+        <div class="bv-revenue-person bv-report-border-right text-center col-lg-4  col-md-4 col-sm-12 col-xs-12"">
+            <p>{{vm.report.totalIncome |number:0}}</p>
+            <p>Doanh thu của tôi</p>
+        </div>
+        <div class="bv-revenue-agency  text-center col-lg-4  col-md-4 col-sm-12 col-xs-12"">
+            <p>{{vm.report.totalIncome |number:0}}</p>
+            <p>Doanh thu của đại lý</p>
+        </div>
+    </div>
+</div>

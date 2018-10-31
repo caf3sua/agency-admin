@@ -1,0 +1,31 @@
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 ">
+    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-end-date="d">
+        <input type="text" class="bv-input" placeholder="Ngày sinh" ng-model="vm.bvp.ngaySinh">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <select class="bv-select-box form-control" ng-model="vm.bvp.chuongTrinh">
+    	<option value="1">Chương trình đồng</option>
+    	<option value="2">Chương trình bạc</option>
+    	<option value="3">Chương trình vàng</option>
+    	<option value="4">Chương trình bạch kim</option>
+    	<option value="5">Chương trình kim cương</option>
+	</select>
+</div>
+
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <select class="bv-select-box form-control">
+    	<option value="1">1 năm</option>
+	</select>
+</div>
+<div class="col-lg-3 col-sm-3 col-xs-3 col-md-3 padding0 bv-kh-padding-left">
+    <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+        <input type="text" class="bv-input" placeholder="Bắt đầu từ (*)" ng-model="vm.bvp.thoihanbhTu">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </div>
+    </div>
+</div>

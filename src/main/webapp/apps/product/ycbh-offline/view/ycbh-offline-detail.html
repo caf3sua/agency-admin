@@ -1,0 +1,66 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0  margin-top-10">
+	<form name="vm.form" role="form" show-validation>
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Sản phẩm <strong data-translate="global.product.name.{{vm.policy.maSanPham}}">Bảo hiểm ô tô</strong></p>
+	    </div>
+	    <!-- Khách hàng -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Khách hàng<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 display-flex" >
+	        <div class="width-100 padding0 margin-right-5">
+	        	<div class="input-group display-flex">
+	             	<div class="width-100">
+	                 	<input type="text" name="contactName" ng-model="vm.policy.contactName" class="bv-input" placeholder="Tên khách hàng" disabled="disabled">
+	                 	<input ng-show="false" type="text" name="contactCode" ng-model="vm.policy.contactCode" required>
+	             	</div>
+	             	<div class="input-group-addon bv-date-icon" ng-click="vm.openSearchContact()">
+	                 	<span class="fa fa-plus"></span>
+	             	</div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Phí bảo hiểm -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Phí bảo hiểm<span class="bv-req-red">&nbsp(*)</span></p>
+	    </div>
+	    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" >
+	        <input type="text" format="number" name="totalPremium" class="bv-input" ng-model="vm.policy.totalPremium" placeholder="Nhập phí bảo hiểm" required readonly="readonly"/> <!-- numeric-only -->
+	        <div ng-show="form.totalPremium.$dirty && form.totalPremium.$invalid">
+              	<p class="help-block" ng-show="form.totalPremium.$error.required">
+                  	Nhập phí bảo hiểm
+              	</p>
+          	</div>
+	    </div>
+	    <!-- Giấy yêu cầu bảo hiểm - Upload -->
+	   <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Giấy yêu cầu bảo hiểm</p>
+	    </div>
+	    <div class="bv-promotion-block-detail" ng-repeat="f in vm.policy.imgGycbhContents">
+			<img src="data:image/*;base64,{{f.content}}" height="150px">
+		</div>
+        
+	    <!-- Ảnh GKS - Upload -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Giấy khai sinh</p>
+	    </div>
+	    <div class="bv-promotion-block-detail" ng-repeat="f in vm.policy.imgKhaisinhContents">
+			<img src="data:image/*;base64,{{f.content}}" height="150px">
+		</div>
+    	
+	    <!-- Tài liệu khác -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	        <p class="bv-title-from">Tài liệu khác</p>
+	    </div>
+        <div class="bv-promotion-block-detail" ng-repeat="f in vm.policy.imgDocumentContents">
+			<img src="data:image/*;base64,{{f.content}}" height="150px">
+		</div>
+         
+	    <!-- Button -->
+	    <div class="margin-top-10 col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 text-center">
+	        <button class="bv-btn-step3" ng-click="$state.go('order.me')">
+	            Quay lại
+	        </button>
+	    </div>
+	</form>
+</div>

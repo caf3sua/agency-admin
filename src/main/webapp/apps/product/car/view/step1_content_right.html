@@ -1,0 +1,105 @@
+       	<div class="lock-all" ng-show="vm.policy.premium == 0"></div>
+           <!-- Thông tin người yêu cầu bảo hiểm - Contact -->
+           <div ng-include="'apps/product/partial/partial.contact.html'"></div>
+
+           <div class="text-header-sp margin-top-20">
+               <p>Thông tin chủ xe</p>
+           </div>
+           <div class="margin-top-10">
+               <p class="bv-title-from">Tên chủ xe <span class="bv-req-red">&nbsp(*)</span></p>
+           </div>
+           <div class="margin-top-5">
+               <input type="text" name="insuredName" class="bv-input" placeholder="Tên chủ xe theo đăng ký xe" ng-model="vm.policy.insuredName"
+                      required-message="'Cần nhập thông tin tên chủ xe theo đăng ký !'"
+                      required
+               />
+           </div>
+           <div class="margin-top-10">
+               <p class="bv-title-from">Địa chỉ <span class="bv-req-red">&nbsp(*)</span></p>
+           </div>
+           <div class="margin-top-5">
+               <input type="text" name="insuredAddress" class="bv-input" placeholder="Theo đăng ký xe" ng-model="vm.policy.insuredAddress"
+                      required-message="'Cần nhập thông tin địa chỉ theo đăng ký !'"
+                      required
+               />
+           </div>
+           <div class="margin-top-5">
+               <!-- Auto complete -->
+               <bv-ward-input isRequired="true" placeholder="Phường/Xã" connection-model="vm.policy.insuredAddressDistrict"></bv-ward-input>
+               <input type="hidden" name="insuredAddressDistrict" class="bv-input" placeholder="Phường/Xã" ng-model="vm.policy.insuredAddressDistrict"
+                      required-message="'Cần nhập thông tin Phường/Xã theo đăng ký !'"
+                      required
+               />
+           </div>
+           <div class="margin-top-20 text-header-sp">
+               <p>Thông tin xe</p>
+           </div>
+           <div class="margin-top-10">
+               <p class="bv-title-from">Biển kiểm soát <span class="bv-req-red">&nbsp(*)</span></p>
+           </div>
+           <div class="margin-top-5">
+               <input type="text" name="registrationNumber" class="bv-input" placeholder="Biển kiểm soát" ng-model="vm.policy.registrationNumber"
+                      required-message="'Cần nhập thông tin biển kiểm soát theo đăng ký !'"
+                      required
+               />
+           </div>
+           <div class=" display-flex margin-top-5">
+               <div class="margin-right-5 width-100">
+                   <input type="text" name="chassisNumber" class="bv-input" placeholder="Số khung" ng-model="vm.policy.chassisNumber"
+                          required-message="'Cần nhập thông tin số khung !'"
+                          required
+                   />
+               </div>
+
+               <div class="width-100">
+                   <input type="text" name="engineNumber" class="bv-input" placeholder="Số máy" ng-model="vm.policy.engineNumber"
+                          required-message="'Cần nhập thông tin số máy !'"
+                          required
+                   />
+               </div>
+           </div>
+           <div class="margin-top-10">
+               <p class="bv-title-from">Thời gian bảo hiểm<span class="bv-req-red">&nbsp(*)</span></p>
+           </div>
+           <div class=" display-flex margin-top-5">
+               <div class="margin-right-5 width-100">
+                   <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+                       <div class="width-100">
+                           <input type="text" name="thoihantu" class="bv-input" placeholder="Từ ngày" ng-model="vm.policy.thoihantu" ng-change="vm.onThoihanChange()"
+                                  required-message="'Cần nhập ngày băt đầu !'"
+                                  required>
+                       </div>
+                       <div class="input-group-addon bv-date-icon">
+                           <span class="glyphicon glyphicon-th"></span>
+                       </div>
+                   </div>
+               </div>
+               <div class="width-100">
+                   <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                       <div class="width-100">
+                           <input type="text" name="thoihanden" class="bv-input" placeholder="Đến ngày" ng-model="vm.policy.thoihanden" ng-disabled="true">
+                       </div>
+                       <div class="input-group-addon bv-date-icon">
+                           <span class="glyphicon glyphicon-th"></span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="margin-top-20 text-header-sp" style="margin-bottom: 10px">
+                <p>Thông tin giao hàng</p>
+           </div>
+           <div class="cntr margin-top-5">
+                <label for="cbx11" class="label-cbx">
+                    <input id="cbx11" name="ownerName" type="checkbox" class="invisible" checked="checked">
+                    <div class="checkbox">
+                        <svg width="18px" height="18px" viewBox="0 0 20 20">
+                            <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                            <polyline points="4 11 8 15 16 6"></polyline>
+                        </svg>
+                    </div>
+                    <span>Theo thông tin chủ xe</span>
+                </label>
+           </div>
+           <div class="margin-top-5 padding-bottom-35">
+               <button type="submit" class="bv-btn-step3">Tiếp theo</button>
+           </div>

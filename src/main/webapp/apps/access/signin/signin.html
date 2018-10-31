@@ -1,0 +1,43 @@
+<div class="center-block w-xxl w-auto-xs p-y-md">
+	<div class="navbar">
+      <div class="pull-center">
+        <div ui-include="'../views/theme/blocks/navbar.brand.html'"></div>
+      </div>
+    </div>
+    <div class="p-a-md box-color r box-shadow-z1 text-color m-a bv-border-ccc">
+		<form name="form" role="form" ng-submit="vm.login()" show-validation>
+	        <div class="md-form-group float-label">
+	        	<input type="email" class="md-input" required ng-model="vm.username" name="username">
+	          	<label>Tên đăng nhập</label>
+	          	
+	          	<div ng-show="form.username.$dirty && form.username.$invalid">
+	                <p class="help-block" ng-show="form.username.$error.required">
+	                    Nhập email để đăng nhập
+	                </p>
+	                <p class="help-block" ng-show="form.username.$error.email">
+	                    Email không hợp lệ.
+	                </p>
+	            </div>
+	        </div>
+	        <div class="md-form-group float-label">
+	          	<input type="password" id="password" name="password" class="md-input" ng-model="vm.password" ng-minlength=1 ng-maxlength=20 required>
+				<label>Mật khẩu</label>
+				
+				<div ng-show="form.password.$dirty && form.password.$invalid">
+	                <p class="help-block" ng-show="form.password.$error.required">
+	                    Nhập mật khẩu để đăng nhập
+	                </p>
+	            </div>
+	        </div>
+	        <!-- Button -->      
+	        <button type="submit" class="btn primary btn-block p-x-md" ng-disabled="form.$invalid || vm.isLoading" button-spinner="vm.isLoading" button-prepend="fa fa-sign-in-alt">
+	        	Đăng nhập
+	        </button>
+      	</form>
+    </div>
+
+	<!-- Quên mật khẩu -->
+    <div class="p-v-lg text-center">
+		<div class="m-b">Quên mật khẩu? <a ui-sref="access.forgot-password" class="text-primary _600">Nhấn vào đây</a></div>
+    </div>
+</div>

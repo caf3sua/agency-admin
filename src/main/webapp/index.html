@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bảo việt Agency</title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="content/assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="content/assets/images/logo.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="content/assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="content/assets/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" type="text/css"/>
+
+  <link rel="stylesheet" href="content/assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="content/assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="content/assets/styles/font.css" type="text/css" />
+
+  
+  <!-- Custom main css -->
+  <link rel="stylesheet" href="content/assets/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/styles/bvCheckbox.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/styles/customerDemoInput.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/styles/customerInput.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/styles/bvMain.css" type="text/css" />
+  
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.min.css" type="text/css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css" type="text/css" />
+  <link rel="stylesheet" href="content/assets/styles/styleIcon.css" type="text/css" />
+  <link rel="stylesheet" href="libs/angular/angular-confirm/dist/angular-confirm.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/angular/angular-ui-select/dist/select.min.css" type="text/css" />
+
+  <base href="/">
+</head>
+<body ng-app="app" ng-controller="AppCtrl" ng-class="{'container': app.setting.boxed, 'ie': isIE,'smart': isSmart}">
+  	<!--[if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  	<div class="app" ui-view></div>
+  
+	<!-- build:js scripts/app.angular.js -->
+	<!-- jQuery -->
+  	<script src="libs/jquery/jquery/dist/jquery-2.1.4.min.js"></script>
+	<!-- Bootstrap -->
+  	<script src="libs/jquery/tether/dist/js/tether.min.js"></script>
+  	<script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  	<script src="libs/jquery/PACE/pace.min.js"></script>
+  	<script src="libs/jquery/moment/moment.js"></script>
+  	
+	<!-- Angular -->
+  	<script src="bower_components/angular/angular.min.js"></script>
+  	<script src="libs/angular/angular-animate/angular-animate.min.js"></script>
+  	<script src="libs/angular/angular-resource/angular-resource.js"></script>
+  	<script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
+  	<script src="libs/angular/angular-touch/angular-touch.js"></script>
+  	<script src="libs/angular/angular-smart-table/dist/smart-table.min.js"></script>
+  	<script src="libs/angular/angular-confirm/dist/angular-confirm.min.js"></script>
+  	<script src="libs/angular/angular-ui-select/dist/select.min.js"></script>
+  	<script src="libs/angular/angular-button-spinner/dist/angular-button-spinner.min.js"></script>
+  	<!-- <script src="libs/angular/angular-number-input/angular-number-input.js"></script>
+  	<script src="libs/angular/angular-numeric-input/angular-numeric-input.min.js"></script> -->
+  	
+  	<!-- Angular Google map -->
+  	<!-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAgGcn_JYRAYLrXVaidr3uLCk2GxfHOFX0&libraries=places" async defer></script> -->
+  	<!-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAgGcn_JYRAYLrXVaidr3uLCk2GxfHOFX0"></script>
+    <script src="libs/angular/angular-google-maps//lodash.underscore.js"></script>
+    <script src="libs/angular/angular-google-maps/angular-simple-logger-index.js"></script>
+  	<script src='libs/angular/angular-google-maps/angular-google-maps.min.js'></script> -->
+
+  	<!-- router -->
+  	<script src="libs/angular/angular-ui-router/release/angular-ui-router.min.js"></script>
+  	<!-- storage -->
+  	<script src="bower_components/ngstorage/ngStorage.js"></script>
+  	<!-- utils -->
+  	<script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
+  	<!-- lazyload -->
+  	<script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+  	<!-- Scrollbar -->
+  	<script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+
+	<!-- build:js app/vendor.js -->
+    <!-- bower:js -->
+    <!-- Core lib -->
+    <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.js"></script>
+    <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/tg-angular-validator/dist/angular-validator.min.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+    
+	<!-- App -->
+  	<script src="scripts/app.js"></script>
+  	<script src="scripts/config.js"></script>
+  	<script src="scripts/config.lazyload.js"></script>
+  	<script src="scripts/config.router.js"></script>
+  	<script src="scripts/app.ctrl.js"></script>
+
+	<script src="scripts/directives/ui-format.js"></script>
+	<script src="scripts/directives/ui-number-input.js"></script>
+	<script src="scripts/directives/ui-format-date.js"></script>
+	<script src="scripts/directives/ui-numeric-only.js"></script>
+	<script src="scripts/directives/ui-echart.js"></script>
+  	<script src="scripts/directives/ui-jp.js"></script>
+  	<script src="scripts/directives/ui-nav.js"></script>
+  	<script src="scripts/directives/ui-fullscreen.js"></script>
+  	<script src="scripts/directives/ui-scroll-to.js"></script>
+  	<script src="scripts/directives/ui-toggle-class.js"></script>
+  	<script src="scripts/directives/ui-include.js"></script>
+  	<script src="scripts/directives/its-common.js"></script>
+  
+  	<script src="scripts/filters/fromnow.js"></script>
+  	<script src="scripts/filters/address.js"></script>
+
+  	<script src="scripts/services/ngstore.js"></script>
+  	<script src="scripts/services/ui-load.js"></script>
+  	<script src="scripts/services/palette.js"></script>
+  
+  	<script src="scripts/services/user/user.service.js"></script>
+  	<script src="scripts/services/profiles/profile.service.js"></script>
+  	<script src="scripts/services/profiles/page-ribbon.directive.js"></script>
+  	<script src="scripts/services/auth/register.service.js"></script>
+  	<script src="scripts/services/auth/principal.service.js"></script>
+  	<script src="scripts/services/auth/password-reset-init.service.js"></script>
+  	<script src="scripts/services/auth/password-reset-finish.service.js"></script>
+  	<script src="scripts/services/auth/password.service.js"></script>
+  	<script src="scripts/services/auth/has-authority.directive.js"></script>
+  	<script src="scripts/services/auth/has-any-authority.directive.js"></script>
+  	<script src="scripts/services/auth/auth.service.js"></script>
+  	<script src="scripts/services/auth/auth.jwt.service.js"></script>
+  	<script src="scripts/services/auth/activate.service.js"></script>
+  	<script src="scripts/services/auth/account.service.js"></script>
+    <script src="scripts/controllers/custom-file-input.js"></script>
+	<!-- endbuild -->
+
+	<!-- Component -->
+    <script src="scripts/components/language/language.service.js"></script>
+    <script src="scripts/components/language/language.filter.js"></script>
+    <script src="scripts/components/language/language.controller.js"></script>
+    <script src="scripts/components/language/language.constants.js"></script>
+    <script src="scripts/components/util/truncate-words.filter.js"></script>
+    <script src="scripts/components/util/truncate-characters.filter.js"></script>
+    <script src="scripts/components/util/sort-by.directive.js"></script>
+    <script src="scripts/components/util/sort.directive.js"></script>
+    <script src="scripts/components/util/parse-links.service.js"></script>
+    <script src="scripts/components/util/pagination-util.service.js"></script>
+    <script src="scripts/components/util/bv-item-count.directive.js"></script>
+    <script src="scripts/components/util/date-util.service.js"></script>
+    <script src="scripts/components/util/data-util.service.js"></script>
+    <script src="scripts/components/util/capitalize.filter.js"></script>
+    <script src="scripts/components/util/base64.service.js"></script>
+    <script src="scripts/components/form/show-validation.directive.js"></script>
+    <script src="scripts/components/form/pagination.constants.js"></script>
+    <script src="scripts/components/form/minbytes.directive.js"></script>
+    <script src="scripts/components/form/maxbytes.directive.js"></script>
+    <script src="scripts/components/form/relation-combo.directive.js"></script>
+    <script src="scripts/components/form/angular-disable-all.min.js"></script>
+    <script src="scripts/components/form/bv-fileupload.directive.js"></script>
+    <script src="scripts/components/form/bv-ward-input.directive.js"></script>
+    
+    <script src="scripts/components/response/response-validate.service.js"></script>
+	
+	<!-- Config and intercepter -->
+    <script src="scripts/blocks/interceptor/errorhandler.interceptor.js"></script>
+    <script src="scripts/blocks/interceptor/auth-expired.interceptor.js"></script>
+    <script src="scripts/blocks/interceptor/auth.interceptor.js"></script>
+    <script src="scripts/blocks/interceptor/resource-path.interceptor.js"></script>
+    <script src="scripts/blocks/handlers/translation.handler.js"></script>
+    <script src="scripts/blocks/handlers/state.handler.js"></script>
+    
+    <script src="scripts/blocks/config/uib-pagination.config.js"></script>
+    <script src="scripts/blocks/config/uib-pager.config.js"></script>
+    <script src="scripts/blocks/config/compile.config.js"></script>
+    <script src="scripts/blocks/config/translation-storage.provider.js"></script>
+    <script src="scripts/blocks/config/translation.config.js"></script>
+	<script src="scripts/blocks/config/http.config.js"></script>
+
+	<script src="scripts/blocks/config/localstorage.config.js"></script>
+
+	<!-- Nav -->    
+	<script src="apps/nav/nav.service.js"></script>
+	<script src="apps/nav/nav.controller.js"></script>
+	<script src="apps/common.service.js"></script>
+  	
+    <!-- Service common -->
+    <script src="apps/contact/contact.service.js"></script>
+    <script src="apps/reminder/reminder.service.js"></script>
+	<!-- Configuration state router -->
+	<script src="apps/dashboard/dashboard.state.js"></script>
+	<script src="apps/access/access.state.js"></script>
+	
+	<!-- Product  -->
+	<script src="apps/product/product.state.js"></script>	
+	<script src="apps/product/bvp/bvp.state.js"></script>
+    <script src="apps/product/kcare/kcare.state.js"></script>
+    <script src="apps/product/tvc/tvc.state.js"></script>
+    <script src="apps/product/tvi/tvi.state.js"></script>
+    <script src="apps/product/moto/moto.state.js"></script>
+    <script src="apps/product/home/home.state.js"></script>
+    <script src="apps/product/khc/khc.state.js"></script> <!-- Bao hiem ket hop con nguoi -->
+    <script src="apps/product/tnc/tnc.state.js"></script>
+    <script src="apps/product/hhvc/hhvc.state.js"></script>
+    <script src="apps/product/car/car.state.js"></script>
+    <script src="apps/product/ycbh-offline/ycbh-offline.state.js"></script>
+    <script src="apps/product/printed-paper/printed-paper.state.js"></script>
+    
+
+	<!-- An chi - printed paper -->
+    <script src="apps/printed-paper/printed-paper.state.js"></script>	
+	<script src="apps/printed-paper/printed-paper-used/printed-paper-used.state.js"></script>
+    <script src="apps/printed-paper/printed-paper-new/printed-paper-new.state.js"></script>
+    
+    <!-- Bao cao - report -->
+    <script src="apps/report/report.state.js"></script>	
+	<script src="apps/report/report-income/report-income.state.js"></script>
+    <script src="apps/report/report-commission/report-commission.state.js"></script>
+    <script src="apps/report/report-transfer/report-transfer.state.js"></script>
+    
+    <script src="apps/cart/cart.state.js"></script><!-- Giỏ hàng - Cart -->
+    <script src="apps/order/order.state.js"></script><!-- Đơn hàng - Order -->
+    <script src="apps/contact/contact.state.js"></script><!-- Khách hàng - Contact -->
+    <script src="apps/reminder/reminder.state.js"></script><!-- Reminder - Thông báo -->
+    <script src="apps/document/document.state.js"></script><!-- Tài liệu - Document -->
+    <script src="apps/promotion/promotion.state.js"></script><!-- Khuyến mại - Promotion -->
+    
+    <!-- Account -->
+    <script src="apps/account/account.state.js"></script>
+</body>
+</html>

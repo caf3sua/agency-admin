@@ -1,0 +1,59 @@
+<div class="modal-header">
+    <h5 class="modal-title">Tạo khách hàng</h5>
+</div>
+<div class="row modal-body">
+	<div class="col-md-12 padding0">
+		<div class="col-sm-3">Họ và tên</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Họ và tên" ng-model="vm.contactAdd.contactName"/></div>
+		<div class="col-sm-3">Số điện thoại</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Số điện thoại" ng-model="vm.contactAdd.phone"/></div>
+	</div>
+	<div class="col-md-12 padding0 margin-top-5">
+		<div class="col-sm-3">Số CMT/MST</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Số CMT/MST" ng-model="vm.contactAdd.idNumber"/></div>
+		<div class="col-sm-3">Ngày sinh</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Ngày sinh" ng-model="vm.contactAdd.dateOfBirth"/></div>
+	</div>
+	<div class="col-md-12 padding0 margin-top-5">
+		<div class="col-sm-3">Email</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Email" ng-model="vm.contactAdd.email"/></div>
+		<div class="col-sm-3">Nghề nghiệp</div>
+		<div class="col-sm-3 padding0"><input type="text"  class="bv-input-contact" placeholder="Nghề nghiệp" ng-model="vm.contactAdd.occupation"/></div>
+	</div>
+	<div class="col-md-12 padding0 margin-top-5">
+		<div class="col-sm-3">Địa chỉ</div>
+		<div class="padding0" ><input type="text"  class="bv-input-contact" placeholder="Địa chỉ nhà riêng" ng-model="vm.contactAdd.homeAddress"/></div>
+	</div>
+	<div class="col-md-12 padding0 margin-top-5">
+		<div class="col-sm-3">Mối quan hệ</div>
+		<div class="padding0" >
+             <relation-combo ng-model="vm.contactAdd.listRelationship.contactRelationId" options="vm.relationshipOptions"/>
+		</div>
+	</div>
+	<div class="col-md-12 padding0 margin-top-5">
+		<div class="col-sm-3">Mục khai thác</div>
+		<div>
+            <select class="bv-select-box form-control">
+                <option value="CAR">Bảo hiểm ô tô</option>
+                <option value="BVP">Bảo hiểm An Gia</option>
+                <option value="KCARE">Bảo hiểm bệnh ung thư</option>
+                <option value="TVC">Bảo hiểm du lịch quốc tế</option>
+                <option value="TVC">Bảo hiểm du lịch Việt Nam</option>
+                <option value="MOTO">Bảo hiểm xe máy</option>
+                <option value="GOLF">Bảo hiểm người chơi golf</option>
+                <option value="HOME">Bảo hiểm nhà tư nhân</option>
+                <option value="KHC">Bảo hiểm kết hợp con người</option>
+                <option value="TNC">Bảo hiểm tai nạn con người</option>
+                <option value="HHVC">Bảo hiểm hàng hóa vận chuyển</option>
+            </select>
+        </div>
+	</div>
+	
+	<div class="col-md-12 text-right margin-top-10">
+		<button class="btn btn-primary" type="button" ng-click="vm.addNewContact()">Thêm</button>
+    	<button class="btn btn-warning" type="button" ng-click="vm.cancel()">Xóa</button>
+	</div>
+</div>
+
+
+

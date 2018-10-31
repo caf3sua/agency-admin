@@ -1,0 +1,102 @@
+            <div class="text-header-sp">
+                <p>Thông tin gói</p>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Số người tham gia</p>
+            </div>
+            <div class="margin-top-5">
+                <input type="number" name="numberPerson" min="1" max="20" required class="bv-input" placeholder="Số người tham gia" ng-model="vm.policy.numberPerson" ng-blur="vm.addOrRemovePerson()"/>
+                <div ng-show="myForm.numberPerson.$dirty && myForm.numberPerson.$invalid">
+                	<p class="help-block" ng-show="myForm.numberPerson.$error.required">
+	                    Nhập số người tham gia
+	                </p>
+	                <p class="help-block" ng-show="myForm.numberPerson.$error.max">
+	                    Vượt quá số lượng người cho phép!
+	                </p>
+	            </div>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Số tiền bảo hiểm</p>
+            </div>
+            <div class="margin-top-10">
+                <relation-combo name="premiumPackage" type="khc-money" ng-model="vm.policy.premiumPackage" options="vm.premiumPackageOptions" onfinished="vm.processComboResult(data, type)"/>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Thời hạn bảo hiểm</p>
+            </div>
+            <div class=" display-flex margin-top-10">
+                <div class="margin-right-5 width-100">
+                    <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+                        <div class="width-100">
+                            <input type="text" name="insuranceStartDate" class="bv-input" placeholder="Từ ngày" ng-model="vm.policy.insuranceStartDate"
+                            	ng-change="vm.onThoihanChange()">
+                        </div>
+                        <div class="input-group-addon bv-date-icon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="width-100">
+                    <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                        <div class="width-100">
+                            <input type="text" class="bv-input" name="insuranceEndDate" placeholder="Đến ngày" ng-model="vm.policy.insuranceEndDate" ng-disabled="true">
+                        </div>
+                        <div class="input-group-addon bv-date-icon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive bv-home-block-left-table-responsive margin-top-10">
+                <table class="table table-bordered " ng-show="vm.policy.numberPerson > 0">
+                    <thead>
+                    <tr>
+                        <th style="min-width: 220px">Họ và tên</th>
+                        <th>Ngày sinh (dd/MM/yyyy)</th>
+                        <th>Tuổi</th>
+                        <th>Phí bảo hiểm</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="person in vm.policy.premiumKhcList">
+                        <td><span>Người tham gia bảo hiểm {{$index}}</span></td>
+                        <td>
+                            <div  style="width: 150px" class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                                <div class="width-100">
+                                    <input name="inputDob{{$index}}" type="text" class="bv-input" placeholder="dd/MM/yyyy" ng-model="person.dob" ng-blur="vm.onDobChange($index)">
+                                </div>
+                                <div class="input-group-addon bv-date-icon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span>{{person.yearOld}}</td>
+                        <td><span>{{person.premium | number:0}}</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bv-title-from" ng-show="vm.isShowPremium">
+                <p>Tổng phí bảo hiểm (đã bao gồm VAT):</p>
+            </div>
+            <div ng-show="vm.isShowPremium">
+                <p class="bv-tile-templateSummary">{{vm.policy.premiumNet | number:0 }}</p>
+            </div>
+            <div class="bv-gh-text-sum-product" ng-show="vm.isShowTotalPremium">
+                <p>Tổng phí thanh toán (đã bao gồm VAT):</p>
+            </div>
+            <div ng-show="vm.isShowTotalPremium">
+                <p class="bv-gh-number-sum-product">{{vm.policy.premiumKhc | number:0}}</p>
+            </div>
+            
+            <!-- Bảng quyền lợi bảo hiểm -->
+            <div class="margin-top-10">
+                <p class="bv-title-from" ng-init="vm.isCollapsedTableRights = true" ng-click="vm.isCollapsedTableRights = !vm.isCollapsedTableRights">
+                	Bảng tóm tắt quyền lợi bảo hiểm <i class="pull-right fas fa-question-circle" style="color: #1964af !important;font-size: 20px;"></i>
+                </p>
+            </div>
+			<div class="margin-top-10" uib-collapse="vm.isCollapsedTableRights">
+			    <div ng-include="'apps/product/partial/partial.table-rights-khc.html'"></div>
+			</div>
+        

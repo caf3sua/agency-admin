@@ -1,0 +1,139 @@
+            <!-- <div class="lock-all" ng-show="vm.product.phiBH == 0"></div> -->
+            <!-- Thông tin người yêu cầu bảo hiểm - Contact -->
+            <contact-panel
+                    id="contact-panel"
+                    is-show-requester-info="false"
+                    is-same-requester-info="vm.isSameRequesterInfo"
+                    title="1. Thông tin người yêu cầu bảo hiểm"
+                    contact-name="vm.policy.contactName" contact-role="vm.policy.contactRole"
+                    contact-tax-no="vm.policy.contactTaxNo" contact-address="vm.policy.contactAddr"
+                    contact-address-district="vm.policy.contactAddresstt" contact-phone="vm.policy.contactPhone"
+                    contact-email="vm.policy.contactEmail" get-requester-info="vm.getRequesterInfo('contact')"
+                    open-search-contact="vm.openSearchContactForPanel('contact')"></contact-panel>
+
+            <div class="margin-top-20"/>
+
+            <contact-panel
+                    id="insured-panel"
+                    is-show-requester-info="true"
+                    is-same-requester-info="vm.isSameRequesterInfoInsured"
+                    title="2. Thông tin người được bảo hiểm"
+                    contact-name="vm.policy.insuredName" contact-role="vm.policy.insuredRole"
+                    contact-tax-no="vm.policy.insuredTaxNo" contact-address="vm.policy.insuredAddr"
+                    contact-address-district="vm.policy.insuredAddresstt" contact-phone="vm.policy.insuredPhone"
+                    contact-email="vm.policy.insuredEmail" get-requester-info="vm.getRequesterInfo('insured')"
+                    open-search-contact="vm.openSearchContactForPanel('insured')"></contact-panel>
+
+            <div class="margin-top-20"/>
+
+            <contact-panel
+                    id="requirement-panel"
+                    is-show-requester-info="true"
+                    is-same-requester-info="vm.isSameRequesterInfoRequirement"
+                    title="3. Thông tin người thụ hưởng bảo hiểm"
+                    contact-name="vm.policy.requirementName" contact-role="vm.policy.requirementRole"
+                    contact-tax-no="vm.policy.requirementTaxNo" contact-address="vm.policy.requirementAddr"
+                    contact-address-district="vm.policy.requirementAddresstt" contact-phone="vm.policy.requirementPhone"
+                    contact-email="vm.policy.requirementEmail" get-requester-info="vm.getRequesterInfo('requirement')"
+                    open-search-contact="vm.openSearchContactForPanel('requirement')"></contact-panel>
+
+            <div class="text-header-sp margin-top-20">
+                <p>4. Mô tả hàng hóa được bảo hiểm</p>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Tên Hàng" ng-model="vm.policy.productName" ng-disabled="true"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Mô tả chi tiết" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Mã kí hiệu" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Phương thức đóng gói bao bì" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Trọng lượng" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName"  placeholder="Số lượng" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Số container và số Seal" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName"  placeholder="Tên tàu hoặc phương tiện vận chuyển" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Mô tả hành trình" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="B/L &/or AWB số hoặc HĐVC số" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Nơi khởi hành" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Nơi đến cuối cùng" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Số hợp đồng/ Hóa đơn số" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Cảng xếp hàng" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" name="productName" placeholder="Cảng dỡ hàng" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="L/C số" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Ngày khởi hành</p>
+            </div>
+            <div class="input-group date margin-top-5 display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                <div class="width-100">
+                    <input type="text" class="bv-input" name="productName"  placeholder="dd/MM/yyyy" ng-model="vm.policy.productName" ng-change="vm.onDobChange()">
+                </div>
+                <div class="input-group-addon bv-date-icon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+            <div class="margin-top-5">
+                <select class="bv-select-box form-control"  name="productName" ng-model="vm.policy.productName">
+                    <option value="" selected disabled>--- Chuyển tải ---</option>
+                    <option value="0">Cho phép</option>
+                    <option value="1">Không cho phép</option>
+                </select>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Dự kiến ngày đến</p>
+            </div>
+            <div class="input-group date margin-top-5 display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                <div class="width-100">
+                    <input type="text" class="bv-input" name="productName" placeholder="dd/MM/yyyy" ng-model="vm.policy.productName" ng-change="vm.onDobChange()">
+                </div>
+                <div class="input-group-addon bv-date-icon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" class="bv-input" name="productName" placeholder="Thanh toán bồi thường tại" ng-model="vm.policy.productName"/>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Mục chứng từ</p>
+            </div>
+            <div class="margin-top-5">
+                <p>Đính kèm các chứng từ liên quan <a href="#">tại đây</a></p>
+            </div>
+            <div class="margin-top-5">
+                <select class="bv-select-box form-control"  name="productName" ng-model="vm.policy.productName">
+                    <option value="" selected disabled>--- Lựa chọn Giấy yêu cầu bảo hiểm ---</option>
+                    <option value="0">Giấy yêu cầu bảo hiểm Tiếng Việt</option>
+                    <option value="1">Giấy yêu cầu bảo hiểm Tiếng Anh</option>
+                </select>
+            </div>
+            <div class="margin-top-5 padding-bottom-35">
+                <button type="submit" class="bv-btn-step3">Tiếp theo</button>
+            </div>
+   

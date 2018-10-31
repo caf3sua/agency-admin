@@ -1,0 +1,61 @@
+<div class="modal-header">
+	<i class="fas fa-times-circle pte-icon-close-dialog pull-right"  ng-click="vm.cancel()"></i>
+    <h5 class="modal-title">Chọn khách hàng</h5>
+</div>
+<div class="row modal-body">
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12  padding0">
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12 ">Họ tên</div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12  padding0"><input type="text"  class="bv-input-contact" placeholder="Họ và tên" ng-model="vm.searchCriterial.contactName"/></div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12 ">Số điện thoại</div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12  padding0"><input type="text"  class="bv-input-contact" placeholder="Số điện thoại" ng-model="vm.searchCriterial.phone"/></div>
+	</div>
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-5">
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12 ">Số CMT/MST</div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12  padding0"><input type="text"  class="bv-input-contact" placeholder="Số CMT/MST" ng-model="vm.searchCriterial.idNumber"/></div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12 ">Ngày sinh</div>
+		<div class="col-lg-3  col-md-12 col-sm-12 col-xs-12  padding0"><input type="text"  class="bv-input-contact" placeholder="Ngày sinh" ng-model="vm.searchCriterial.dateOfBirth"/></div>
+	</div>
+	
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 text-right margin-top-10">
+		<button class="btn btn-primary" type="button" ng-click="vm.searchContact()">Tìm</button>
+    	<button class="btn btn-warning" type="button" ng-click="vm.addNewContact()">Thêm mới</button>
+	</div>
+	
+	<!-- Table content result -->
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 margin-top-10">
+		<div class="box table-responsive">
+		    <table st-table="vm.contactsInit" st-safe-src="vm.contacts" class="table table-striped">
+		      <thead>
+		        <tr>
+		          <th st-sort="id">STT</th>
+		          <th st-sort="contactName">Họ tên</th>
+		          <th st-sort="idNumber">CMT</th>
+		          <th st-sort="dateOfBirth">Ngày sinh</th>
+		          <th>Địa chỉ</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr ng-repeat="row in vm.contactsInit track by $index" ng-dblclick="vm.selectedContact(row)">
+		          <td>{{row.id}}</td>
+		          <td>{{row.contactName}}</td>
+		          <td>{{row.idNumber}}</td>
+		          <td>{{row.dateOfBirth}}</td>
+		          <td>{{row.homeAddress | address}}</td>
+		        </tr>
+		      </tbody>
+		      <tfoot>
+		        <tr>
+		          <td colspan="5" class="text-center">
+		            <div st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+		          </td>
+		        </tr>
+		      </tfoot>
+		    </table>
+		  </div>
+	</div>
+</div>
+<!-- <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.search()">Tìm</button>
+    <button class="btn btn-warning" type="button" ng-click="vm.addNewContact()">Thêm mới</button>
+</div> -->
+

@@ -1,0 +1,130 @@
+    <div style="min-height: 100vh">
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+            <div class="col-lg-3   col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Tên khách hàng</p>
+                </div>
+                <div class="margin-top-5">
+                    <input type="text" class="bv-input" placeholder="Nhập tên khách hàng" maxlength="50" ng-model="vm.searchCriterial.contactName" />
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Mã đơn hàng</p>
+                </div>
+                <div class="margin-top-5">
+                    <input type="text" class="bv-input" placeholder="Nhập mã đơn hàng" maxlength="50" ng-model="vm.searchCriterial.gycbhNumber" />
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Email khách hàng</p>
+                </div>
+                <div class="margin-top-5">
+                    <input type="email" class="bv-input" placeholder="Nhập địa chỉ thư điện tử" ng-model="vm.searchCriterial.email"  />
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Sản phẩm</p>
+                </div>
+                <div class="margin-top-5">
+                    <select class="bv-select-box-kh form-control" ng-model="vm.searchCriterial.productCode"  >
+                        <option value="">-- Tất cả sản phẩm --</option>
+                        <option value="CAR">Bảo hiểm ô tô</option>
+                        <option value="BVP">Bảo hiểm An Gia</option>
+                        <option value="KCR">Bảo hiểm bệnh ung thư</option>
+                        <option value="TVC">Bảo hiểm du lịch quốc tế</option>
+                        <option value="TVI">Bảo hiểm du lịch Việt Nam</option>
+                        <option value="MOT">Bảo hiểm xe máy</option>
+                        <option value="HOM">Bảo hiểm nhà tư nhân</option>
+                        <option value="KHC">Bảo hiểm kết hợp con người</option>
+                        <option value="TNC">Bảo hiểm tai nạn con người</option>
+                        <!-- <option value="HHV">Bảo hiểm Hàng hóa vận chuyển nội địa</option> -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+            <div class="col-lg-3   col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Số điện thoại</p>
+                </div>
+                <div class="margin-top-5">
+                	<div class="input-group display-flex">
+	                    <div class="width-100">
+	                        <input type="text" name="thoihanbhTu" class="bv-input" placeholder="Nhập số điện thoại" 
+	                        	ng-model="vm.searchCriterial.phone" maxlength="12" numeric-only >
+	                    </div>
+	                    <div class="input-group-addon bv-date-icon">
+	                        <span class="glyphicon glyphicon-earphone"></span>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Hiệu lực đơn bảo hiểm</p>
+                </div>
+                <div class=" display-flex margin-top-5">
+                    <div class="margin-right-5 width-100">
+                        <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                            <div class="width-100">
+                                <input type="text" name="thoihanbhTu" class="bv-input" placeholder="Từ ngày" ng-model="vm.searchCriterial.fromDate" ng-change="vm.changeDate()">
+                            </div>
+                            <div class="input-group-addon bv-date-icon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="width-100">
+                        <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                            <div class="width-100">
+                                <input type="text" name="thoihanbhTu" class="bv-input" placeholder="Đến ngày" ng-model="vm.searchCriterial.toDate" ng-change="vm.changeDate()">
+                            </div>
+                            <div class="input-group-addon bv-date-icon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Trạng thái</p>
+                </div>
+                <div class="margin-top-5">
+                    <select class="bv-select-box-kh form-control" ng-model="vm.searchCriterial.statusPolicy">
+                    	<option value="">-- Trạng thái hợp đồng --</option>
+                    	<option value="91">Chờ Bảo Việt cấp đơn</option>
+                    	<option value="93">Chờ Bảo Việt giám định</option>
+                    	<option value="92">Chờ Bảo Việt cấp GCNBH (bản cứng)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+                <div class="bv-title-from">
+                    <p>Hình thức cấp</p>
+                </div>
+                <div class="margin-top-5">
+                    <select class="bv-select-box-kh form-control" ng-model="vm.searchCriterial.createType">
+                    	<option value="">-- Hình thức cấp đơn --</option>
+                    	<option value="0">Cấp đơn Online</option>
+                        <option value="1">Cấp đơn Offline</option>
+                        <option value="2">Cấp đơn Ấn Chỉ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+		<!-- Button -->
+		<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+            <button class="bv-btn-step2" ng-click="vm.searchOrderWait()" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading">
+            	Tìm kiếm
+            </button>
+            </div>
+        </div>
+        
+        <!-- Table data -->
+        <div ng-include="'apps/order/baoviet-wait/order-BV-wait-table.html'"></div>
+    </div>

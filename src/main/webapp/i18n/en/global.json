@@ -1,0 +1,127 @@
+{
+    "global": {
+        "title": "Bảo Việt Agency",
+        "person" : {
+        	"relationship" : {
+        		"30" : "Bản thân",
+        		"31" : "Vợ/Chồng",
+        		"32" : "Con",
+        		"34" : "Bố/Me",
+        		"39" : "Bố Me của vợ/chồng",
+        		"00" : "Không xác định"
+        	}
+        },
+        "time" : {
+				"WEEK" : "trong tuần",
+				"MONTH" : "trong tháng",
+				"YEAR" : "trong năm",
+				"ENHANCE" : "trong khoảng thời gian"
+		},
+		"policy" : {
+        	"status" : {
+        		"89" : "Hủy hợp đồng",
+        		"90" : "Chưa thanh toán",
+        		"91" : "Đã thanh toán"
+        	}
+        },
+		"product" : {
+        	"name" : {
+        		"BVP" : "Bảo Việt An Gia",
+        		"CAR" : "Bảo hiểm ô tô",
+        		"HHVC" : "Bảo hiểm vận chuyển hàng hóa",
+        		"HHV" : "Bảo hiểm vận chuyển hàng hóa",
+        		"HOME" : "Bảo hiểm nhà tư nhân",
+        		"HOM" : "Bảo hiểm nhà tư nhân",
+        		"KCARE" : "Bảo hiểm bệnh ung thu",
+        		"KCR" : "Bảo hiểm bệnh ung thu",
+        		"KHC" : "Bảo hiểm kết hợp con người",
+        		"MOTO" : "Bảo hiểm xe máy",
+        		"MOT" : "Bảo hiểm xe máy",
+        		"TNC" : "Bảo hiểm tai nạn con người",
+        		"TVC" : "Bảo hiểm du lịch quốc tế",
+        		"TVI" : "Bảo hiểm du lịch Việt Nam"
+        	}
+        },
+        "page" : {
+        	"title" : {
+        		"DASHBOARD": "Trang chủ",
+        		"PRODUCT_BVP" : "Bảo hiểm bảo việt an gia",
+        		"PRODUCT_CAR" : "Bảo hiểm ô tô",
+        		"PRODUCT_HHVC" : "Bảo hiểm Hàng hóa vận chuyển nội địa",
+        		"PRODUCT_HOME" : "Bảo hiểm nhà tư nhân",
+        		"PRODUCT_KCARE" : "Bảo hiểm bệnh ung thư",
+        		"PRODUCT_KHC" : "Bảo hiểm kết hợp con người",
+        		"PRODUCT_MOTO" : "Bảo hiểm xe máy",
+        		"PRODUCT_TNC" : "Bảo hiểm tai nạn con người",
+        		"PRODUCT_TVC" : "Bảo hiểm du lịch quốc tế",
+        		"PRODUCT_TVI" : "Bảo hiểm du lịch Việt Nam",
+        		"PRODUCT_BVP_EDIT" : "Sửa Bảo hiểm bảo việt an gia",
+        		"PRODUCT_CAR_EDIT" : "Sửa Bảo hiểm ô tô",
+        		"PRODUCT_HHVC_EDIT" : "Sửa Bảo hiểm Hàng hóa vận chuyển nội địa",
+        		"PRODUCT_HOME_EDIT" : "Sửa Bảo hiểm nhà tư nhân",
+        		"PRODUCT_KCARE_EDIT" : "Sửa Bảo hiểm bệnh ung thư",
+        		"PRODUCT_KHC_EDIT" : "Sửa Bảo hiểm kết hợp con người",
+        		"PRODUCT_MOTO_EDIT" : "Sửa Bảo hiểm xe máy",
+        		"PRODUCT_TNC_EDIT" : "Sửa Bảo hiểm tai nạn con người",
+        		"PRODUCT_TVC_EDIT" : "Sửa Bảo hiểm du lịch quốc tế",
+        		"PRODUCT_TVI_EDIT" : "Sửa Bảo hiểm du lịch Việt Nam",
+        		"CONTACT": "Danh sách khách hàng",
+        		"CONTACT_LOSS" : "Thông tin tổn thất",
+        		"CONTACT_MAP" : "Địa chỉ khách hàng",
+        		"CONTACT_HISTORY_PURCHASE" : "Lịch sử mua hàng",
+        		"PRINTED_PAPER_NEW" : "Danh sách ấn chỉ chưa sử dụng",
+        		"PRINTED_PAPER_USED" : "Danh sách ấn chỉ đã sử dụng",
+        		"CART" : "Giỏ hàng",
+        		"ORDER_ME" : "Danh sách đơn hàng của tôi",
+        		"ORDER_AGENCY" : "Danh sách đơn hàng chờ đại lý giải quyết",
+        		"ORDER_BAOVIET" : "Danh sách đơn hàng chờ BV giải quyết",
+        		"ORDER_OTHER" : "Danh sách yêu cầu bảo hiểm khác",
+        		"ORDER_NOPHI" : "Danh sách đơn hàng nợ phí",
+        		"ORDER_DETAIL" : "Chi tiết đơn hàng",
+        		"REPORT_INCOME" : "Báo cáo doanh thu",
+        		"REPORT_COMMISSION" : "Báo cáo hoa hồng",
+        		"DOCUMENT" : "Tài liệu",
+        		"PROMOTION" : "Khuyến mại",
+        		"CONTACT_NEW" : "Tạo khách hàng mới",
+        		"CONTACT_EDIT" : "Sửa thông tin khách hàng",
+        		"ACCOUNT_CHANGE_PASSWORD" : "Đổi mật khẩu",
+        		"ACCOUNT_PROFILE" : "Trang thông tin cá nhân",
+        		"PRODUCT_YCBH_OFFLINE" : "Tạo yêu cầu bảo hiểm Offline",
+        		"PRODUCT_PRINTED_PAPER" : "Cấp đơn ấn chỉ",
+        		"REMINDER" : "Thông báo",
+        		"REPORT_TRANSFER" : "Thống kê giao dịch chuyển tiền"     		
+        	}
+        },
+        "menu": {
+        	"nav-home": "Home",
+        	"nav-request": "Request",
+        	"nav-work-basket": "Work basket",
+        	"nav-report": "Report",
+        	"nav-help": "Help",
+            "home": "Home",
+            "Dashboard": "Dashboard",
+            "CellH": "Cell*H",
+            "Sctd": "Sự cố truyền dẫn",
+            "WO": "Work order",
+            "GNOC_CR": "GNOC Change request",
+            "CdbrPakh": "Cố định băng rộng - Phản ánh khách hàng",
+            "CdbrTkm": "Cố định băng rộng - New deploy",
+            "GdttCdbr": "Gián đoạn thông tin - Cố định băng rộng",
+            "CdbrTgxl": "Cố định băng rộng - Thời gian xử lý",
+            "CdbrScll": "Cố định băng rộng - Sự cố lặp lại",
+            "Paclm": "Paclm",
+            "Kiemtrahientruong": "Kiểm tra hiện trường",
+            "Qlgt": "Quản lý giảm trừ",
+            "Report": "Report",
+            "Qltarget": "Management target",
+            "GROUP": "Quản lý nhóm",
+            "DOMAIN": "Quản lý lĩnh vực",
+            "INFORMATION": "Quản lý thông tin cơ bản",
+            "language": "Language"
+        },
+        "placeholder" : {
+        		"search" : "Search..."
+        }
+    },
+    "footer": "This is your footer"
+}

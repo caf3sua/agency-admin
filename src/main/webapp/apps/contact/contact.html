@@ -1,0 +1,80 @@
+<div class=" bv-background-sp">
+    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 ">
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+            <div class="bv-block-two-button">
+                <div class="bv-btn-header-title border-transparent" ng-class="{'active-contact': vm.groupType == 'POTENTIAL' }" ng-click="vm.changeGroupType('POTENTIAL')">
+                    <i class="icon-employees-01"></i>
+                    <span class="hidden-xs hidden-sm">Khách hàng tiềm năng</span>
+                    <span class="label label-sm up blue-100">{{(vm.contacts | filter:{groupType:'POTENTIAL'}).length}}</span>
+                </div>
+                <div class="bv-btn-header-title border-transparent" ng-class="{'active-contact': vm.groupType == 'FAMILIAR' }" ng-click="vm.changeGroupType('FAMILIAR')">
+                    <i class="fas fa-user"></i>
+                    <span class="hidden-xs hidden-sm">Khách hàng thân thiện</span>
+                    <span class="label label-sm up blue-100">{{(vm.contacts | filter:{groupType:'FAMILIAR'}).length}}</span>
+                </div>
+                <div class="bv-btn-header-title border-transparent" ng-class="{'active-contact': vm.groupType == 'VIP' }" ng-click="vm.changeGroupType('VIP')">
+                    <i class="icon-broken-arm"></i>
+                    <span class="hidden-xs hidden-sm">Khách hàng VIP</span>
+                    <span class="label label-sm up blue-100">{{(vm.contacts | filter:{groupType:'VIP'}).length}}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <div class="row-col row-col-xs b-b bv-border-ccc background-fff" style="margin-bottom: 30px">
+        <!-- column -->
+        <div class="col-sm-4 col-md-3 light bg b-r background-fff bv-contact-border-left" >
+            <div class="row-col">
+                <form class="search-form">
+                    <input type="search" value="" placeholder="Search" class="search-input" ng-model="searchName">
+                    <button type="submit" class="search-button">
+                        <div class="submit-button">
+                            <span class="icon-magnifying-glass"></span>
+                        </div>
+                    </button>
+                    <div class="search-option">
+                        <div>
+                        	<button class="md-btn md-fab m-b-sm blue-600 btn-contact" ui-sref="app.contact-new" >
+	                    		<i class="fas fa-plus"></i>
+	                    	</button>
+	                    	<label for="type-posts">
+                                <span>Mới</span>
+                            </label>
+                        </div>
+
+                        <div>
+                        	<button class="md-btn md-fab m-b-sm blue-600 btn-contact bg-gray" ng-disabled="true">
+	                    		<i class="fas fa-envelope"></i>
+	                    	</button>
+	                    	<label for="type-posts">
+                                <span>Mail</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                <div class="row-row">
+                    <div class="row-body scrollable ">
+                        <div class="row-inner">
+                            <div class="list inset">
+                                <div ng-repeat="contact in vm.contacts | filter:{groupType:vm.groupType} | filter:{contactName:searchName} | orderBy:'contactName' track by $index" class="list-item pointer" ng-class="{'blue-100': contact.selected }" ng-click="vm.selectContact(contact)">
+                                    <div class="list-body">
+                                        {{ contact.contactName }}
+                                        <span ng-hide="contact.contactName">Không tên</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center pos-abt w-full" style="top:50%;" ng-hide="(vm.contacts | filter:{group:filter} | filter:query).length">Không có khách hàng</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-7">
+        	<!-- Contact detail -->
+            <div ng-include="'apps/contact/contact-view-detail.html'"></div>
+        </div>
+    </div>
+</div>
+

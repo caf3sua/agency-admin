@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?vqa08i');
+    src:  url('../fonts/icomoon.eot?vqa08i#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?vqa08i') format('truetype'),
+    url('../fonts/icomoon.woff?vqa08i') format('woff'),
+    url('../fonts/icomoon.svg?vqa08i#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-HOM:before, .icon-HOME:before, .icon-mortgage:before {
+    content: "\e928";
+}
+.icon-KCR:before, .icon-KCARE:before, .icon-cardiogram:before {
+    content: "\e929";
+}
+.icon-TNC:before, .icon-broken-arm:before {
+    content: "\e92a";
+}
+.icon-MOT:before, .icon-MOTO:before, .icon-motorbike:before {
+    content: "\e92b";
+}
+.icon-TVC:before, .icon-airplane:before {
+    content: "\e92c";
+}
+.icon-medical-insurance:before {
+    content: "\e92d";
+}
+.icon-BVP:before, .icon-insurance2:before {
+    content: "\e92e";
+}
+.icon-CAR:before, .icon-car:before {
+    content: "\e92f";
+}
+.icon-TVI:before, .icon-vn:before {
+    content: "\e930";
+}
+.icon-golf-flag-and-field:before {
+    content: "\e931";
+}
+.icon-KHC:before, .icon-insurance:before {
+    content: "\e932";
+}
+.icon-HHVC:before, .icon-truck:before {
+    content: "\e933";
+}
+.icon-documentation:before {
+    content: "\e900";
+}
+.icon-calculator:before {
+    content: "\e901";
+}
+.icon-line-graph:before {
+    content: "\e902";
+}
+.icon-target:before {
+    content: "\e903";
+}
+.icon-suitcase:before {
+    content: "\e904";
+}
+.icon-employees:before {
+    content: "\e905";
+}
+.icon-employees-01:before {
+    content: "\e906";
+}
+.icon-add-button-inside-black-circle:before {
+    content: "\e907";
+}
+.icon-addcontact:before {
+    content: "\e908";
+}
+.icon-agenda:before {
+    content: "\e909";
+}
+.icon-business-affiliate-network:before {
+    content: "\e90a";
+}
+.icon-calendar:before {
+    content: "\e90b";
+}
+.icon-cancel:before {
+    content: "\e90c";
+}
+.icon-cart:before {
+    content: "\e90d";
+}
+.icon-check-box-with-check-sign:before {
+    content: "\e90e";
+}
+.icon-clock-circular-outline:before {
+    content: "\e90f";
+}
+.icon-dashboard:before {
+    content: "\e910";
+}
+.icon-dollar-symbol:before {
+    content: "\e911";
+}
+.icon-download:before {
+    content: "\e912";
+}
+.icon-eye:before {
+    content: "\e913";
+}
+.icon-facebook-logo:before {
+    content: "\e914";
+}
+.icon-information:before {
+    content: "\e915";
+}
+.icon-magnifying-glass:before {
+    content: "\e916";
+}
+.icon-mail:before {
+    content: "\e917";
+}
+.icon-mail-black-envelope-symbol:before {
+    content: "\e918";
+}
+.icon-megaphone:before {
+    content: "\e919";
+}
+.icon-menu-button:before {
+    content: "\e91a";
+}
+.icon-money:before {
+    content: "\e91b";
+}
+.icon-more:before {
+    content: "\e91c";
+}
+.icon-paper:before {
+    content: "\e91d";
+}
+.icon-pencil:before {
+    content: "\e91e";
+}
+.icon-quality:before {
+    content: "\e91f";
+}
+.icon-reload-arrow:before {
+    content: "\e920";
+}
+.icon-shopping-cart:before {
+    content: "\e921";
+}
+.icon-signs:before {
+    content: "\e922";
+}
+.icon-speaker:before {
+    content: "\e923";
+}
+.icon-stamp:before {
+    content: "\e924";
+}
+.icon-telephone:before {
+    content: "\e925";
+}
+.icon-uncheck-01:before {
+    content: "\e926";
+}
+.icon-warning:before {
+    content: "\e927";
+}

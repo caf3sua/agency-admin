@@ -1,0 +1,87 @@
+    <div class="bv-pading-30">
+        <div class="text-header-sp">
+            <p>1. Thông tin người yêu cầu bảo hiểm</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Họ tên người yêu cầu bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.contactName}}</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Ngày sinh</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.contactDob}}</p>
+        </div>
+    </div>
+    <div class="bv-pading-30">
+        <div class="text-header-sp">
+            <p>2. Thông tin người được bảo hiểm</p>
+        </div>
+        <table class="table table-bordered margin-top-10">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Số Hộ chiếu/CMND</th>
+                <th>Ngày sinh</th>
+                <th>Số tiền bảo hiểm(VND)</th>
+                <th>Phí bảo hiểm(VND)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="person in vm.policy.listTncAdd">
+                <td>{{$index + 1}}</td>
+                <td><span>{{person.insuredName}}</span></td>
+                <td><span>{{person.idPasswport}}</span></td>
+                <td><span>{{person.dob}}</span></td>
+                <td><span>{{vm.policy.premiumPackage | number}}</span></td>
+                <td><span>{{vm.policy.premiumtnc | number:0}}</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bv-pading-30">
+        <div class="text-header-sp">
+            <p>3. Thông tin bảo hiểm</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Số tiền bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.premiumPackage | number:0 }} VND</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Thời hạn bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Từ {{vm.policy.insurancestartdate}} Đến {{vm.policy.insuranceexpireddate}}</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Quyền lợi bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Điều kiện bảo hiểm A - Tử vong không phải do nguyên nhân tai nạn</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Điều khoản, điều kiện</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Theo điều khoản bảo hiểm kết hợp con người của Bảo Hiểm Bảo Việt. Quý khách vui lòng xem <a href="#">Điều khoản, điều kiện</a></p>
+        </div>
+    </div>
+    <div class="bv-pading-30">
+        <div class="text-header-sp">
+            <p>4. Thông tin phí bảo hiểm</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Tổng phí phải thanh toán</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.premiumtnc | number:0 }} VND</p>
+        </div>
+    </div>
+
+<!-- Include Thông tin giao nhận giấy chứng nhận bảo hiểm và Thông tin hóa đơn giá trị gia tăng -->
+<div ng-include="'apps/product/summary_detail/partial/step2_summary.html'"></div>

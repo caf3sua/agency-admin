@@ -1,0 +1,18 @@
+{
+    "app": {
+        "product": {
+        	"title" : {
+        		"PRODUCT_BVP" : "Product BVP",
+        		"PRODUCT_CAR" : "Product car",
+        		"PRODUCT_HHVC" : "Product cargo",
+        		"PRODUCT_HOME" : "Product home",
+        		"PRODUCT_KCARE" : "Product kcare",
+        		"PRODUCT_KHC" : "Product KHC",
+        		"PRODUCT_MOTO" : "Product moto",
+        		"PRODUCT_TNC" : "Product TNC",
+        		"PRODUCT_TVC" : "Product TVC",
+        		"PRODUCT_TVI" : "Product TVI"
+        	}
+        }
+    }
+}

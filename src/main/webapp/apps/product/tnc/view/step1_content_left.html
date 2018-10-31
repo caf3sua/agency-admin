@@ -1,0 +1,78 @@
+            <div class="text-header-sp">
+                <p>Thông tin gói</p>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Số người tham gia</p>
+            </div>
+            <div class="margin-top-5">
+                <input type="number" min="1" max="20" class="bv-input" placeholder="Số người tham gia" ng-model="vm.policy.numberperson" ng-blur="vm.addOrRemovePerson()"
+                       name="numberperson"
+                       required-message="'Chưa nhâp số người tham gia!'"
+                       required/>
+                <div ng-show="myForm.numberperson.$dirty && myForm.numberperson.$invalid">
+                	<p class="help-block" ng-show="myForm.numberperson.$error.required">
+	                    Chưa nhâp số người tham gia!
+	                </p>
+	                <p class="help-block" ng-show="myForm.numberperson.$error.max">
+	                    Vượt quá số lượng người cho phép!
+	                </p>
+	            </div>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Số tiền bảo hiểm</p>
+            </div>
+            <div class="margin-top-5">
+                <relation-combo name="premiumPackage" type="tnc-money" ng-model="vm.policy.premiumPackage" options="vm.premiumPackageOptions" onfinished="vm.processComboResult(data, type)"/>
+            </div>
+            <div class="margin-top-10 required">
+                <p class="bv-title-from">Thời hạn bảo hiểm</p>
+            </div>
+            <div class=" display-flex margin-top-5">
+                <div class="margin-right-5 width-100">
+                    <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-start-date="+1d">
+                        <div class="width-100">
+                            <input name="insurancestartdate" type="text" class="bv-input" placeholder="Từ ngày" ng-model="vm.policy.insurancestartdate"
+                                   ng-change="vm.getPremium()"
+                                   required-message="'Chưa chọn thời gian từ ngày!'"
+                                   required>
+                        </div>
+                        <div class="input-group-addon bv-date-icon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="width-100">
+                    <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                        <div class="width-100">
+                            <input name="insuranceexpireddate" type="text" class="bv-input" placeholder="Đến ngày" ng-model="vm.policy.insuranceexpireddate" ng-disabled="true">
+                        </div>
+                        <div class="input-group-addon bv-date-icon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bv-title-from margin-top-10" ng-show="vm.isShowPremium">
+                <p>Tổng phí bảo hiểm (đã bao gồm VAT):</p>
+            </div>
+            <div ng-show="vm.isShowPremium">
+                <p class="bv-tile-templateSummary">{{vm.policy.premiumnet | number:0 }}</p>
+            </div>
+            <div class="bv-gh-text-sum-product" ng-show="vm.isShowTotalPremium">
+                <p>Tổng phí thanh toán (đã bao gồm VAT):</p>
+            </div>
+            <div ng-show="vm.isShowTotalPremium">
+                <p class="bv-gh-number-sum-product">{{vm.policy.premiumtnc | number:0 }}</p>
+            </div>
+            
+            <!-- Bảng quyền lợi bảo hiểm -->
+            <div class="margin-top-10">
+                <p class="bv-title-from" ng-init="vm.isCollapsedTableRights = true" ng-click="vm.isCollapsedTableRights = !vm.isCollapsedTableRights">
+                	Bảng tóm tắt quyền lợi bảo hiểm <i class="pull-right fas fa-question-circle" style="color: #1964af !important;font-size: 20px;"></i>
+                </p>
+            </div>
+			<div class="margin-top-10" uib-collapse="vm.isCollapsedTableRights">
+			    <div ng-include="'apps/product/partial/partial.table-rights-tnc.html'"></div>
+			</div>
+        

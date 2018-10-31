@@ -1,0 +1,9 @@
+<!-- Khuyến mãi -->
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+    <p class="bv-text-header-home"  ng-init="vm.isCollapsedPromotion = false" ng-click="vm.isCollapsedPromotion = !vm.isCollapsedPromotion">
+    	Khuyến mãi <i class="fas" ng-class="vm.isCollapsedPromotion ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+    </p>
+</div>
+<div class="col-lg-12  bv-promotion col-md-12 col-sm-12 col-xs-12 display-flex padding0" uib-collapse="vm.isCollapsedPromotion">
+    <img src="../../content/assets/images/chart.png"/>
+</div>

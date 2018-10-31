@@ -1,0 +1,164 @@
+    <div class="bv-pading-30">
+        <div class="display-flex">
+            <div class="border-right-ccc width-100">
+                <div class="text-header-sp" style="margin-bottom: 10px">
+                    <p>Thông tin người yêu cầu bảo hiểm</p>
+                </div>
+                <div class="margin-top-10">
+                    <p class="bv-title-from">Họ tên người yêu cầu bảo hiểm</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.contactName}}</p>
+                </div>
+                <div class="margin-top-10">
+                    <p class="bv-title-from">Ngày sinh</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.contactDob}}</p>
+                </div>
+            </div>
+            <div class="bv-pading-30 width-100">
+                <div class="text-header-sp" style="margin-bottom: 10px">
+                    <p>Thông tin phí bảo hiểm</p>
+                </div>
+                <div class="margin-top-10">
+                    <p class="bv-title-from">Tổng phí bảo hiểm</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.netPremium | number:0 }}</p>
+                </div>
+                <div class="margin-top-10">
+                    <p class="bv-title-from">Tổng phí cần thanh toán</p>
+                </div>
+                <div>
+                    <p class="bv-tile-templateSummary">{{vm.policy.premium | number:0 }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-header-sp" style="margin-bottom: 10px">
+            <p>Thông tin người được bảo hiểm</p>
+        </div>
+        <div class="margin-top-10">
+            <div class="table-responsive bv-home-block-left-table-responsive">
+                <table class="table bv-tvc-block-left-table" >
+                    <thead>
+                    <tr>
+                    	<th><p>STT</p></th>
+                        <th><p>Họ và tên</p></th>
+                        <th><p>Số hộ chiếu/CMND</p></th>
+                        <th><p>Ngày sinh</p></th>
+                        <th><p class="bv-table-th-db">Quan hệ người yêu cầu bảo hiểm</p></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="person in  vm.policy.listTvcAddBaseVM">
+                        <td>{{$index + 1}}</td>
+                        <td>
+                            <p class="">{{person.insuredName}}</p>
+                        </td>
+                        <td>
+                            <p class="">{{person.idPasswport}}</p>
+                        </td>
+                        <td>
+                            <p class="">{{person.dob}}</p>
+                        </td>
+                        <td>
+                            <p class="" data-translate="global.person.relationship.{{person.relationship}}">Cá nhân</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-header-sp">
+            <p>Thông tin báo hiểm</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Thời gian bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Từ {{vm.policy.inceptionDate}} đến {{vm.policy.expiredDate}}</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Phạm vi lãnh thổ được bảo hiểm</p>
+        </div>
+        <div>
+            <div ng-switch="vm.policy.destinationId">
+                <div ng-switch-when="2">
+                    <p class="bv-tile-templateSummary">ASEAN</p>
+                </div>
+                <div ng-switch-when="3">
+                    <p class="bv-tile-templateSummary">Châu Á - Thái Bình Dương</p>
+                </div>
+                <div ng-switch-when="4">
+                    <p class="bv-tile-templateSummary">Toàn cầu</p>
+                </div>
+            </div>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Gói bảo hiểm</p>
+        </div>
+        <div>
+            <div ng-switch="vm.policy.travelWithId">
+                <div ng-switch-when="1">
+                    <p class="bv-tile-templateSummary">Cá nhân</p>
+                </div>
+                <div ng-switch-when="2">
+                    <p class="bv-tile-templateSummary">Gia đình</p>
+                </div>
+                <div ng-switch-when="3">
+                    <p class="bv-tile-templateSummary">Khách đoàn</p>
+                </div>
+            </div>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Chương trình bảo hiểm</p>
+        </div>
+        <div>
+        	<div ng-switch="vm.policy.planId">
+                <div ng-switch-when="2">
+                    <p class="bv-tile-templateSummary">Chương trình bảo hiểm Bạc</p>
+                </div>
+                <div ng-switch-when="3">
+                    <p class="bv-tile-templateSummary">Chương trình bảo hiểm Vàng</p>
+                </div>
+                <div ng-switch-when="4">
+                    <p class="bv-tile-templateSummary">Chương trình bảo hiểm Kim cương</p>
+                </div>
+            </div>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Quyền lợi bảo hiểm tóm tắt:</p>
+        </div>
+        <div>
+	        <div ng-switch="vm.policy.planId">
+	         	<div ng-switch-when="2">
+	                <p class="bv-tile-templateSummary">1.Tai nạn cá nhân: 2.000.000.000 VND</p>
+	            </div>
+	            <div ng-switch-when="3">
+	                <p class="bv-tile-templateSummary">1.Tai nạn cá nhân: 4.000.000.000 VND</p>
+	            </div>
+	            <div ng-switch-when="4">
+	                <p class="bv-tile-templateSummary">1.Tai nạn cá nhân: 6.000.000.000 VND</p>
+	            </div>
+           	</div>
+           	<div ng-switch="vm.policy.planId">
+	         	<div ng-switch-when="2">
+	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 1.000.000.000 VND</p>
+	            </div>
+	            <div ng-switch-when="3">
+	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 2.000.000.000 VND</p>
+	            </div>
+	            <div ng-switch-when="4">
+	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 3.000.000.000 VND</p>
+	            </div>
+           	</div>
+            <p class="bv-tile-templateSummary">3.Vân chuyển y tế cấp cứu: Chi trả toàn bộ</p>
+            <p class="bv-tile-templateSummary">4.Chi phí khác từ mục 3 đến 12 trong bảng quyền lợi không áp dụng</p>
+            <p class="bv-title-from">(Chi tiết hơn và riêng vơi trẻ em dưới 17 tuổi,người 76 tuổi trở lên quyền lợi bảo hiểm có quy đinh riêng. Qúy khách vui lòng xem tại bảng <a>Bảng quyền lợi bảo hiểm</a>)</p>
+            <p class="bv-title-from">Điều khoản điều kiện : Qúy khách vui lòng xem <a>Điều khoản,điều kiện</a></p>
+        </div>
+    </div>
+
+<!-- Include Thông tin giao nhận giấy chứng nhận bảo hiểm và Thông tin hóa đơn giá trị gia tăng -->
+<div ng-include="'apps/product/summary_detail/partial/step2_summary.html'"></div>

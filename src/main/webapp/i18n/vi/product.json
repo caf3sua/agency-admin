@@ -1,0 +1,18 @@
+{
+    "app": {
+        "product": {
+        	"title" : {
+        		"PRODUCT_BVP" : "Sản phẩm bảo hiểm Bảo Việt An gia",
+        		"PRODUCT_CAR" : "Sản phẩm bảo hiểm ô tô",
+        		"PRODUCT_HHVC" : "Sản phẩm bảo hiểm hàng hóa vận chuyển nội địa",
+        		"PRODUCT_HOME" : "Sản phẩm bảo hiểm nhà tư nhân",
+        		"PRODUCT_KCARE" : "Sản phẩm bảo hiểm ung thư",
+        		"PRODUCT_KHC" : "Sản phẩm bảo hiểm kết hợp con người",
+        		"PRODUCT_MOTO" : "Sản phẩm bảo hiểm xe máy",
+        		"PRODUCT_TNC" : "Sản phẩm bảo hiểm tai nạn con người",
+        		"PRODUCT_TVC" : "Sản phẩm bảo hiểm du lịch quốc tế",
+        		"PRODUCT_TVI" : "Sản phẩm bảo hiểm du lịch trong nước"
+        	}
+        }
+    }
+}

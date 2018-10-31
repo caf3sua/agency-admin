@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>angular-button-spinner example</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<style>
+		[ng\:cloak],
+		[ng-cloak],
+		.ng-cloak {
+			display: none !important;
+		}
+		
+		body {
+			padding-bottom: 40px;
+		}
+		
+		p {
+			font-size: 16px;
+		}
+		
+		pre code {
+			padding: 2px 4px;
+			font-size: 90%;
+			color: #c7254e;
+			background-color: #f9f2f4;
+			border-radius: 4px;
+		}
+		
+		footer {
+			margin-top: 20px;
+			padding-top: 40px;
+			border-top: 1px solid #ccc;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body ng-app="MyApp" ng-cloak>
+	<div class="container" ng-controller="MyController">
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1>angular-button-spinner</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Soure code on <a href="https://github.com/jvdvleuten/angular-button-spinner">github</a></h2>
+				<p>Find the source code below:</p>
+				<a href="https://github.com/jvdvleuten/angular-button-spinner">https://github.com/jvdvleuten/angular-button-spinner</a>
+				<h2>Description</h2>
+				<p>This is a simple directive (765 bytes when minified) to add a spinner while loading some data for user feedback. It uses font-awesome to render
+					the spinner by default, but you can customize all classes as can be seen below.</p>
+			</div>
+			<div class="col-md-6">
+
+				<h2>Usage</h2>
+				<p>It can be used on every element (e.g. <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>), as an attribute.</p>
+				<p>Best results are obtained when used in combination with font-awesome and bootstrap. I recommend using it in combination
+					with ng-disable to prevent firing multiple requests.</p>
+
+				<h3>Dependencies</h3>
+				<ul>
+					<li>Font-awesome <small>(for default spinner)</small></li>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<h2>Feedback while loading</h2>
+				<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot;</code>&gt;Spin me, try me out now!&lt;/a&gt;</pre>
+				<p>
+					<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" ng-disabled="loading">
+						<span ng-hide="loading">Spin me, try me out now!</span>
+						<span ng-show="loading">Such wow, many spin, much awesome</span>
+					</a>
+				</p>
+				<p>Look below for more examples</p>
+
+				<h2>Installation</h2>
+				<h3>1. Install</h3>
+				<h4>Via bower</h4>
+				<pre>bower install angular-button-spinner --save</pre>	
+				<h3>2. Add module in your AngularJS app</h4>
+				<pre>angular.module('MyApp', ['angular-button-spinner']);</pre>
+				
+				<p class="text-muted">In order to use the default icon, or the fa-icons in the examples, please install <a href="https://fortawesome.github.io/Font-Awesome/">font-awesome as well.</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+
+				<hr/>
+				<h2>Attributes</h2>
+				<h3><code>button-spinner=&quot;<strong>loading</strong>&quot; (required)</code></h3>
+				<p class="text-muted">Base attribute for the directive to work</p>
+				<strong>loading</strong>: scope variable that toggles the spinner
+				<hr/>
+				<h3><code>spinner-icon=&quot;<strong>classnames</strong>&quot;</code></h3>
+				<p class="text-muted">Customize the spinning icon</p>
+				<strong>loading</strong>: classname(s) seperated with a space (e.g.: "fa fa-spinner fa-spin")
+				<hr/>
+				<h3><code>button-append="<strong>classnames</strong>"</code></h3>
+				<p class="text-muted">Appends an icon when not spinning</p>
+				<strong>classnames</strong>: classname(s) seperated with a space (e.g.: "fa fa-chevron-right")
+				<hr/>
+				<h3><code>button-prepend="<strong>classnames</strong>"</code></h3>
+				<p class="text-muted">Prepends an icon when not spinning.
+					<br/><small>Note: When spinning, the spinning icon will be in place of the prepend icon.</small></p>
+				<strong>classnames</strong>: classname(s) seperated with a space (e.g.: "fa fa-save")
+
+
+			</div>
+		</div>
+
+		<h1>Examples</h1>
+		<h2>Spinner only</h2>
+		<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot;</code>&gt;Save&lt;/a&gt;</pre>
+		<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading">Save</a>
+
+		<h2>Spinner only + ng-disabled</h2>
+		<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; ng-disabled=&quot;loading&quot;</code>&gt;Save&lt;/a&gt;</pre>
+		<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" ng-disabled="loading">Save</a>
+
+		<h2>Append icon</h2>
+		<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; button-append=&quot;fa fa-chevron-right&quot;</code>&gt;Next&lt;/a&gt;</pre>
+		<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" button-append="fa fa-chevron-right">Next</a>
+
+		<h2>Prepend icon</h2>
+		<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; button-prepend=&quot;fa fa-save&quot;</code>&gt;Save&lt;/a&gt;</pre>
+		<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" button-prepend="fa fa-save">Save</a>
+
+		<h2>Custom spinner icons</h2>
+		<h3>Custom spinner<h3>	
+			<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; spinning-icon=&quot;fa fa-circle-o-notch fa-spin&quot;</code>&gt;Save&lt;/a&gt;</pre>
+			<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" spinning-icon="fa fa-circle-o-notch fa-spin">Save</a><br/>
+			<h3>Custom spinner with append<h3>
+			<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; spinning-icon=&quot;fa fa-home fa-spin&quot; button-append=&quot;fa fa-chevron-right&quot;</code>&gt;Next&lt;/a&gt;</pre>
+			<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" spinning-icon="fa fa-home fa-spin" button-append="fa fa-chevron-right">Next</a><br/>
+			<h3>Custom spinner with prepend<h3>
+			<pre>&lt;a class=&quot;btn btn-success&quot; ng-click=&quot;toggleLoading()&quot; <code>button-spinner=&quot;loading&quot; spinning-icon=&quot;fa fa-save fa-spin&quot; button-prepend=&quot;fa fa-save&quot;</code>&gt;Save&lt;/a&gt;</pre>
+			<a class="btn btn-success" ng-click="toggleLoading()" button-spinner="loading" spinning-icon="fa fa-save fa-spin" button-prepend="fa fa-save">Save</a>
+			
+			<h2>Example controller</h2>
+			<p>The example controller controls the loading variable in the scope. It resets after 2 seconds.</p>
+			<pre>
+angular.module('MyApp').controller('MyController', ['$scope','$timeout',
+	function ($scope, $timeout) {
+		
+		$scope.loading = false;
+		
+		$scope.toggleLoading = function() {
+			$scope.loading = true;
+			
+			$timeout(function() { 
+				$scope.loading = false;
+			}, 2000);
+		};
+	
+	}
+]);</pre>
+		</div>
+		
+		<footer>
+        <div class="container">
+            <div class="col-md-12">
+                <p>© 2015 Johan van der Vleuten</p>
+            </div>
+        </div>
+    </footer>
+
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+		<script src="dist/angular-button-spinner.js"></script>
+		<script type='text/javascript'>
+			// App
+			angular.module('MyApp', ['angular-button-spinner']);
+			
+			// Controller
+			angular.module('MyApp').controller('MyController', ['$scope','$timeout',
+				function ($scope, $timeout) {
+					
+					$scope.loading = false;
+					
+					$scope.toggleLoading = function() {
+						$scope.loading = true;
+						
+						$timeout(function() { 
+							$scope.loading = false;
+						}, 2000);
+					};
+			
+				}
+			]);
+		</script>
+
+</body>
+
+</html>

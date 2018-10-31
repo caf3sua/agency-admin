@@ -1,0 +1,76 @@
+<div ng-include="'apps/printed-paper/printed-paper-used/printed-paper-search.html'"></div>
+        
+        <div class="col-lg-12 margin-top-20  col-md-12 col-sm-12 col-xs-12 padding0">
+            <p class="bv-result-search-dh">Tìm thấy <span>{{vm.printedPapers.length}}</span> ấn chỉ phù hợp</p>
+        </div>
+        <div class="table-responsive col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+            <table class="table bv-home-block-left-table bv-table-kh" >
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Mã thanh toán</th>
+                    <th>Số ấn chỉ</th>
+                    <th>Sản phẩm</th>
+                    <th>Tên ấn chỉ</th>
+                    <th>Ngày sử dụng</th>
+                    <th>Phí bảo hiểm</th>
+                    <th>Số tiền thanh toán</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="item in vm.printedPapers track by $index">
+                    <td>
+                        <p class="bv-home-table-stt margin-0">{{$index + 1}}</p>
+                    </td>
+                    <td>
+                        <p class="">{{item.mciAddId}}</p>
+                    </td>
+                    <td>
+                        <a class="bv-table-text-colorBlue" ui-sref="product.printed-paper-detail({id: item.policyNumber})">
+                            {{item.achiSoAnchi}}
+                        </a>
+                    </td>
+                    <td>
+                        <div ng-switch="item.lineId">
+			                <div ng-switch-when="CAR">
+			                    <p class="">Ô tô</p>
+			                </div>
+			                <div ng-switch-when="BVP">
+			                    <p class="">An Gia</p>
+			                </div>
+			                <div ng-switch-when="KCR">
+			                    <p class="">Ung thư</p>
+			                </div>
+			                <div ng-switch-when="TVC">
+			                    <p class="">Du lịch quốc tế</p>
+			                </div>
+			                <div ng-switch-when="TVI">
+			                    <p class="">Du lịch việt nam</p>
+			                </div>
+			                <div ng-switch-when="MOT">
+			                    <p class="">Mô tô</p>
+			                </div>
+			                <div ng-switch-when="HOM">
+			                    <p class="">Nhà tư nhân</p>
+			                </div>
+			                <div ng-switch-when="KHC">
+			                    <p class="">Kết hợp con người</p>
+			                </div>
+			                <div ng-switch-when="TNC">
+			                    <p class="">Tai nạn con người</p>
+			                </div>
+			            </div>
+                    </td>
+                    <td>
+                        <p class="">{{item.achiTenAnchi}}</p>
+                    </td>
+                    <td>
+                        <p class="">{{item.achiTungay}}</p>
+                    </td>
+                    <td>
+                        <p class="">{{item.achiPhibh | number:0}}</p>
+                    </td>
+                    <td>
+                        <p class="">{{item.achiStienvn | number:0}}</p>
+                    </td>
+                </tr>
+            </table>

@@ -1,0 +1,93 @@
+    <div class="display-flex margin-top-10">
+        <div class="border-right-ccc bv-pading-30 width-100">
+            <div class="text-header-sp" style="margin-bottom: 10px">
+                <p>Thông tin người yêu cầu bảo hiểm</p>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Họ và tên</p>
+            </div>
+            <div>
+                <p class="bv-tile-templateSummary">{{vm.policy.contactName}}</p>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Ngày sinh</p>
+            </div>
+            <div>
+                <p class="bv-tile-templateSummary">{{vm.policy.contactDob}}</p>
+            </div>
+        </div>
+
+        <div class="width-100 bv-pading-30">
+            <div class="text-header-sp">
+                <p>Thông tin phí bảo hiểm</p>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Tổng phí phải thanh toán</p>
+            </div>
+            <div>
+                <p class="bv-tile-templateSummary">{{vm.policy.premiumKhc | number:0}} VND</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bv-pading-30">
+    	<div class="margin-top-20 text-header-sp" style="margin-bottom: 10px">
+            <p>THÔNG TIN NGƯỜI ĐƯỢC BẢO HIỂM</p>
+        </div>
+    	<div class="table-responsive bv-home-block-left-table-responsive">
+             <table class="table table-bordered" >
+                 <thead>
+                 <tr>
+                     <th>Họ và tên</th>
+                     <th>Số Hộ chiếu/CMND</th>
+                     <th>Ngày sinh</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+	                 <tr ng-repeat="person in vm.policy.premiumKhcList">
+	                     <td><p>{{person.insuredName}}</p></td>
+	                     <td><p>{{person.idPasswport}}</p></td>
+	                     <td><p>{{person.dob}}</p></td>
+	                 </tr>
+                 </tbody>
+             </table>
+         </div>
+    </div>
+    
+    <div class="bv-pading-30">
+        <div class="margin-top-20 text-header-sp" style="margin-bottom: 10px">
+            <p>Thông tin bảo hiểm</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Số tiền bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.premiumPackage | number: 0}} VND</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Thời hạn bảo hiểm</p>
+        </div>
+        <div class="display-flex">
+            <div>
+                <p class="bv-tile-templateSummary">Từ &nbsp {{vm.policy.insuranceStartDate}}</p>
+            </div>
+            <div>
+                <p class="bv-tile-templateSummary">&nbsp Đến &nbsp {{vm.policy.insuranceEndDate}}</p>
+            </div>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Quyền lợi bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Điều kiện bảo hiểm A - Tử vong không phải do nguyên nhân tai nạn</p>
+        </div>
+        <div class="margin-top-10">
+            <p class="bv-title-from">Điều khoản, điều kiện</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">Theo điều khoản bảo hiểm Kết hợp con người của Bảo hiểm Bảo Việt. Quý khách vui lòng xem <a href="https://baovietonline.com.vn/View?id=151" target="_blank" style="color: #337ab7;">Điều khoản, điều kiện</a></p>
+        </div>
+    </div>
+
+<!-- Include Thông tin giao nhận giấy chứng nhận bảo hiểm và Thông tin hóa đơn giá trị gia tăng -->
+<div ng-include="'apps/product/summary_detail/partial/step2_summary.html'"></div>

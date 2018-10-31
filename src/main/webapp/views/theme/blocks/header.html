@@ -1,0 +1,43 @@
+<div class="navbar">
+    <!-- Open side - Naviation on mobile -->
+    <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg hidden-md">
+      <i class="material-icons">&#xe5d2;</i>
+    </a>
+    <!-- / -->
+
+    <!-- / -->
+    <!-- Page title - Bind to $state's title -->
+    <div class="navbar-item pull-left" id="pageTitle" ui-sref="app.dashboard">
+        <a class="bv-logo">
+            <img src="../../../content/assets/images/logo.png">
+        </a>
+    </div>
+    <div class="dropdown background-fff navbar-custom-menu pull-right">
+        <button class="dropdown-toggle bv-btn-header-dropdown" type="button" data-toggle="dropdown">
+            <span class="hidden-sm hidden-xs">Bạn đang đăng nhâp dưới tên <strong>{{account.ten}}</strong></span>
+            <div class="bv-menu-tab-user display-inline-block">
+                <i class="icon-quality"></i>
+            </div>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+        	<li>
+        		<a class="btn dropdown-toggle bv-dropdown-header text-left" type="button" ui-sref="app.reminder">
+                	<i class="fa fa-fw m-r-sm fa-bell"></i>Thông báo
+                	<span class="label label-sm up warn text-right">{{vm.countReminder}}</span>
+                </a>
+      		</li>
+            <li>
+                <a class="btn dropdown-toggle bv-dropdown-header text-left" type="button" ui-sref="account.change-password">
+                	<i class="fa fa-fw m-r-sm fa-key"></i>Thay đổi mật khẩu
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a class="btn dropdown-toggle bv-dropdown-header text-left" type="button" ng-click="logout()">
+                	<i class="fa fa-fw m-r-sm fa-sign-out-alt"></i>Đăng xuất
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+    <div class="bv-block-two-button">
+        <button class="bv-block-two-button-style" ng-class="{'active-contact': vm.filterDate == 'WEEK' }" ng-click="vm.changeFilterDate('WEEK')">Tuần</button>
+        <button class="bv-block-two-button-style" ng-class="{'active-contact': vm.filterDate == 'MONTH' }" ng-click="vm.changeFilterDate('MONTH')">Tháng</button>
+        <button class="bv-block-two-button-style" ng-class="{'active-contact': vm.filterDate == 'YEAR' }" ng-click="vm.changeFilterDate('YEAR')">Năm</button>
+        <button class="bv-block-two-button-style" ng-class="{'active-contact': vm.filterDate == 'ENHANCE' }" ng-click="vm.changeFilterDate('ENHANCE')">Nâng cao</button>
+    </div>
+    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 padding0 margin-bottom-15 collapse" id="demo1" aria-expanded="false" uib-collapse="vm.isSearchCollapsed">
+        <div class="col-lg-5 col-sm-12 col-xs-12 col-md-12 ">
+            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-end-date="d">
+                <input type="text" name="fromDate" class="bv-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Từ ngày" ng-model="vm.searchCriterial.fromDate" aria-invalid="false" ng-change="vm.changeDate()">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-sm-12 col-xs-12 col-md-12 ">
+            <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true" data-date-end-date="vm.searchCriterial.fromDate">
+                <input type="text" name="toDate" class="bv-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Đến ngày" ng-model="vm.searchCriterial.toDate" aria-invalid="false" ng-change="vm.changeDate()">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-sm-12 col-xs-12 col-md-12 margin-top-10">
+            <button class="bv-btn-step2" ng-click="vm.searchReport()">Search</button>
+        </div>
+    </div>
+
+</div>

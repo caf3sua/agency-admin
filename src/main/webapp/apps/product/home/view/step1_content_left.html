@@ -1,0 +1,98 @@
+            <div class="text-header-sp">
+                <p>Tính phí bảo hiểm</p>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Phạm vi bảo hiểm</p>
+            </div>
+            <div>
+                <p>A. Cháy, Sét</p>
+                <p>B. Nổ</p>
+                <p>C. Giông, Bão, Lũ lụt</p>
+                <p>D. Vỡ hoặc Tràn nước</p>
+                <p>E. Va chạm với ngôi nhà</p>
+                <p>F. Trộm cướp</p>
+            </div>
+
+            <div class="margin-top-10">
+                <p class="bv-title-from">Điều khoản mở rộng</p>
+            </div>
+            <div>
+                <p>Thuê nhà sau tổn thất</p>
+            </div>
+
+            <div class="">
+                <p class="bv-title-from">Thời hạn bảo hiểm áp dụng<span class="bv-req-red">&nbsp(*)</span></p>
+                <select class="bv-select-box form-control" name="yearBuildCode" ng-model="vm.policy.yearBuildCode" ng-change="vm.changeYear()">
+                    <option value="1">1 năm</option>
+                    <option value="2">2 năm</option>
+                </select>
+            </div>
+            <div class="margin-top-10">
+                <p class="bv-title-from">Giới hạn bồi thường phần ngôi nhà<span class="bv-req-red">&nbsp<span class="bv-req-red">&nbsp(*)</span></span></p>
+            </div>
+            <div class="margin-top-5">
+                <input type="text" format="number" class="bv-input"
+                       placeholder="Giới hạn bồi thường phần ngôi nhà với số tiền tối thiểu 300 triệu đồng đến tối đa 5 tỷ đồng" ng-model="vm.policy.si"
+                       ng-blur="vm.getPremium()" validate-on="blur"
+                       validator="vm.siValidator(vm.policy.si) === true"
+                       invalid-message="vm.siValidator(vm.policy.si)"
+                       required-message="'Chưa nhập Giới hạn bồi thường phần ngôi nhà!'" required />
+            </div>
+
+            <div class="margin-top-5">
+                <p class="bv-title-from">Giới hạn bồi thường phần Tài sản bên trong</p>
+                <select class="bv-select-box form-control" name="siin" ng-model="vm.policy.siin" ng-change="vm.getPremium()">
+                    <option value="">Lựa chọn Giới hạn bồi thường</option>
+                    <option value="100000000">100,000,000 VND</option>
+                    <option value="300000000">300,000,000 VND</option>
+                    <option value="500000000">500,000,000 VND</option>
+                    <option value="750000000">750,000,000 VND</option>
+                    <option value="1000000000">1,000,000,000 VND</option>
+                </select>
+            </div>
+            <div class="">
+                <p class="bv-title-from">Nhập mã giảm giá (nếu có)</p>
+                <input type="text" class="bv-input" ng-model="vm.policy.premiumDiscount" name="premiumDiscount" id="premiumDiscount" placeholder="Mã giảm giá (nếu có)" />
+            </div>
+            <div class="margin-top-10">
+                <div class="width-100">
+                    <div class="table-responsive bv-home-block-left-table-responsive">
+                        <table class="table table-sum-product" >
+                            <!--<col width="60%">-->
+                            <!--<col width="40%">-->
+                            <tr>
+                                <td>
+                                    <p class="bv-gh-text-sum-product">Phí bảo hiểm phần ngôi nhà:</p>
+                                </td>
+                                <td class="text-right">
+                                    <p class="">{{vm.policy.premiumsi | number:0 }} VND</p>
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>
+                                    <p class="bv-gh-text-sum-product">Phí bảo hiểm phần tài sản bên trong:</p>
+                                </td>
+                                <td class="text-right">
+                                    <p class="">{{vm.policy.premiumsiin | number:0 }} VND</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bv-gh-text-sum-product">Tổng phí bảo hiểm:</p>
+                                </td>
+                                <td class="text-right">
+                                    <p class="">{{vm.policy.premiumNet | number:0 }} VND</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bv-gh-text-sum-product">Tổng phí thanh toán:</p>
+                                </td>
+                                <td class="text-right">
+                                    <p class="bv-gh-number-sum-product">{{vm.policy.premiumHome | number:0 }} VND</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>

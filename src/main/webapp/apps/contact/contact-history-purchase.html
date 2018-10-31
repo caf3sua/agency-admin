@@ -1,0 +1,72 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 padding0" >
+	<p class="contact-history-name">{{vm.contactSelected.contactName}}</p>
+    <span class="contact-history-info">Ngày sinh: {{vm.contactSelected.dateOfBirth || 'N/a'}}</span>
+    <span class="contact-history-info">Số điện thoại: {{vm.contactSelected.phone || 'N/a'}}</span>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10 padding0" >
+	<div class="table-responsive col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+            <!-- Table content -->
+	        <table st-table="vm.hisInit" st-safe-src="vm.his" class="table table-striped bv-home-block-left-table bv-table-kh">
+			      	<thead>
+				      	<tr>
+				      		<th colspan="7">
+					      		<div class="bv-input-icon-wrap">
+					                <span class="bv-input-icon"><span class="fas fa-search"></span></span>
+					                <input st-search="" type="text" placeholder="Tìm kiếm" class="bv-input-with-icon" id="form-name">
+					            </div>
+				            </th>
+						</tr>
+				        <tr>
+				          	<th>#</th>
+				          	<th>Nghiệp vụ</th>
+				          	<th>Số đơn</th>
+				          	<th>Thời hạn hiệu lực</th>
+				          	<th>Ngày giao dịch</th>
+				          	<th>Số phí</th>
+				          	<th>Tình trạng đơn hàng</th>
+				        </tr>
+					</thead>
+			      	<tbody>
+				        <tr ng-repeat="item in vm.hisInit track by $index">
+		                  <td>
+		                      <p class="bv-home-table-stt margin-0">{{$index + 1}}</p>
+		                  </td>
+		                  <td>
+		                      <p class="bv-table-text-colorBlue">{{item.policyNumbers}}</p>
+		                  </td>
+		                  <td>
+		                      <p class="">{{item.mciAddId}}</p>
+		                  </td>
+		                  <td>
+		                      <p class="">{{item.payStartDate}}</p>
+		                  </td>
+		                  <td>
+		                      <p class="">{{item.transactionDate}}</p>
+		                  </td>
+		                  <td>
+		                      <p class="">{{item.amount | number:0}}</p>
+		                  </td>
+		                  <td>
+		                  		<p class="" data-translate="global.policy.status.{{item.status}}">Đã thanh toán</p>
+		                  </td>
+		              	</tr>
+			      	</tbody>
+			      	<tfoot>
+			     		<tr>
+				          	<th>#</th>
+				          	<th>Tổng phí</th>
+				          	<th></th>
+				          	<th></th>
+				          	<th></th>
+				          	<th>{{vm.totalPremium | number:0}}</th>
+				          	<th></th>
+				        </tr>
+			     	</tfoot>
+		    </table>
+        </div>
+	<div>
+	    <button type="button" class="bv-btn-step3" ng-click="vm.goBack()">
+	        Quay lại
+	    </button>
+	</div>
+</div>

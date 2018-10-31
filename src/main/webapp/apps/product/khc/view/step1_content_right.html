@@ -1,0 +1,58 @@
+            <div class="lock-all" ng-show="vm.policy.premiumKhc == 0"></div>
+            <!-- Thông tin người yêu cầu bảo hiểm - Contact -->
+            <div ng-include="'apps/product/partial/partial.contact.html'"></div>
+
+            <div class="text-header-sp margin-top-20" ng-show="vm.policy.numberPerson > 0">
+                <p>2. Thông tin người được bảo hiểm</p>
+            </div>
+            <div class="cntr margin-right-5" ng-show="vm.policy.numberPerson > 0">
+                <label for="cbx1" class="label-cbx">
+                    <input id="cbx1" name="deletePersonDetailCheck" type="checkbox" class="invisible" ng-model="vm.ngYcbhDicung" ng-change="vm.changeNgYcbhDicung()">
+                    <div class="checkbox">
+                        <svg width="18px" height="18px" viewBox="0 0 20 20">
+                            <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+                            <polyline points="4 11 8 15 16 6"></polyline>
+                        </svg>
+                    </div>
+                    <span>Người yêu cầu bảo hiểm có đi cùng và có tham gia bảo hiểm</span>
+                    <p class="bv-title-from margin-top-10">(Bỏ chọn ô này để xóa thông tin)</p>
+                </label>
+            </div>
+            <div class="margin-top-10">
+                <div class="table-responsive bv-home-block-left-table-responsive ">
+                    <table class="table table-bordered " ng-show="vm.policy.numberPerson > 0">
+                        <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Số Hộ chiếu/CMND</th>
+                            <th>Ngày sinh (dd/MM/yyyy)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="person in vm.policy.premiumKhcList track by $index">
+                            <td><input style="width: 150px" type="text" name="insuredName{{$index}}" class="form-control" ng-model="person.insuredName"
+                                       required-message="'Chưa nhập Họ và Tên!'"
+                                       required ng-disabled="$index == 0 && vm.ngYcbhDicung" /></td>
+                            <td><input style="width: 150px" type="text" name="idPasswport{{$index}}" class="form-control" ng-model="person.idPasswport"
+                                       required-message="'Chưa nhập số hộ chiếu/CMND!'"
+                                       required ng-disabled="$index == 0 && vm.ngYcbhDicung" /></td>
+                            <td>
+                                <div style="width: 150px" class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                                    <div class="width-100">
+                                        <input type="text" name="dob{{$index}}" class="bv-input" placeholder="dd/MM/yyyy" ng-model="person.dob" ng-change="vm.onDobChange()" ng-disabled="true">
+                                    </div>
+                                    <div class="input-group-addon bv-date-icon">
+                                        <span class="glyphicon glyphicon-th"></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="margin-top-5 padding-bottom-35">
+                <button type="submit" class="bv-btn-step3">Tiếp theo</button>
+            </div>
+    

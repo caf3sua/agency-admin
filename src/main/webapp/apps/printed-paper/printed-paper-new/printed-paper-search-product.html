@@ -1,0 +1,42 @@
+<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+<!--     <div class="col-lg-3  col-md-12 col-sm-12 col-xs-12 padding0">
+        <div class="bv-title-from">
+            <p>Loại ấn chỉ</p>
+        </div>
+        <div class="margin-top-5">
+            <select class="bv-select-box-kh form-control" ng-options="selected.PRO_CODE as selected.PRO_NAME for selected in vm.anchiTypes" ng-model="vm.searchCriterial.type">
+                <option value="">Tất cả</option>
+            </select>
+        </div>
+    </div> -->
+    <div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+        <div class="bv-title-from">
+            <p>Số ấn chỉ</p>
+        </div>
+        <div class="margin-top-5">
+            <input type="text" class="bv-input" placeholder="Nhập số ấn chỉ"  ng-model="vm.searchCriterial.number"/>
+        </div>
+    </div>
+    <div class="col-lg-3   bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+        <div class="bv-title-from">
+            <p>Mã vạch</p>
+        </div>
+        <div class="margin-top-5">
+            <input type="text" class="bv-input" placeholder="Nhập mã vạch"  ng-model="vm.searchCriterial.urn" />
+        </div>
+    </div>
+
+    <!-- <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30">
+        <button class="bv-btn-step2" ng-class="vm.isLoading ? 'btn-disabled' : ''" ng-disabled="vm.isLoading" ng-click="vm.search()"> 
+        	<i class="fa fa-spinner fa-spin" ng-show="vm.isLoading"></i> Tìm kiếm
+        </button>
+    </div> -->
+    
+    <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30">
+        <button class="bv-btn-step2" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading" ng-click="vm.search()"> 
+        	Tìm kiếm
+        </button>
+    </div>
+</div>
+        
+

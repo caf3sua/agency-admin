@@ -22,7 +22,7 @@
             },
         	'search' : {
                 method : 'POST',
-                url : 'api/agency/product/agreement/search-order',
+                url : 'api/agency/product/adminUser/search-order',
                 isArray : true
             },
             'searchOrderAgency' : {
@@ -32,7 +32,7 @@
             },
             'searchOrderWait' : {
                 method : 'POST',
-                url : 'api/agency/product/agreement/search-order-wait',
+                url : 'api/agency/product/adminUser/search-order-BV-wait',
                 isArray : true
             },
             'searchOrderOther' : {

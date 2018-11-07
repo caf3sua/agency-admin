@@ -11,9 +11,9 @@
         .constant('PAGINATION_CONSTANTS', {
         	"itemsPerPage" : 10
         })
-        .constant('API_SERVICE_URL', "https://appuat.baoviet.com.vn:7778")
+//        .constant('API_SERVICE_URL', "https://appuat.baoviet.com.vn:7778")
 //        .constant('API_SERVICE_URL', "https://esb.baoviet.com.vn:8005")
-//        .constant('API_SERVICE_URL', "http://localhost:9090")	
+        .constant('API_SERVICE_URL', "http://localhost:9090")	
 //        .constant('API_SERVICE_URL', "http://172.29.3.89:8080")
 ;
 })();

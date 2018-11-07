@@ -200,9 +200,9 @@
     	// Init controller
   		(function initController() {
   			console.log('NavController initController');
-  			countReminder();
+//  			countReminder();
   			// Load init for car
-  			NavCommonService.getCarBranches({}, getCarBranchesSuccess, getCarBranchesError);
+//  			NavCommonService.getCarBranches({}, getCarBranchesSuccess, getCarBranchesError);
   		})();
   		
 

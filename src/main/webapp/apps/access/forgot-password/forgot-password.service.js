@@ -11,7 +11,7 @@
 		var service = $resource('', {}, {
 			'forgotPassword' : {
 				method : 'POST',
-				url : 'api/agency/account/forgotPassword'
+				url : 'api/agency/product/adminUser/admin-forgotPassword'
 			}
 		});
 

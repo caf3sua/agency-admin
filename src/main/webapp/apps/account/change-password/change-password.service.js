@@ -8,7 +8,7 @@
     ChangePasswordService.$inject = ['$resource'];
 
     function ChangePasswordService ($resource) {
-        var service = $resource('api/agency/account/change-password', {}, {
+        var service = $resource('api/agency/product/adminUser/admin-change-password', {}, {
             'postChangePassword': { method: 'POST', params: {}, isArray: false,
                 interceptor: {
                     response: function(response) {

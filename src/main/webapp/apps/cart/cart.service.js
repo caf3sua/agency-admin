@@ -15,7 +15,7 @@
             },
             'searchCart' : {
                 method : 'POST',
-                url : 'api/agency/product/adminUser/search-order',
+                url : 'api/agency/product/adminUser/search-cart',
                 isArray : true
             },
             'getBanksByPaymentCode' : {

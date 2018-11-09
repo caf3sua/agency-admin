@@ -2,7 +2,7 @@
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 padding0">
         <p class="bv-title-home" data-translate="global.page.title.{{$state.current.data.title}}">Trang chủ</p>
     </div>
-    <div class="col-lg-8 col-sm-12 col-xs-12 col-md-12 padding0">
+    <!-- <div class="col-lg-8 col-sm-12 col-xs-12 col-md-12 padding0">
         <div class="bv-btn-groud-header">
             <div class="nav-item dropdown display-inline-block" has-any-authority="PERM_PRODUCT_BVP_CREATE,PERM_PRODUCT_CAR_CREATE,PERM_PRODUCT_HOM_CREATE,PERM_PRODUCT_KCR_CREATE,PERM_PRODUCT_MOT_CREATE,PERM_PRODUCT_KHC_CREATE,PERM_PRODUCT_TNC_CREATE,PERM_PRODUCT_TVC_CREATE,PERM_PRODUCT_TVI_CREATE,PERM_PRODUCT_HHV_CREATE">
 	            <div  class="bv-btn-header-title"  data-toggle="dropdown">
@@ -20,17 +20,16 @@
                 <span>Tính phí nhanh</span>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <!-- Tính phí nhanh -->
-    <div uib-collapse="vm.isCollapsedQuickPremium">
+    <!-- <div uib-collapse="vm.isCollapsedQuickPremium">
 	    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 padding0 margin-bottom-15">
 	        <div class="bv-collapse-tp">
 	            <div class="bv-collapse-tp-icon margin-top-10 margin-right-5 m-w-150">
 	                <i class="icon-calculator"></i>
 	                <span>Tính phí nhanh</span>
 	            </div>
-	            <!-- Input -->
 	            <div class="margin-right-5 margin-bottom-5">
 	                <select class="bv-select-box form-control" ng-options="selected.lineId as selected.lineName for selected in vm.products" ng-model="vm.selProduct">
 	                </select>
@@ -50,7 +49,6 @@
 	            <div class="bv-collapse-tp" ng-include="'views/theme/blocks/premium/partial.premium-HHVC.html'" ng-show="vm.selProduct == 'HHVC'"></div>
 	        </div>
 	        <div class="">
-	        	<!-- Button -->
 	            <div class="margin-top-10 m-w-150" ng-show="vm.selProduct != ''">
 	                <div class=" bv-kh-padding-left">
 	                    <button class="bv-padding-tp pull-right"
@@ -79,5 +77,5 @@
       			</div> 
     		</script>
    		</div>
-	</div>
+	</div> -->
 </div>

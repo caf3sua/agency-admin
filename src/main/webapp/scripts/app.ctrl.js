@@ -35,7 +35,7 @@
         
         // config
         vm.app = {
-          name: 'Bảo Việt Agency',
+          name: 'Bảo Việt Admin',
           version: '0.1',
           // for chart colors
           color: {

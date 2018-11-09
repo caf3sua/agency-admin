@@ -6,31 +6,49 @@
         </a>
     </li>
 
+	<!-- Giỏ hàng -->
+    <li ui-sref-active="active">
+        <a ui-sref="app.cart"  class="bv-left-menu">
+            <i class=icon-speaker></i>
+            <span class="nav-text">Giỏ hàng</span>
+        </a>
+    </li>
+    
+    <!-- Tài liệu -->
+    <li ui-sref-active="active">
+        <a ui-sref="app.document" class="bv-left-menu">
+            <i class="icon-paper"></i>
+            <span class="nav-text">Vận đơn</span>
+        </a>
+    </li>
+    
 	<!-- Đơn hàng -->
-	<li ng-class="{active:$state.includes('order')}" has-authority="PERM_AGREEMENT_VIEW">
+	<!-- <li ng-class="{active:$state.includes('order')}" has-authority="PERM_AGREEMENT_VIEW"> -->
+	<li ng-class="{active:$state.includes('order')}">
         <a class="bv-left-menu">
             <span class="nav-caret">
 	          <i class="fa fa-caret-down"></i>
 	        </span>
-            <i class="icon-stamp"></i>
+            <i class="icon-cart"></i>
             <span class="nav-text">Đơn hàng</span>
         </a>
         <ul class="nav-sub">
-            <li ui-sref-active="active" has-authority="PERM_AGREEMENT_VIEW">
+            <!-- <li ui-sref-active="active">
                 <a ui-sref="order.me">
                     <span class="nav-text">Danh sách đơn hàng</span>
                 </a>
-            </li>
-            <li ui-sref-active="active" has-authority="PERM_AGREEMENT_VIEW">
+            </li> -->
+            <li ui-sref-active="active">
                 <a ui-sref="order.baoviet">
-                    <span class="nav-text">Chờ Bảo Việt giải quyết</span>
+                    <span class="nav-text">Chờ bổ xung thông tin</span>
                 </a>
             </li>
         </ul>
     </li>
     
     <!-- Báo cáo -->
-    <li ng-class="{active:$state.includes('report')}" has-any-authority="PERM_REPORT_INCOME_VIEW, PERM_REPORT_COMMISSION_VIEW, PERM_REPORT_TRANSFER_VIEW">
+    <!-- <li ng-class="{active:$state.includes('report')}" has-any-authority="PERM_REPORT_INCOME_VIEW, PERM_REPORT_COMMISSION_VIEW, PERM_REPORT_TRANSFER_VIEW"> -->
+    <li ng-class="{active:$state.includes('report')}">
         <a class="bv-left-menu">
             <span class="nav-caret">
 	          <i class="fa fa-caret-down"></i>
@@ -39,19 +57,19 @@
             <span class="nav-text">Báo cáo</span>
         </a>
         <ul class="nav-sub">
-            <li ui-sref-active="active" has-authority="PERM_REPORT_INCOME_VIEW">
+            <!-- <li ui-sref-active="active">
                 <a ui-sref="report.income">
                     <span class="nav-text">Báo cáo doanh thu</span>
                 </a>
             </li>
-            <li ui-sref-active="active" has-authority="PERM_REPORT_COMMISSION_VIEW">
+            <li ui-sref-active="active">
                 <a ui-sref="report.commission">
                     <span class="nav-text">Báo cáo hoa hồng</span>
                 </a>
-            </li>
-            <li ui-sref-active="active" has-authority="PERM_REPORT_TRANSFER_VIEW">
+            </li> -->
+            <li ui-sref-active="active">
                 <a ui-sref="report.transfer">
-                    <span class="nav-text">Giao dịch chuyển tiền</span>
+                    <span class="nav-text">Giao dịch thanh toán</span>
                 </a>
             </li>
         </ul>

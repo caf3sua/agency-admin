@@ -1,12 +1,12 @@
 <div style="min-height: 100vh">
 	<!-- Cart payment -->
-	<div ng-include="'apps/cart/cart-payment.html'"></div>
-	
-	<!-- Table content -->
-	<div ng-include="'apps/cart/cart-data-content.html'"></div>
+	<div ng-include="'apps/cart/cart-payment.html'" ng-show="vm.showPayment"></div>
 
+	<!-- Cart search -->	
+	<div ng-include="'apps/cart/cart-search.html'" ng-hide="vm.showPayment"></div>
+	
 	<!-- Promotion -->
-	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0">
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0" ng-hide="vm.showPayment">
 		<div class="col-lg-8 padding0">
 			<p class="bv-gh-text-sum">Áp dụng mã khuyến mãi:</p>
 		</div>
@@ -15,16 +15,27 @@
 				ng-model="vm.couponCode" />
 		</div>
 	</div>
-	<div
-		class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+	<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10" ng-hide="vm.showPayment">
 		<div class="col-lg-8 padding0">
 			<p class="bv-gh-text-sum">Tổng tiền</p>
 		</div>
 		<div class="col-lg-4 padding0 text-right">
 			<p class="bv-gh-number-sum">{{vm.sumMoney | number:0 }} VNĐ</p>
-			<button class="bv-gh-tt" ng-click="vm.processPayment()">
-				Thanh toán</button>
+			<button class="bv-gh-tt" ng-click="vm.nextStep()" ng-disabled="vm.sumMoney == 0">Tiếp tục</button>
 		</div>
 	</div>
+	<!-- <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10" ng-show="vm.showPayment">
+		<div class="col-lg-8 padding0">
+		</div
+		<div class="col-lg-4 padding0 text-right">
+			<button class="bv-btn-step2" ng-click="vm.processPayment()" ng-disabled="vm.sumMoney == 0">Thanh toán</button>
+		</div>
+	</div> -->
+	<div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;" ng-show="vm.showPayment">
+        <button class="bv-btn-step2" ng-click="vm.processPayment()" ng-disabled="vm.sumMoney == 0">
+        	Thanh toán
+        </button>
+        </div>
+    </div>
 </div>
 

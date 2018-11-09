@@ -1,21 +1,21 @@
 (function() {
     'use strict';
-
+    
     angular
         .module('app')
-        .factory('CartService', CartService);
+        .factory('TransService', TransService);
 
-    CartService.$inject = ['$resource'];
-    function CartService($resource) {
+    TransService.$inject = ['$resource'];
+    function TransService($resource) {
         var service = $resource('', {}, {
             'getAll' : {
                 method : 'GET',
                 url : 'api/agency/product/agreement/get-cart',
                 isArray : true
             },
-            'searchCart' : {
+            'searchTransport' : {
                 method : 'POST',
-                url : 'api/agency/product/adminUser/search-order',
+                url : 'api/agency/product/adminUser/search-order-transport',
                 isArray : true
             },
             'getBanksByPaymentCode' : {

@@ -20,16 +20,32 @@
   		// Properties & function declare
         vm.allOrderInit = [];
         vm.allOrder = [];
+        vm.searchCriterial = {
+  			  "pageable": {
+  			    "page": 0,
+  			    "size": vm.itemsPerPage
+  			  },
+    			  "contactCode": "",
+    			  "contactName": "",
+    			  "email": "",
+    			  "fromDate": "",
+    			  "gycbhNumber": "",
+    			  "statusPolicy": "",
+    			  "phone": "",
+    			  "productCode": "",
+    			  "toDate": "",
+    			  "createType": ""
+    		};
         
   		vm.processPayment = processPayment;
-  		vm.getAllOrder = getAllOrder;
+//  		vm.getAllOrder = getAllOrder;
         vm.newDate = null;
         vm.cartWarning = false;
         vm.cartCheckBox = false;
         vm.inceptionDateFormat = null;
         vm.expiredDate = null;
         vm.dateUtil = dateUtil;
-        vm.sumMoney = null;
+        vm.sumMoney = 0;
         vm.getListBank = getListBank;
         vm.getListBankObj = [];
         vm.typeBank = null;
@@ -53,13 +69,19 @@
   		
         vm.confirmViewAgreement = confirmViewAgreement;
         vm.confirmCancelCart = confirmCancelCart;
+        vm.changeDate = changeDate;
+        vm.searchCart = searchCart;
+        vm.showPayment;
+        vm.nextStep = nextStep;
+        
     	angular.element(document).ready(function () {
         });
 
         // Init controller
         (function initController() {
         	$controller('AgreementBaseController', { vm: vm, $scope: $scope });
-            getAllOrder();
+//            getAllOrder();
+        	searchCart();
             vm.newDate = new Date();
             
             var paymentResult = $location.search().paymentStatus;
@@ -81,19 +103,50 @@
   		});
         
   		// Function
-        function getAllOrder() {
-            CartService.getAll({
-            	page: $stateParams.page - 1,
-                size: vm.itemsPerPage
-//                sort: sort()
-            }, onGetAllOrderSuccess, onGetAllOrderError);
+//        function getAllOrder() {
+//            CartService.getAll({
+//            	page: $stateParams.page - 1,
+//                size: vm.itemsPerPage
+////                sort: sort()
+//            }, onGetAllOrderSuccess, onGetAllOrderError);
+//        }
+        
+        function transition () {
+//            $state.transitionTo($state.$current, {
+//                page: vm.page,
+//                search: vm.currentSearch
+//            });
+        	vm.isLoading = true;
+        	vm.searchCriterial.pageable.page = vm.page - 1;
+        	searchCart();
         }
+        
+        function nextStep() {
+        	vm.showPayment = true;
+        }
+        
+        function changeDate(){
+  			if (vm.searchCriterial.fromDate != "" && vm.searchCriterial.toDate != ""){
+  				if(!vm.checkDate(vm.searchCriterial.fromDate, vm.searchCriterial.toDate)){
+  					toastr.error("Thời gian từ ngày - đến ngày không phù hợp");
+  					return false;
+  				}
+  			}
+  			return true;
+  		}
+        
+        function searchCart() {
+  			if (changeDate()) {
+  				CartService.searchCart(vm.searchCriterial, onGetAllOrderSuccess, onGetAllOrderError);
+  			}
+  		}
         
         function onGetAllOrderSuccess(result, headers) {
 //        	vm.links = ParseLinks.parse(headers('link'));
             vm.totalItems = headers('X-Total-Count');
             vm.queryCount = vm.totalItems;
-            vm.page = $stateParams.page;
+//            vm.page = $stateParams.page;
+            vm.isLoading = false;
         	
             vm.allOrder = result;
             for (var i = 0; i <  vm.allOrder.length; i++) {
@@ -140,7 +193,6 @@
                         vm.type91 = true;
                         break;
                     case "100":
-                        // vm.type100 = true;
                         vm.type91 = true;
                         break;
                     default:
@@ -150,6 +202,7 @@
         }
         
         function onGetAllOrderError() {
+        	vm.isLoading = false;
             toastr.error("Lỗi khi lấy đơn hàng");
         }
         
@@ -208,7 +261,6 @@
     			"paymentFee": vm.sumMoney,
     			"paymentType": vm.typeBank
         	}
-            	
         	CartService.processPayment(paymentData, onProcessPaymentSuccess, onProcessPaymentError)
         }
         
@@ -225,13 +277,6 @@
             vm.transition();
         }
 
-        function transition () {
-            $state.transitionTo($state.$current, {
-                page: vm.page,
-                search: vm.currentSearch
-            });
-        }
-        
         function confirmViewAgreement(order) {
   			if (order.createType == "0"){
   				$state.go("order.order-detail", {id: order.agreementId});
@@ -271,7 +316,7 @@
   			OrderService.cancelOrder({gycbhNumber: number}, onSuccess, onError);
   			
   			function onSuccess(result) {
-  				getAllOrder();
+//  				getAllOrder();
   				toastr.success('Đã hủy đơn hàng với mã: ' + result.gycbhNumber);
   			}
   			

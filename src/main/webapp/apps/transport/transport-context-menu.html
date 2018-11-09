@@ -1,0 +1,21 @@
+<div class="bv-context-menu">
+	<div class="" ng-click="vm.confirmViewAgreement(order)">
+		<div class="bv-detail-icon-table">
+			<i class="icon-eye"></i>
+		</div>
+        <span class="bv-detail-text-table">Xem</span>
+	</div>
+
+	<div class="" ng-click="vm.confirmCancelCart(order.gycbhNumber)" ng-show="order.statusPolicyId == 90 || order.statusPolicyId == 93">
+        <div  class="bv-detail-icon-table">
+            <i class="icon-cancel"></i>
+        </div>
+		<span class="bv-detail-text-table">Hủy</span>
+	</div>
+    <div ng-show="order.statusPolicyId == 90 || order.statusPolicyId == 89" ng-click="vm.confirmEditAgreement(order)">
+        <div class="bv-detail-icon-table">
+            <i class="icon-pencil"></i>
+        </div>
+        <span class="bv-detail-text-table">Sửa</span>
+    </div>
+</div>

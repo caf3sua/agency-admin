@@ -46,11 +46,11 @@
         vm.sumMoney = 0;
         vm.typeBank = null;
         vm.selectCheckBoxCart = selectCheckBoxCart;
-        vm.agreementIds = [];
+        vm.agreementGycbhs = [];
         vm.checkTypePay = 'agency';
   		
         vm.confirmViewAgreement = confirmViewAgreement;
-        vm.confirmCancelCart = confirmCancelCart;
+        vm.confirmTransport = confirmTransport;
         vm.changeDate = changeDate;
         vm.searchTransport = searchTransport;
         vm.showPayment;
@@ -89,11 +89,11 @@
         
         function searchTransport() {
   			if (changeDate()) {
-  				TransService.searchTransport(vm.searchCriterial, onGetAllOrderSuccess, onGetAllOrderError);
+  				TransService.searchTransport(vm.searchCriterial, onSearchOrderSuccess, onSearchOrderError);
   			}
   		}
         
-        function onGetAllOrderSuccess(result, headers) {
+        function onSearchOrderSuccess(result, headers) {
             vm.totalItems = headers('X-Total-Count');
             vm.queryCount = vm.totalItems;
             vm.isLoading = false;
@@ -101,7 +101,7 @@
             vm.allOrder = result;
         }
         
-        function onGetAllOrderError() {
+        function onSearchOrderError() {
         	vm.isLoading = false;
             toastr.error("Lỗi khi lấy đơn hàng");
         }
@@ -114,13 +114,13 @@
             if(data.check == true){
                 var money = data.totalPremium;
                 vm.sumMoney = vm.sumMoney + money;
-                vm.agreementIds.push(data.agreementId);
+                vm.agreementGycbhs.push(data.gycbhNumber);
             }else {
                 var money = data.totalPremium;
                 vm.sumMoney = vm.sumMoney - money;
-                var index = vm.agreementIds.indexOf(data.agreementId);
+                var index = vm.agreementGycbhs.indexOf(data.gycbhNumber);
                 if (index !== -1) {
-            		vm.agreementIds.splice(index, 1);
+            		vm.agreementGycbhs.splice(index, 1);
                 }
             }
 
@@ -141,13 +141,12 @@
   			}
   		}
         
-        function confirmCancelCart(gycbhNumber) {
+        function confirmTransport() {
   			$ngConfirm({
                 title: 'Xác nhận',
-                icon: 'fa fa-times',
                 theme: 'modern',
                 type: 'red',
-                content: '<div class="text-center">Bạn chắc chắn muốn hủy hợp đồng này ?</div>',
+                content: '<div class="text-center">Bạn chắc chắn muốn chuyển hợp đồng này ?</div>',
                 animation: 'scale',
                 closeAnimation: 'scale',
                 buttons: {
@@ -155,7 +154,7 @@
                     	text: 'Đồng ý',
                         btnClass: "btn-blue",
                         action: function(scope, button){
-                        	cancelOrder(gycbhNumber);
+                        	transportOrder(vm.agreementGycbhs);
 	                    }
                     },
                     close: {
@@ -165,16 +164,17 @@
             });
   		}
 		
-		function cancelOrder(number) {
-  			console.log('doCancelOrder');
-  			OrderService.cancelOrder({gycbhNumber: number}, onSuccess, onError);
+		function transportOrder(lstGycbhNumbers) {
+  			console.log('doTransportOrder');
+			TransService.updateTransport({listGYCBH: lstGycbhNumbers}, onSuccess, onError);
   			
   			function onSuccess(result) {
-  				toastr.success('Đã hủy đơn hàng với mã: ' + result.gycbhNumber);
+  				toastr.success('Đã chuyển đơn hàng thành công');
+  				searchTransport();
   			}
   			
   			function onError() {
-  				toastr.error("Lỗi khi hủy đơn hàng!");
+  				toastr.error("Lỗi khi chuyển đơn hàng!");
   			}
   		}
     }

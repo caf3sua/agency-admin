@@ -89,18 +89,19 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
                 <div class="bv-title-from">
                     <p>Trạng thái</p>
                 </div>
                 <div class="margin-top-5">
                     <select class="bv-select-box-kh form-control" ng-model="vm.searchCriterial.statusPolicy">
                     	<option value="">-- Trạng thái hợp đồng --</option>
-                    	<option value="90">Chờ thanh toán</option>
+                    	<option value="91">Chờ Bảo Việt cấp đơn</option>
+                    	<option value="92"> Chờ Bảo Việt cấp GCNBH (bản cứng)</option>
                     	<option value="100">Hoàn thành</option>
                     </select>
                 </div>
-            </div> -->
+            </div>
             <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
                 <div class="bv-title-from">
                     <p>Hình thức cấp</p>
@@ -117,10 +118,16 @@
         </div>
 		<!-- Button -->
 		<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
-        <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
-            <button class="bv-btn-step2" ng-click="vm.searchTransport()" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading">
-            	Tìm kiếm
-            </button>
+        	<div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+	            <button class="bv-btn-step2" ng-click="vm.confirmTransport()" button-spinner="vm.isLoading" ng-disabled="vm.sumMoney == 0">
+	            	Chuyển đơn
+	            </button>
+            </div>
+        	
+        	<div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+	            <button class="bv-btn-step2" ng-click="vm.searchTransport()" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading">
+	            	Tìm kiếm
+	            </button>
             </div>
         </div>
         

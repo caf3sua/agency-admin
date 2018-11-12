@@ -18,6 +18,11 @@
                 url : 'api/agency/product/adminUser/search-order-transport',
                 isArray : true
             },
+            'updateTransport' : {
+                method : 'POST',
+                url : 'api/agency/product/adminUser/update-order-transport',
+                isArray : true
+            },
             'getBanksByPaymentCode' : {
                 method : 'GET',
                 url : 'api/agency/payment/getBanksByPaymentCode',

@@ -8,14 +8,9 @@
     CartService.$inject = ['$resource'];
     function CartService($resource) {
         var service = $resource('', {}, {
-            'getAll' : {
-                method : 'GET',
-                url : 'api/agency/product/agreement/get-cart',
-                isArray : true
-            },
             'searchCart' : {
                 method : 'POST',
-                url : 'api/agency/product/adminUser/search-cart',
+                url : 'api/agency/product/adminUser/search-admin-cart',
                 isArray : true
             },
             'getBanksByPaymentCode' : {

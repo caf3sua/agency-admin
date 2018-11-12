@@ -38,7 +38,6 @@
     		};
         
   		vm.processPayment = processPayment;
-//  		vm.getAllOrder = getAllOrder;
         vm.newDate = null;
         vm.cartWarning = false;
         vm.cartCheckBox = false;
@@ -80,42 +79,16 @@
         // Init controller
         (function initController() {
         	$controller('AgreementBaseController', { vm: vm, $scope: $scope });
-//            getAllOrder();
         	searchCart();
             vm.newDate = new Date();
             
             var paymentResult = $location.search().paymentStatus;
-            if(paymentResult) {
-            	if(paymentResult == '3') {
-            		toastr.success("Thanh toán thành công!");
-            	} else {
-            		toastr.error("Thanh toán thất bại!");
-            	}
-            }
         })();
         
-        $scope.$watch('vm.checkTypePay', function () {
-  			if (vm.checkTypePay == 'agency') {
-  				vm.typeBank = 'ViettelPay';
-  			} else {
-  				vm.typeBank = 'Momo';
-  			}
-  		});
         
   		// Function
-//        function getAllOrder() {
-//            CartService.getAll({
-//            	page: $stateParams.page - 1,
-//                size: vm.itemsPerPage
-////                sort: sort()
-//            }, onGetAllOrderSuccess, onGetAllOrderError);
-//        }
         
         function transition () {
-//            $state.transitionTo($state.$current, {
-//                page: vm.page,
-//                search: vm.currentSearch
-//            });
         	vm.isLoading = true;
         	vm.searchCriterial.pageable.page = vm.page - 1;
         	searchCart();
@@ -142,63 +115,11 @@
   		}
         
         function onGetAllOrderSuccess(result, headers) {
-//        	vm.links = ParseLinks.parse(headers('link'));
             vm.totalItems = headers('X-Total-Count');
             vm.queryCount = vm.totalItems;
-//            vm.page = $stateParams.page;
             vm.isLoading = false;
         	
             vm.allOrder = result;
-            for (var i = 0; i <  vm.allOrder.length; i++) {
-                switch(vm.allOrder[i].statusPolicyId) {
-                    case "89":
-                        vm.type89 = true;
-                        break;
-                    case "90":
-                        vm.type90 = true;
-                        break;
-                    case "91":
-                        vm.type91 = true;
-                        break;
-                    case "92":
-                        // vm.type92 = true;
-                        vm.type91 = true;
-                        break;
-                    case "93":
-                        // vm.type93 = true;
-                        vm.type91 = true;
-                        break;
-                    case "94":
-                        // vm.type94 = true;
-                        vm.type91 = true;
-                        break;
-                    case "95":
-                        // vm.type95 = true;
-                        vm.type91 = true;
-                        break;
-                    case "96":
-                        // vm.type96 = true;
-                        vm.type91 = true;
-                        break;
-                    case "97":
-                        // vm.type97 = true;
-                        vm.type91 = true;
-                        break;
-                    case "98":
-                        // vm.type98 = true;
-                        vm.type91 = true;
-                        break;
-                    case "99":
-                        // vm.type99 = true;
-                        vm.type91 = true;
-                        break;
-                    case "100":
-                        vm.type91 = true;
-                        break;
-                    default:
-                        break;
-                }
-            }
         }
         
         function onGetAllOrderError() {
@@ -316,7 +237,6 @@
   			OrderService.cancelOrder({gycbhNumber: number}, onSuccess, onError);
   			
   			function onSuccess(result) {
-//  				getAllOrder();
   				toastr.success('Đã hủy đơn hàng với mã: ' + result.gycbhNumber);
   			}
   			

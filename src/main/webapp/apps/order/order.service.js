@@ -32,7 +32,7 @@
             },
             'searchOrderWait' : {
                 method : 'POST',
-                url : 'api/agency/product/adminUser/search-order-BV-wait',
+                url : 'api/agency/product/adminUser/search-admin-order',
                 isArray : true
             },
             'searchOrderOther' : {

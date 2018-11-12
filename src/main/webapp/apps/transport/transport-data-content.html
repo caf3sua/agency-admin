@@ -28,7 +28,6 @@
             <tr ng-repeat-start="order in vm.allOrder track by $index" ng-click="order.expand = !order.expand">
                  <td>
                      <div class="bv-gh-checkbox" ng-show="order.statusPolicyId != 100">
-
                          <label for="cart{{$index}}" class="label-cbx margin-right-5">
                              <input id="cart{{$index}}" type="checkbox" class="invisible"
                              ng-model="order.check" ng-change="vm.selectCheckBoxCart(order)">

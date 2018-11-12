@@ -38,13 +38,12 @@
   		vm.sotiennophi;
   		
   		vm.searchOrderWait = searchOrderWait;
-  		vm.confirmResendEmail = confirmResendEmail;
   		vm.confirmKhachhangnophi = confirmKhachhangnophi;
-  		vm.confirmTaituc = confirmTaituc;
   		vm.confirmViewAgreement = confirmViewAgreement;
   		vm.changeDate = changeDate;
-  		vm.confirmResendOTP = confirmResendOTP;
-  		vm.showOTPSavePolicySuccessInfo = showOTPSavePolicySuccessInfo;
+  		vm.communication = communication;
+  		
+  		var modalInstance = null;
   		
         angular.element(document).ready(function () {
         });
@@ -121,66 +120,23 @@
         	search();
         }
         
-        function confirmResendEmail(gycbhNumber) {
-  			$ngConfirm({
-                title: 'Xác nhận',
-                icon: 'fa fa-envelope',
-                theme: 'modern',
-                type: 'red',
-                content: '<div class="text-center">Bạn chắc chắn muốn gửi lại email ?</div>',
-                animation: 'scale',
-                closeAnimation: 'scale',
-                buttons: {
-                    ok: {
-                    	text: 'Đồng ý',
-                        btnClass: "btn-blue",
-                        action: function(scope, button){
-                        	resendEmail(gycbhNumber);
-	                    }
-                    },
-                    close: {
-                    	text: 'Hủy'
-                    }
-                },
-            });
+        function communication(order) {
+  			$rootScope.communication_GycbhNumber = order.gycbhNumber;
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'apps/order/baoviet-wait/view/form-thongtingiamdinh.html',
+                controller: 'CommunicationController',
+                controllerAs: 'vm',
+                size: 'lg',
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            });	            
   		}
         
-        function taitucPolicy(agreementId) {
-  			console.log('taitucPolicy, agreementId:' + agreementId);
-  			OrderService.createTaituc({agreementId: agreementId}, onSuccess, onError);
-  			
-  			function onSuccess(result) {
-  				toastr.success('Tái tục đơn hàng thành công');
-  			}
-  			
-  			function onError() {
-  				toastr.error("Lỗi khi tái tục đơn hàng");
-  			}
-        }
-        
-        function confirmTaituc(agreementId) {
-  			$ngConfirm({
-                title: 'Xác nhận',
-                icon: 'fa fa-history',
-                theme: 'modern',
-                type: 'blue',
-                content: '<div class="text-center">Bạn chắc chắn muốn tái tục hợp đồng này ?</div>',
-                animation: 'scale',
-                closeAnimation: 'scale',
-                buttons: {
-                    ok: {
-                    	text: 'Đồng ý',
-                        btnClass: "btn-blue",
-                        action: function(scope, button){
-                        	taitucPolicy(agreementId);
-	                    }
-                    },
-                    close: {
-                    	text: 'Hủy'
-                    }
-                },
-            });
-  		}
         
         function doKhachhangnophi(order, sotiennophi, note) {
         	vm.sotiennophi = sotiennophi;
@@ -208,9 +164,9 @@
         
         function confirmKhachhangnophi(order) {
         	$ngConfirm({
-                title: 'Khách hàng nợ phí',
-                columnClass: 'col-md-6 col-md-offset-3',
-                contentUrl: 'views/theme/blocks/form-khachhangnophi.html',
+                title: 'Thông tin giám định đơn hàng - ' + order.gycbhNumber,
+                columnClass: 'col-md-8 col-md-offset-3',
+                contentUrl: 'apps/order/baoviet-wait/view/form-thongtingiamdinh.html',
                 buttons: {
                     ok: {
                         text: 'Đồng ý',
@@ -220,8 +176,24 @@
                         	doKhachhangnophi(order, scope.sotiennophi, scope.note);
                         }
                     },
+                    transport: {
+                        text: 'Trao đổi',
+                        disabled: true,
+                        btnClass: 'btn-blue',
+                        action: function (scope) {
+                        	doKhachhangnophi(order, scope.sotiennophi, scope.note);
+                        }
+                    },
+                    cancel: {
+                        text: 'Không đồng ý',
+                        disabled: true,
+                        btnClass: 'btn-red',
+                        action: function (scope) {
+                        	doKhachhangnophi(order, scope.sotiennophi, scope.note);
+                        }
+                    },
                     close: {
-                    	text: 'Hủy'
+                    	text: 'Quay lại'
                     }
                 },
                 onScopeReady: function (scope) {
@@ -236,19 +208,6 @@
             })
         }
         
-  		function resendEmail(number) {
-  			console.log('doResendEmail');
-  			OrderService.resendEmail({gycbhNumber: number}, onSuccess, onError);
-  			
-  			function onSuccess(result) {
-  				toastr.success('Đã gửi lại email với mã đơn hàng: ' + result.gycbhNumber);
-  			}
-  			
-  			function onError() {
-  				toastr.error("Lỗi khi gửi lại email đơn hàng!");
-  			}
-  		}
-  		
   		function confirmViewAgreement(order) {
   			if (order.createType == "0"){
   				$state.go("order.order-detail", {id: order.agreementId});
@@ -258,64 +217,6 @@
   				$state.go("product.ycbh-offline-detail", {id: order.gycbhNumber});
   			}
   		}
-  		
-  		function confirmResendOTP(gycbhNumber) {
-  			$ngConfirm({
-                title: 'Xác nhận',
-                icon: 'fas fa-sync-alt',
-                theme: 'modern',
-                type: 'red',
-                content: '<div class="text-center">Bạn chắc chắn muốn gửi lại otp ?</div>',
-                animation: 'scale',
-                closeAnimation: 'scale',
-                buttons: {
-                    ok: {
-                    	text: 'Đồng ý',
-                        btnClass: "btn-blue",
-                        action: function(scope, button){
-                        	resendOTP(gycbhNumber);
-	                    }
-                    },
-                    close: {
-                    	text: 'Hủy'
-                    }
-                },
-            });
-  		}
-  		
-  		function resendOTP(number) {
-  			console.log('resendOTP');
-  			$rootScope.gycbhNumber = number;
-  			OrderService.resendOtp({gycbhNumber: number}, onSuccess, onError);
-  			
-  			function onSuccess(result) {
-  				showOTPSavePolicySuccessInfo();
-  				toastr.success('Đã gửi lại otp với mã đơn hàng: ' + result.gycbhNumber);
-  			}
-  			
-  			function onError() {
-  				toastr.error("Lỗi khi gửi lại otp đơn hàng!");
-  			}
-  		}
-  		
-  		var modalInstance = null;
-  		function showOTPSavePolicySuccessInfo() {
-            modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'apps/product/partial/partial-OTP.html',
-                controller: 'AgreementOtpController',
-                controllerAs: 'vm',
-                size: 'sg',
-                resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('global');
-                        return $translate.refresh();
-                    }]
-                }
-            });
-            
-    	}
-  		
   		
     }
 })();

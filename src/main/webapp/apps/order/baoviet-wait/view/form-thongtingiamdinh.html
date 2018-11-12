@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title">TRAO ĐỔI THÔNG TIN</h5>
+</div>
+<div class="row modal-body">
+    <div class="form-group">
+        <label class="control-label">Nội dung chi tiết</label>
+        <textarea id="conversationContent" name="conversationContent" class="bv-input" ng-model="vm.policy.conversationContent" placeholder="Nhập nội dung chi tiết"></textarea>
+    </div>
+    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
+	    <div class="col-lg-2 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+            <button class="bv-btn-step2" ng-click="vm.cancelOrder()">
+            	Không đồng ý
+            </button>
+        </div>
+	    <div class="col-lg-2 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+            <button class="bv-btn-step2">
+            	Trao đổi
+            </button>
+        </div>
+	    <div class="col-lg-2 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+            <button class="bv-btn-step2" ng-click="vm.accessOrder()">
+            	Đồng ý
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row modal-body">
+<div ng-include="'apps/order/baoviet-wait/view/communication-his.html'"></div>
+</div>

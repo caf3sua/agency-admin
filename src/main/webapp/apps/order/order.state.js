@@ -127,7 +127,7 @@
             		}],
             		loadPlugin: function ($ocLazyLoad) {
 	            		return $ocLazyLoad.load([
-	            			'apps/order/baoviet-wait/order-BV-wait.controller.js', 'apps/product/product-base.controller.js', 'apps/product/product-base.service.js', 'apps/product/agreement-otp.controller.js'
+	            			'apps/order/baoviet-wait/order-BV-wait.controller.js', 'apps/product/product-base.controller.js', 'apps/product/product-base.service.js', 'apps/product/agreement-otp.controller.js', 'apps/communication/communication.controller.js', 'apps/communication/communication.service.js'
 	            		]);
 		        }
             }

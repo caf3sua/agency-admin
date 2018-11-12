@@ -1,0 +1,41 @@
+<div class="communication-his-container">
+	<div class="margin-top-20 text-header-sp" ng-init="vm.isCollapsedTableRights = true" ng-click="vm.isCollapsedTableRights = !vm.isCollapsedTableRights">
+	  	<p class="header-border-bottom">Lịch sử đơn hàng 
+	  		<i class="pull-right fas" ng-class="vm.isCollapsedTableRights ? 'fa-angle-down' : 'fa-angle-up'" style="color: #1964af !important;font-size: 20px;"></i> 
+	  	</p>
+	</div>
+	<div uib-collapse="vm.isCollapsedTableRights">
+		<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 margin-top-10">
+			<div ng-repeat="row in vm.hisOrder">
+			    <div class="text-header-sp" ng-show="row.type == '0'">
+		            <p class="order-his-color-0"><i class="fas fa-history"></i> {{row.statusPolicyName}} - {{row.createDateDisplay}}</p>
+		        </div>
+		        <div ng-show="row.type == '1'">
+		        	<p class="order-his-color-1"><i class="far fa-comments"></i> {{row.title}} - {{row.createDateDisplay}}</p>
+		        	<table class="table" style="width: 100%">
+			            <tbody><tr class="bv-block-three">
+			                <td class="bv-icon-order-blockOne">
+			                    <p>Nội dung chi tiết</p>
+			                </td>
+			                <td class="bv-icon-order-blockTwo">
+			                    <p>{{row.content}}</p>
+			                </td>
+			            </tr>
+			            <tr class="bv-block-three">
+			                <td class="bv-icon-order-blockOne">
+			                    <p>File đính kèm</p>
+			                </td>
+			                <td class="bv-icon-order-blockTwo">
+				                <p ng-repeat="file in row.filesContent">
+				                	<a ng-click="vm.downloadAttachment(file)">
+										<span>{{file.filename}}</span> <i class="fas fa-paperclip"></i>		                	
+				                	</a>
+			                    </p>
+			                </td>
+			            </tr>
+			        </tbody></table>
+		        </div>
+			</div>
+		</div>
+	</div>
+</div>

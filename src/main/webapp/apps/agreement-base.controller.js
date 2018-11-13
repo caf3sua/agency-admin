@@ -8,17 +8,30 @@
       .controller('AgreementBaseController', AgreementBaseController);
 
     AgreementBaseController.$inject = ['vm', '$state', '$stateParams', '$rootScope', '$scope', '$timeout'
-    	, '$ngConfirm', 'OrderService'];
+    	, '$ngConfirm', 'OrderService', 'Principal'];
 
     function AgreementBaseController(vm, $state, $stateParams, $rootScope, $scope, $timeout
-    		, $ngConfirm, OrderService){
+    		, $ngConfirm, OrderService, Principal){
 		vm.message = { name: 'default entry from AgreementBaseController' };
 
 		vm.confirmCancelOrder = confirmCancelOrder;
 		vm.confirmEditAgreement = confirmEditAgreement;
 		vm.confirmCopyAgreement = confirmCopyAgreement;
 		vm.searchOrder = searchOrder;
+		vm.currentAccount;
 		
+		// Init controller
+  		(function initController() {
+  			// instantiate base controller
+  		    getAccount();
+  		})();
+  		
+  		function getAccount() {
+  			Principal.identity().then(function(account) {
+                vm.currentAccount = account;
+            });
+  		}
+  		
 		function confirmCopyAgreement(order) {
   			$ngConfirm({
                 title: 'Xác nhận',

@@ -14,6 +14,11 @@
 				url : 'api/agency/agency-report/report-transfer',
 				isArray : true
 			},
+			'getAdmReportTransfer' : {
+				method : 'POST',
+				url : 'api/agency/agency-report/adm-report-transfer',
+				isArray : true
+			},
 			'getReportIncome' : {
 				method : 'POST',
 				url : 'api/agency/agency-report/report-income'

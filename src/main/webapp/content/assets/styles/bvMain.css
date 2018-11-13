@@ -774,7 +774,7 @@ body {
 .bv-menu-tab-user>i{
     color: #fff;
     font-size: 25px;
-    margin-top: 2px;
+    margin-top: 5px;
 }
 .bv-icon-button-header{
     margin-left: 180px;
@@ -3011,4 +3011,9 @@ button[disabled] {
 
 .label-gray {
 	color: gray;
+}
+
+.padding-communication {
+	padding-left: 35px  !important;
+	padding-right: 35px !important;
 }

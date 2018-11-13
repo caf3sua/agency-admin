@@ -66,14 +66,14 @@
 	        
 	        // Test data
 	        angular.element(document).ready(function () {
-//	        	changeFilterDate("WEEK");
+	        	changeFilterDate("WEEK");
 	        });
 
 	    	// Init controller
 	  		(function initController() {
 	  			$controller('ProductBaseController', { vm: vm, $scope: $scope });
-//	  			getAllWaitAgency();
-//	  			getAllWaitAgreement();
+	  			getAllWaitAgency();
+	  			getAllWaitAgreement();
 	  		})();
 
 	  		// Implement function 

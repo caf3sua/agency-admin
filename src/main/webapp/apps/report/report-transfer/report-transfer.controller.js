@@ -70,7 +70,7 @@
       			vm.searchCriterial.periodTime = "";
       		}
   			
-  			ReportService.getReportTransfer(vm.searchCriterial, onSuccess, onError);
+  			ReportService.getAdmReportTransfer(vm.searchCriterial, onSuccess, onError);
             function onSuccess(data, headers) {
             	vm.transfers = data;
             	toastr.success("Cập nhật dữ liệu thành công");

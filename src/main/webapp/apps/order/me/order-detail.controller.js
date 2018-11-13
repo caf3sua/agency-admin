@@ -69,7 +69,9 @@
   				toastr.success('Tải thông tin chi tiết hợp đồng thành công');
   			}
   			
-  			function onError() {
+  			function onError(result) {
+  				let message = result.data.message || 'Lỗi khi tải thông tin chi tiết hợp đồng';
+  				toastr.error(message);
   			}
   		})();
   		

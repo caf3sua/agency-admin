@@ -43,3 +43,16 @@ highchart {
   width: 100%;
   display: block;
 }
+
+.order-his-color-1 {
+	color: #007cff;
+}
+
+.order-his-color-0 {
+	color: #0088cc;
+}
+
+.communication-his-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}

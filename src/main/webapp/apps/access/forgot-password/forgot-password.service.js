@@ -11,7 +11,13 @@
 		var service = $resource('', {}, {
 			'forgotPassword' : {
 				method : 'POST',
-				url : 'api/agency/product/adminUser/admin-forgotPassword'
+				url : 'api/agency/product/adminUser/admin-forgotPassword',
+				transformResponse : function(data) {
+					data = angular.fromJson({
+						result : data
+					});
+					return data;
+				}
 			}
 		});
 

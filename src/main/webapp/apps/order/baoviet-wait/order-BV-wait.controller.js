@@ -68,6 +68,14 @@
   			return true;
   		}
   		
+  		$scope.$on('orderUpdateSuccess', function() {
+  			searchOrderUpdate();
+        });
+  		
+  		$scope.$on('saveCommunicationSuccess', function() {
+  			searchOrderUpdate();
+        });
+  		
   		function searchOrderWait() {
   			if (changeDate()) {
   				vm.totalItems = null;
@@ -113,6 +121,30 @@
   	        	vm.isLoading = false;
   	            toastr.error("Lỗi khi tìm kiếm đơn hàng!");
   	        }
+  		}
+  		
+  		// tìm kiếm order khi giám định thành công (Bỏ số tìm thấy)
+  		function searchOrderUpdate() {
+  			if (changeDate()) {
+  				vm.totalItems = null;
+  	  			vm.isLoading = true;
+  	  			vm.orders = [];
+  	  			var order = {};
+
+  	  			OrderService.searchOrderWait(vm.searchCriterial, onSearchSuccess, onSearchError);
+  	  			function onSearchSuccess(result, headers) {
+  	  				// Paging
+  	  				vm.orders = result;
+  	  				vm.isLoading = false;
+  	                
+  	  				vm.totalItems = headers('X-Total-Count');
+  	                vm.queryCount = vm.totalItems;
+  	  	        }
+  	  	        function onSearchError() {
+  	  	        	vm.isLoading = false;
+  	  	            toastr.error("Lỗi khi tìm kiếm đơn hàng!");
+  	  	        }
+  			}
   		}
   		
         function transition () {

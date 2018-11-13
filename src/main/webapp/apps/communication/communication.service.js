@@ -12,7 +12,7 @@
                 method : 'POST',
                 url : 'api/agency/product/agreement/get-by-gycbhNumber'
             },
-            'saveCommunication': {url : 'api/agency/common/createCommunication', method: 'POST'},
+            'saveCommunication': {url : 'api/agency/product/adminUser/admin-createCommunication', method: 'POST'},
             'getOrderTransactions' : {
                 method : 'POST',
                 url : 'api/agency/product/adminUser/admin-get-orderHis-by-gycbhNumber',

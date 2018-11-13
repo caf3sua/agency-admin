@@ -6,10 +6,10 @@
         .controller('CommunicationController', CommunicationController);
 
     CommunicationController.$inject = ['$scope', '$stateParams', '$controller', 'Principal', '$state', '$rootScope'
-    	, 'ProductCommonService', '$ngConfirm', 'CommunicationService', 'DateUtils', '$uibModalInstance', '$window', 'API_SERVICE_URL'];
+    	, 'ProductCommonService', '$ngConfirm', 'CommunicationService', 'DateUtils', '$uibModalInstance', '$window', 'API_SERVICE_URL', '$uibModal'];
 
     function CommunicationController ($scope, $stateParams, $controller, Principal, $state, $rootScope
-    		, ProductCommonService, $ngConfirm, CommunicationService, DateUtils, $uibModalInstance, $window, API_SERVICE_URL) {
+    		, ProductCommonService, $ngConfirm, CommunicationService, DateUtils, $uibModalInstance, $window, API_SERVICE_URL, $uibModal) {
         var vm = this;
 
         vm.policy = {
@@ -31,6 +31,7 @@
         vm.cancel = cancel;
         vm.accessOrder = accessOrder;
         vm.cancelOrder = cancelOrder;
+        vm.transport = transport;
         vm.downloadAttachment = downloadAttachment;
         
         angular.element(document).ready(function () {
@@ -127,6 +128,7 @@
   			function onSuccess(data) {
   				vm.isLoading = false;
   				console.log(data);
+  				$rootScope.$broadcast('orderUpdateSuccess');
   				$uibModalInstance.dismiss('cancel');
   				toastr.success("Cấp đơn thành công");
   			}
@@ -148,6 +150,7 @@
   			function onSuccess(data) {
   				vm.isLoading = false;
   				console.log(data);
+  				$rootScope.$broadcast('orderUpdateSuccess');
   				$uibModalInstance.dismiss('cancel');
   				toastr.success("Từ chối cấp đơn thành công");
   			}
@@ -156,6 +159,25 @@
   				vm.isLoading = false;
   				toastr.error("Lỗi khi từ chối cấp đơn.");
   			}
+  		}
+  		
+  		// transport
+  		function transport() {
+  			$uibModalInstance.dismiss('cancel');
+  			$rootScope.communication_GycbhNumber = vm.gycbhNumber;
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'apps/communication/view/communication-dialog.html',
+                controller: 'CommunicationController',
+                controllerAs: 'vm',
+                size: 'lg',
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            });	            
   		}
   		
   		function cancel() {
@@ -170,6 +192,7 @@
 	  			
 	  			vm.isLoading = true;
 	  			vm.policy.imgGycbhContents = vm.gycbhFiles;
+	  			vm.policy.gycbhNumber = vm.gycbhNumber;
 	  			
   				console.log('save communication' + JSON.stringify(vm.policy));
 				// Save

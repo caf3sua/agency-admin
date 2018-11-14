@@ -33,7 +33,9 @@
   			  "phone": "",
   			  "productCode": "",
   			  "toDate": "",
-  			  "createType": ""
+  			  "createType": "",
+  			  "agentId": "",
+			  "departmentId": ""
   		};
   		vm.sotiennophi;
   		
@@ -43,6 +45,8 @@
   		vm.changeDate = changeDate;
   		vm.communication = communication;
   		
+  		vm.selectedDepartmentId;
+        vm.selectedAgency;
   		var modalInstance = null;
   		
         angular.element(document).ready(function () {
@@ -82,6 +86,18 @@
   	  			vm.isLoading = true;
   	  			vm.orders = [];
   	  			var order = {};
+  	  			
+  	  			if (vm.selectedAgency != null && vm.selectedAgency != undefined){
+					vm.searchCriterial.agentId = vm.selectedAgency.ma;	
+				} else {
+					vm.searchCriterial.agentId = "";
+				}
+				
+				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
+					vm.searchCriterial.departmentId = vm.selectedDepartmentId.ma;	
+				} else {
+					vm.searchCriterial.departmentId = "";
+				}
 
   	  			OrderService.searchOrderWait(vm.searchCriterial, onSearchSuccess, onSearchError);
   	  			function onSearchSuccess(result, headers) {
@@ -130,6 +146,18 @@
   	  			vm.isLoading = true;
   	  			vm.orders = [];
   	  			var order = {};
+  	  			
+	  	  		if (vm.selectedAgency != null && vm.selectedAgency != undefined){
+					vm.searchCriterial.agentId = vm.selectedAgency.ma;	
+				} else {
+					vm.searchCriterial.agentId = "";
+				}
+				
+				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
+					vm.searchCriterial.departmentId = vm.selectedDepartmentId.ma;	
+				} else {
+					vm.searchCriterial.departmentId = "";
+				}
 
   	  			OrderService.searchOrderWait(vm.searchCriterial, onSearchSuccess, onSearchError);
   	  			function onSearchSuccess(result, headers) {

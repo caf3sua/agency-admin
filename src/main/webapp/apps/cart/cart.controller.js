@@ -25,16 +25,18 @@
   			    "page": 0,
   			    "size": vm.itemsPerPage
   			  },
-    			  "contactCode": "",
-    			  "contactName": "",
-    			  "email": "",
-    			  "fromDate": "",
-    			  "gycbhNumber": "",
-    			  "statusPolicy": "",
-    			  "phone": "",
-    			  "productCode": "",
-    			  "toDate": "",
-    			  "createType": ""
+			  "contactCode": "",
+			  "contactName": "",
+			  "email": "",
+			  "fromDate": "",
+			  "gycbhNumber": "",
+			  "statusPolicy": "",
+			  "phone": "",
+			  "productCode": "",
+			  "toDate": "",
+			  "createType": "",
+			  "agentId": "",
+			  "departmentId": ""
     		};
         
   		vm.processPayment = processPayment;
@@ -49,29 +51,19 @@
         vm.getListBankObj = [];
         vm.typeBank = null;
         vm.selectCheckBoxCart = selectCheckBoxCart;
-        vm.type89 = false;
-        vm.type90= false;
-        vm.type91 = false;
-        vm.type92 = false;
-        vm.type93 = false;
-        vm.type94 = false;
-        vm.type95 = false;
-        vm.type96 = false;
-        vm.type97 = false;
-        vm.type98 = false;
-        vm.type99 = false;
-        vm.type100 = false;
         vm.couponCode = null;
         vm.bankCode = null;
         vm.agreementIds = [];
         vm.checkTypePay = 'agency';
   		
         vm.confirmViewAgreement = confirmViewAgreement;
-        vm.confirmCancelCart = confirmCancelCart;
         vm.changeDate = changeDate;
         vm.searchCart = searchCart;
         vm.showPayment;
         vm.nextStep = nextStep;
+        
+        vm.selectedDepartmentId;
+        vm.selectedAgency;
         
     	angular.element(document).ready(function () {
         });
@@ -110,6 +102,17 @@
         
         function searchCart() {
   			if (changeDate()) {
+  				if (vm.selectedAgency != null && vm.selectedAgency != undefined){
+  					vm.searchCriterial.agentId = vm.selectedAgency.ma;	
+  				} else {
+  					vm.searchCriterial.agentId = "";
+  				}
+  				
+  				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
+  					vm.searchCriterial.departmentId = vm.selectedDepartmentId;	
+  				} else {
+  					vm.searchCriterial.departmentId = "";
+  				}
   				CartService.searchCart(vm.searchCriterial, onGetAllOrderSuccess, onGetAllOrderError);
   			}
   		}
@@ -207,42 +210,6 @@
   				$state.go("product.ycbh-offline-detail", {id: order.gycbhNumber});
   			}
   		}
-        
-        function confirmCancelCart(gycbhNumber) {
-  			$ngConfirm({
-                title: 'Xác nhận',
-                icon: 'fa fa-times',
-                theme: 'modern',
-                type: 'red',
-                content: '<div class="text-center">Bạn chắc chắn muốn hủy hợp đồng này ?</div>',
-                animation: 'scale',
-                closeAnimation: 'scale',
-                buttons: {
-                    ok: {
-                    	text: 'Đồng ý',
-                        btnClass: "btn-blue",
-                        action: function(scope, button){
-                        	cancelOrder(gycbhNumber);
-	                    }
-                    },
-                    close: {
-                    	text: 'Hủy'
-                    }
-                },
-            });
-  		}
 		
-		function cancelOrder(number) {
-  			console.log('doCancelOrder');
-  			OrderService.cancelOrder({gycbhNumber: number}, onSuccess, onError);
-  			
-  			function onSuccess(result) {
-  				toastr.success('Đã hủy đơn hàng với mã: ' + result.gycbhNumber);
-  			}
-  			
-  			function onError() {
-  				toastr.error("Lỗi khi hủy đơn hàng!");
-  			}
-  		}
     }
 })();

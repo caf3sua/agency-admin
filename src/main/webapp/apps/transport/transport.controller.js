@@ -34,7 +34,9 @@
     			  "phone": "",
     			  "productCode": "",
     			  "toDate": "",
-    			  "createType": ""
+    			  "createType": "",
+    			  "agentId": "",
+    			  "departmentId": ""
     		};
         
         vm.newDate = null;
@@ -55,6 +57,9 @@
         vm.searchTransport = searchTransport;
         vm.showPayment;
         vm.nextStep = nextStep;
+        
+        vm.selectedDepartmentId;
+        vm.selectedAgency;
         
     	angular.element(document).ready(function () {
         });
@@ -89,6 +94,18 @@
         
         function searchTransport() {
   			if (changeDate()) {
+  				if (vm.selectedAgency != null && vm.selectedAgency != undefined){
+  					vm.searchCriterial.agentId = vm.selectedAgency.ma;	
+  				} else {
+  					vm.searchCriterial.agentId = "";
+  				}
+  				
+  				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
+  					vm.searchCriterial.departmentId = vm.selectedDepartmentId.ma;	
+  				} else {
+  					vm.searchCriterial.departmentId = "";
+  				}
+  				
   				TransService.searchTransport(vm.searchCriterial, onSearchOrderSuccess, onSearchOrderError);
   			}
   		}

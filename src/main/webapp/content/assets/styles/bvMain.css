@@ -1825,7 +1825,7 @@ body {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
-    margin-top: 48px;
+    /* margin-top: 48px; */
 }
 .bv-ward-txt{
     color: #e0e1e5;
@@ -3016,4 +3016,8 @@ button[disabled] {
 .padding-communication {
 	padding-left: 20px  !important;
 	padding-right: 20px !important;
+}
+
+.bv-autocomplete>div>ul {
+	margin-top: 0px !important;
 }

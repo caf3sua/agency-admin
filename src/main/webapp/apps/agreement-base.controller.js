@@ -19,12 +19,27 @@
 		vm.confirmCopyAgreement = confirmCopyAgreement;
 		vm.searchOrder = searchOrder;
 		vm.currentAccount;
+		vm.lstAgency;
 		
 		// Init controller
   		(function initController() {
   			// instantiate base controller
   		    getAccount();
+  		    
+  		    getLstAgency();
   		})();
+  		
+  		function getLstAgency() {
+			OrderService.searchAgency({}, onSuccess, onError);
+  			
+  			function onSuccess(result) {
+  				vm.lstAgency = result;
+  			}
+  			
+  			function onError() {
+  			}
+  		}
+  		
   		
   		function getAccount() {
   			Principal.identity().then(function(account) {

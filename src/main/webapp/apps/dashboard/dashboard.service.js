@@ -11,16 +11,16 @@
     	var service = $resource('', {}, {
 			'getReportDashboard' : {
 				method : 'POST',
-				url : 'api/agency/agency-report/report-dashboard'
+				url : 'api/agency/agency-report/adm-report-dashboard'
 			},
 			'getAllWaitAgency' : {
                 method : 'GET',
-                url : 'api/agency/product/agreement/get-wait-agency',
+                url : 'api/agency/product/adminUser/get-wait-agreement',
                 isArray : true
             },
 			'getAllWaitAgreement' : {
                 method : 'GET',
-                url : 'api/agency/product/agreement/get-wait-agreement',
+                url : 'api/agency/product/adminUser/get-wait-agreement',
                 isArray : true
             }
 		});

@@ -21,7 +21,7 @@
 			},
 			'getReportIncome' : {
 				method : 'POST',
-				url : 'api/agency/agency-report/report-income'
+				url : 'api/agency/agency-report/adm-report-income'
 			},
 			'getReportDashboard' : {
 				method : 'POST',
@@ -29,7 +29,7 @@
 			},
 			'getReportCommission' : {
 				method : 'POST',
-				url : 'api/agency/agency-report/report-commission'
+				url : 'api/agency/agency-report/adm-report-commission'
 			},
 			'getReportHistoryPurchase' : {
 				method : 'GET',

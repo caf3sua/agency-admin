@@ -33,6 +33,9 @@
             }
         }
         function actionChangePassword() {
+            if (vm.showReqCheckPassword) {
+                return;
+            }
             vm.changePassword.result = false;
             ChangePasswordService.postChangePassword(vm.changePassword, onActionChangePasswordSuccess, onActionChangePasswordError);
         }
@@ -42,7 +45,8 @@
         }
 
         function onActionChangePasswordError(result) {
-            toastr.error('Đổi mật khẩu lỗi');
+            let message = result.data.message || 'Đổi mật khẩu lỗi';
+            toastr.error(message);
         }
 
 

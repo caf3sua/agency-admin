@@ -125,6 +125,10 @@
             	method : 'POST', 
             	url : 'api/agency/contact/get-by-code'
             },
+            'getByCodeAdmin' : {
+            	method : 'POST', 
+            	url : 'api/agency/product/adminUser/adm-get-contact-by-code'
+            },
             'getAddressByPostcode' : {
                 method : 'GET',
                 url : 'api/agency/common/getAddressByCode'

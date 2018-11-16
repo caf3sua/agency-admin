@@ -123,11 +123,13 @@
             vm.isLoading = false;
         	
             vm.allOrder = result;
+            
+            toastr.success('Tìm thấy ' + vm.allOrder.length + ' đơn hàng phù hợp');
         }
         
         function onGetAllOrderError() {
         	vm.isLoading = false;
-            toastr.error("Lỗi khi lấy đơn hàng");
+        	toastr.error("Lỗi khi tìm kiếm đơn hàng!");
         }
         
         function dateUtil(date) {

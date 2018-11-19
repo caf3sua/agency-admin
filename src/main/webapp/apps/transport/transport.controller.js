@@ -50,6 +50,7 @@
         vm.selectCheckBoxCart = selectCheckBoxCart;
         vm.agreementGycbhs = [];
         vm.checkTypePay = 'agency';
+        vm.btnTransDisabled = true;
   		
         vm.confirmViewAgreement = confirmViewAgreement;
         vm.confirmTransport = confirmTransport;
@@ -57,6 +58,7 @@
         vm.searchTransport = searchTransport;
         vm.showPayment;
         vm.nextStep = nextStep;
+        vm.checkBoxCartAllChange = checkBoxCartAllChange;
         
         vm.selectedDepartmentId;
         vm.selectedAgency;
@@ -82,6 +84,35 @@
         	vm.showPayment = true;
         }
         
+        function checkBoxCartAllChange() {
+        	let value = vm.checkAll;
+        	if (value == true) {
+        		vm.btnTransDisabled = false;
+        	} else {
+        		vm.btnTransDisabled = true;
+        	}
+        	
+        	angular.forEach(vm.allOrder, function(order, key) {
+        		order.check = value;
+		 	});
+        }
+        
+        function calculateCheckAll() {
+        	// != 100
+        	let value = true;
+        	vm.btnTransDisabled = true;
+        	angular.forEach(vm.allOrder, function(order, key) {
+        		if (order.statusPolicyId != 100) {
+        			if (order.check != true) {
+        				value = false;
+        			} else {
+        				vm.btnTransDisabled = false;
+        			}
+        		}
+		 	});
+        	vm.checkAll = value;
+        }
+
         function changeDate(){
   			if (vm.searchCriterial.fromDate != "" && vm.searchCriterial.toDate != ""){
   				if(!vm.checkDate(vm.searchCriterial.fromDate, vm.searchCriterial.toDate)){
@@ -140,7 +171,7 @@
             		vm.agreementGycbhs.splice(index, 1);
                 }
             }
-
+            calculateCheckAll();
         }
 
         function loadPage (page) {
@@ -159,6 +190,16 @@
   		}
         
         function confirmTransport() {
+        	// Get vm.agreementGycbhs
+        	vm.agreementGycbhs = [];
+        	angular.forEach(vm.allOrder, function(order, key) {
+        		if (order.statusPolicyId != 100) {
+        			if (order.check == true) {
+        				vm.agreementGycbhs.push(order.gycbhNumber);
+        			}
+        		}
+		 	});
+        	
   			$ngConfirm({
                 title: 'Xác nhận',
                 theme: 'modern',

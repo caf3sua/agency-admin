@@ -67,7 +67,7 @@
 	  				// Load file
 	  				loadFileInEditMode();
 	  				
-	  				ContactService.getByCode({contactCode : data.contactCode} , onGetContactSuccess, onGetContactError);
+	  				ContactService.getByCodeAdmin({contactCode : data.contactCode} , onGetContactSuccess, onGetContactError);
 	  				function onGetContactSuccess(result) {
 	  					vm.policy.contactName = result.contactName;
 	  					vm.policy.dateOfBirth = result.dateOfBirth;

@@ -181,7 +181,10 @@
   		}
   		
   		function cancel() {
-  			$uibModalInstance.dismiss('cancel');
+  			vm.policy.title = "";
+  			vm.policy.sendEmail = "";
+  			vm.policy.conversationContent= "";
+  			vm.fileModel = [];
   		}
   		
   		function saveCommunication() {

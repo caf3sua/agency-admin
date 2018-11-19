@@ -3,7 +3,7 @@
             <p>1. Thông tin người yêu cầu bảo hiểm</p>
         </div>
         <div class="bv-title-from">
-            <p>Họ tên người yêu cầu bảo hiểm</p>
+            <p>Họ tên</p>
         </div>
         <div>
             <p class="bv-tile-templateSummary">{{vm.policy.nguoiycName}}</p>
@@ -20,7 +20,7 @@
             <p>2. Thông tin người được bảo hiểm</p>
         </div>
         <div class="bv-title-from">
-            <p>Họ tên người được bảo hiểm</p>
+            <p>Họ tên</p>
         </div>
         <div>
             <p class="bv-tile-templateSummary">{{vm.policy.nguoidbhName}}</p>
@@ -58,6 +58,12 @@
                     <p class="bv-tile-templateSummary">Bố mẹ của vợ/chồng</p>
                 </div>
             </div>
+        </div>
+        <div class="bv-title-from" ng-show="vm.isShowPolicyParent">
+            <p>Giấy khai sinh</p>
+        </div>
+        <div ng-show="vm.isShowPolicyParent">
+        	<img src="data:image/*;base64,{{vm.gksFile.content}}" height="150px">
         </div>
     </div>
     <div class="bv-pading-30">
@@ -198,13 +204,44 @@
              </label>
          </div>
      </div>
+     <div class=" display-flex">
+     	<table class="table table-bordered margin-top-10" ng-show="vm.policy.q3 == 1">
+                <thead>
+                <tr>
+                    <th style="width: 195px">Ngày khám/điều trị</th>
+                    <th>Chuẩn đoán</th>
+                    <th>Chi tiết điều trị</th>
+                    <th>Kết quả</th>
+                    <th>Tên, địa chỉ bác sĩ/bệnh viện</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in vm.policy.lstAdd">
+                        <td>
+                            <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+                                <div class="width-100">
+                                    <input type="text" name="ngaydieutri" class="bv-input" placeholder="dd/MM/yyyy" ng-model="item.ngaydieutri" disabled="disabled">
+                                </div>
+                                <div class="input-group-addon bv-date-icon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><input type="text" name="chuandoan" class="form-control" ng-model="item.chuandoan" disabled="disabled"/></td>
+                        <td><input type="text" name="chitietdieutri" class="form-control" ng-model="item.chitietdieutri" disabled="disabled"/></td>
+                        <td><input type="text" name="ketqua" class="form-control" ng-model="item.ketqua" disabled="disabled"/></td>
+                        <td><input type="text" name="benhvienorbacsy" class="form-control" ng-model="item.benhvienorbacsy" disabled="disabled"/></td>
+                    </tr>
+                </tbody>
+     	</table>
+     </div>
     </div>
     <div class="bv-pading-30">
         <div class="text-header-sp">
             <p>6. Thông tin người thụ hưởng bảo hiểm</p>
         </div>
         <div class="bv-title-from">
-            <p>Họ tên người được bảo hiểm</p>
+            <p>Họ tên</p>
         </div>
         <div>
             <p class="bv-tile-templateSummary">{{vm.policy.nguoithName}}</p>
@@ -226,6 +263,52 @@
         </div>
         <div>
         	<div ng-switch="vm.policy.nguoithQuanhe">
+                <div ng-switch-when="30">
+                    <p class="bv-tile-templateSummary">Bản thân</p>
+                </div>
+                <div ng-switch-when="31">
+                    <p class="bv-tile-templateSummary">Vợ/Chồng</p>
+                </div>
+                <div ng-switch-when="32">
+                    <p class="bv-tile-templateSummary">Con</p>
+                </div>
+                <div ng-switch-when="33">
+                    <p class="bv-tile-templateSummary">Bố/Mẹ</p>
+                </div>
+                <div ng-switch-when="34">
+                    <p class="bv-tile-templateSummary">Bố mẹ của vợ/chồng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bv-pading-30">
+        <div class="text-header-sp">
+            <p>7. Thông tin người nhận tiền bảo hiểm</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Họ tên</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.nguoinhanName}}</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Ngày sinh</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.nguointNgaysinh}}</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Số CMT/Hộ chiếu</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.nguoinhanCmnd}}</p>
+        </div>
+        <div class="bv-title-from">
+            <p>Quan hệ với người yêu cầu bảo hiểm</p>
+        </div>
+        <div>
+        	<div ng-switch="vm.policy.nguoinhanQuanhe">
                 <div ng-switch-when="30">
                     <p class="bv-tile-templateSummary">Bản thân</p>
                 </div>

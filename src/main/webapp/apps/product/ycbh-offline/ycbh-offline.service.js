@@ -10,7 +10,7 @@
         var service = $resource('', {}, {
             'getByGycbhNumber' : {
                 method : 'POST',
-                url : 'api/agency/product/agreement/getYcbhOffline-by-gycbhNumber'
+                url : 'api/agency/product/adminUser/adm-getYcbhOffline-by-gycbhNumber'
             }
         });
 

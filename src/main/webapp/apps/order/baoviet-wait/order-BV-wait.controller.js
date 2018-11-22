@@ -43,7 +43,6 @@
   		vm.confirmKhachhangnophi = confirmKhachhangnophi;
   		vm.confirmViewAgreement = confirmViewAgreement;
   		vm.changeDate = changeDate;
-  		vm.communication = communication;
   		
   		vm.selectedDepartmentId;
         vm.selectedAgency;
@@ -179,24 +178,6 @@
         	// search
         	search();
         }
-        
-        function communication(order) {
-  			$rootScope.communication_GycbhNumber = order.gycbhNumber;
-            modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'apps/order/baoviet-wait/view/form-thongtingiamdinh.html',
-                controller: 'CommunicationController',
-                controllerAs: 'vm',
-                size: 'lg',
-                resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('global');
-                        return $translate.refresh();
-                    }]
-                }
-            });	            
-  		}
-        
         
         function doKhachhangnophi(order, sotiennophi, note) {
         	vm.sotiennophi = sotiennophi;

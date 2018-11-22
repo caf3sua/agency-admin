@@ -33,7 +33,10 @@
 		            			, 'apps/product/product-base.service.js'
 		            			, 'apps/contact/contact-search-dialog.controller.js'
 		            			, 'apps/product/agreement-otp.controller.js'
-		            			, 'apps/product/product-base.controller.js']);
+		            			, 'apps/product/product-base.controller.js'
+		            			, 'apps/communication/communication.controller.js'
+		            			, 'apps/communication/communication.service.js'
+		            			]);
 			        }
 		        }
 		});    

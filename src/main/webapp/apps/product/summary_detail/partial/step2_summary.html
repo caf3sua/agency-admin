@@ -32,17 +32,23 @@
             <p>Địa chỉ người nhận</p>
         </div>
         <div>
-            <p class="bv-tile-templateSummary" ng-show="vm.isEditMode()">{{vm.policy.receiverUser.address | address}}</p>
-            <p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.receiverUser.address + ', ' + vm.policy.receiverUser.addressDistrictData.pkDistrict + ', ' + vm.policy.receiverUser.addressDistrictData.pkProvince}}</p>
+            <p class="bv-tile-templateSummary edit-mode" ng-show="vm.isEditMode()">{{vm.policy.receiverUser.address | address}}</p>
+            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.receiverUser.address + ', ' + vm.policy.receiverUser.addressDistrictData.pkDistrict + ', ' + vm.policy.receiverUser.addressDistrictData.pkProvince}}</p>
         </div>
         <div class="bv-title-from">
             <p>Hình thức giao nhận</p>
         </div>
         <div>
-            <p class="bv-tile-templateSummary display-inline-block">Gửi tới địa chỉ người nhận</p>
+        	<p class="bv-tile-templateSummary display-inline-block">Bảo Việt sẽ giao bản cứng Giấy chứng nhận bảo hiểm cho Quý khách trong khoảng thời gian sau kể từ thời điểm quý khách thanh toán đủ phí bảo hiểm:</p>
         </div>
+         <div>
+         	<p class="bv-tile-templateSummary display-inline-block">- Hà Nội và Trung tâm tỉnh/Thành phố khác: 2-4 ngày</p>
+         </div>
+         <div>
+         	<p class="bv-tile-templateSummary display-inline-block">- Khu vực còn lại: 4-5 ngày</p>
+         </div>
 </div>
-<div class="bv-pading-30">
+<div class="bv-pading-30" ng-show="vm.policy.invoiceInfo.name != ''">
         <div class="text-header-sp">
             <p class="header-border-bottom">Thông tin hóa đơn giá trị gia tăng</p>
         </div>
@@ -76,15 +82,13 @@
             <p>Địa chỉ công ty</p>
         </div>
         <div>
-            <p class="bv-tile-templateSummary">{{vm.policy.invoiceInfo.address}}</p>
+            <p class="bv-tile-templateSummary edit-mode" ng-show="vm.isEditMode()">{{vm.policy.invoiceInfo.address | address}}</p>
+            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.invoiceInfo.address + ', ' + vm.policy.invoiceInfo.addressDistrictData.pkDistrict + ', ' + vm.policy.invoiceInfo.addressDistrictData.pkProvince}}</p>
         </div>
         <div class="bv-title-from">
             <p>Số tài khoản</p>
         </div>
         <div>
             <p class="bv-tile-templateSummary display-inline-block">{{vm.policy.invoiceInfo.accountNo}}</p>
-        </div>
-        <div>
-            <p class="bv-tile-templateSummary">Ngay sau khi Quý khách thanh toán phí bảo hiểm thành công, Bảo Việt sẽ gửi bản mềm Giấy chứng nhận bảo hiểm tới địa chỉ email Quý khách đăng ký</p>
         </div>
 </div>

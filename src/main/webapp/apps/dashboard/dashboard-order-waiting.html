@@ -15,19 +15,22 @@
         </div>
         <div>
             <table style="width:100%" class="bv-home-block-left-table">
-                <tr ng-repeat="item in vm.AllWaitAgreement track by $index">
+                <tr ng-repeat-start="order in vm.AllWaitAgreement track by $index" ng-click="order.expand = !order.expand">
                     <td>
                         <p class="bv-home-table-stt margin-0">Chờ</p>
                     </td>
                     <td>
-                        <p class="margin-0 bv-table-sub-text">{{item.gycbhNumber}}</p>
-                        <p class="margin-0 bv-table-sub-text">{{item.inceptionDate}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{order.gycbhNumber}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{order.inceptionDate}}</p>
                     </td>
                     <td>
-                        <p class="margin-0 bv-table-sub-text">{{item.contactName}}</p>
-                        <p class="bv-table-text-colorBlack">{{item.statusPolicyName}}</p>
+                        <p class="margin-0 bv-table-sub-text">{{order.contactName}}</p>
+                        <p class="bv-table-text-colorBlack">{{order.statusPolicyName}}</p>
                     </td>
                 </tr>
+                <tr ng-if="order.expand" ng-repeat-end="">
+	           		<td colspan="9"><div ng-include="'apps/order/baoviet-wait/order-BV-wait-context-menu.html'"></div></td>
+	          	</tr>
             </table>
         </div>
     </div>

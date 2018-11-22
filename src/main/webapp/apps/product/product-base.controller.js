@@ -99,10 +99,28 @@
         vm.loadContactForInvoice = false;
     	vm.loadContactForReceiver = false;
     	vm.validateInvoice = validateInvoice;
+    	vm.communication = communication;
     	
     	// 15.08
     	vm.checkDate = checkDate;
     	var modalInstance = null;
+    	
+    	function communication(order) {
+  			$rootScope.communication_GycbhNumber = order.gycbhNumber;
+            modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'apps/order/baoviet-wait/view/form-thongtingiamdinh.html',
+                controller: 'CommunicationController',
+                controllerAs: 'vm',
+                size: 'lg',
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            });	            
+  		}
     	
     	function checkDate(startDate, endDate){
     		var splitStart = startDate.split('/');

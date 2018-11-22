@@ -24,7 +24,10 @@
         				return $translate.refresh();
             		}],
             		loadPlugin: function ($ocLazyLoad) {
-	            		return $ocLazyLoad.load(['apps/report/report-base.service.js', 'apps/dashboard/dashboard.service.js', 'apps/dashboard/dashboard.controller.js', 'apps/product/product-base.controller.js', 'apps/product/product-base.service.js']);
+	            		return $ocLazyLoad.load(['apps/report/report-base.service.js', 'apps/dashboard/dashboard.service.js', 'apps/dashboard/dashboard.controller.js', 'apps/product/product-base.controller.js', 'apps/product/product-base.service.js'
+	            			, 'apps/communication/communication.controller.js'
+	            			, 'apps/communication/communication.service.js'
+	            			]);
 		        }
             }
         });

@@ -33,7 +33,7 @@
         </div>
         <div>
             <p class="bv-tile-templateSummary edit-mode" ng-show="vm.isEditMode()">{{vm.policy.receiverUser.address | address}}</p>
-            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.receiverUser.address + ', ' + vm.policy.receiverUser.addressDistrictData.pkDistrict}}</p>
+            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.receiverUser.address + ', ' + vm.policy.receiverUser.addressDistrictData.pkDistrict | address}}</p>
         </div>
         <div class="bv-title-from">
             <p>Hình thức giao nhận</p>
@@ -83,7 +83,7 @@
         </div>
         <div>
             <p class="bv-tile-templateSummary edit-mode" ng-show="vm.isEditMode()">{{vm.policy.invoiceInfo.address | address}}</p>
-            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.invoiceInfo.address + ', ' + vm.policy.invoiceInfo.addressDistrictData.pkDistrict}}</p>
+            <p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.invoiceInfo.address + ', ' + vm.policy.invoiceInfo.addressDistrictData.pkDistrict | address}}</p>
         </div>
         <div class="bv-title-from">
             <p>Số tài khoản</p>

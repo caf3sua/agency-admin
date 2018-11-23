@@ -20,6 +20,8 @@
             </div>
             <div>
                 <p class="bv-tile-templateSummary">{{vm.policy.insuranceAddress}}</p>
+                <p class="bv-tile-templateSummary" ng-show="vm.isEditMode()">{{vm.policy.insuranceAddress | address}}</p>
+            	<p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.insuranceAddress + ', ' + vm.policy.insuranceAddressDistrict.pkDistrict | address}}</p>
             </div>
             <div class="margin-top-10">
                 <p class="bv-title-from">Điện thoại</p>

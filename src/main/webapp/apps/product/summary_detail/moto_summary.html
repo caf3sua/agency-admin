@@ -13,7 +13,8 @@
                 <p class="bv-title-from">Địa chỉ</p>
             </div>
             <div>
-                <p class="bv-tile-templateSummary">{{vm.policy.insuredAddress}}</p>
+            	<p class="bv-tile-templateSummary" ng-show="vm.isEditMode()">{{vm.policy.insuredAddress | address}}</p>
+	            <p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.insuredAddress + ', ' + vm.policy.insuredAddressDistrict.pkDistrict}}</p>
             </div>
             <div class="margin-top-10">
                 <p class="bv-title-from">Điện thoại</p>
@@ -69,10 +70,10 @@
             <div>
                 <p class="bv-tile-templateSummary">{{vm.policy.hieuxe}}</p>
             </div>
-            <div class="">
+            <div class="" ng-show="vm.policy.chaynoStbh > 0">
                 <p class="bv-title-from">Giá trị bảo hiểm</p>
             </div>
-            <div>
+            <div ng-show="vm.policy.chaynoStbh > 0">
                 <p class="bv-tile-templateSummary">{{vm.policy.chaynoStbh | number : 0}} VND</p>
             </div>
         </div>
@@ -123,7 +124,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr ng-show="vm.policy.tndstnPhi > 0">
                         <td>
                             <p class="bv-tile-templateSummary">Bảo hiểm Trách nhiệm dân sự tự nguyện</p></td>
                         <td>
@@ -145,7 +146,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr ng-show="vm.policy.nntxPhi > 0">
                         <td>
                             <p class="bv-tile-templateSummary">Bảo hiểm tai nạn người ngồi trên xe</p></td>
                         <td>
@@ -164,7 +165,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr ng-show="vm.policy.chaynoPhi > 0">
                         <td>
                             <p class="bv-tile-templateSummary">Bảo hiểm Cháy nổ xe máy</p></td>
                         <td>

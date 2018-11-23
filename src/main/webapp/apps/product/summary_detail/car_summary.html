@@ -14,7 +14,7 @@
         </div>
         <div>
             <p class="bv-tile-templateSummary" ng-show="vm.isEditMode()">{{vm.policy.insuredAddress | address}}</p>
-            <p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.insuredAddress + ', ' + vm.policy.insuredAddressDistrict.pkDistrict + ', ' + vm.policy.insuredAddressDistrict.pkProvince}}</p>
+            <p class="bv-tile-templateSummary" ng-show="!vm.isEditMode()">{{vm.policy.insuredAddress + ', ' + vm.policy.insuredAddressDistrict.pkDistrict}}</p>
         </div>
         <div class="margin-top-10">
             <p class="bv-title-from">Điện thoại</p>
@@ -55,7 +55,7 @@
             <p class="bv-title-from">Loại xe</p>
         </div>
         <div>
-        	   <div ng-switch="vm.policy.tndsSocho">
+        	<div ng-switch="vm.policy.tndsSoCho">
               <div ng-switch-when="1">
                   <p class="bv-tile-templateSummary">Loại xe dưới 6 chỗ ngồi</p>
               </div>
@@ -71,7 +71,7 @@
               <div ng-switch-when="5">
                   <p class="bv-tile-templateSummary">Xe vừa chở người vừa chở hàng(Pickup, Minivan)</p>
               </div>
-         </div>
+            </div>
         </div>
         <div class="">
             <p class="bv-title-from">Mục đích sử dụng</p>
@@ -104,10 +104,15 @@
                  </tr>
                  </thead>
                  <tbody>
-                 <tr>
+                 <tr ng-show="vm.policy.tndsbbPhi > 0">
                      <td>
                          <p class="bv-tile-templateSummary">Bảo hiểm trách nhiệm dân sự bắt buộc</p></td>
                      <td>
+                     	<div class="bv-tile-templateSummary">
+		                     <p class="margin-bottom-0"> Mức trách nhiệm đối với người thứ 3</p>
+		                     <p class="margin-bottom-0"> - Về người: 100,000,000 VND/người/vụ</p>
+		                     <p class="margin-bottom-0"> - Về tài sản: 100,000,000 VND/vụ</p>
+	                     </div>
                      </td>
                      <td>
                          <div class="bv-tile-templateSummary">
@@ -115,7 +120,7 @@
                          </div>
                      </td>
                  </tr>
-                 <tr>
+                 <tr ng-show="vm.policy.tndstnPhi > 0">
                      <td>
                          <p class="bv-tile-templateSummary">Bảo hiểm trách nhiệm dân sự tự nguyện</p></td>
                      <td>
@@ -131,7 +136,7 @@
                          </div>
                      </td>
                  </tr>
-                 <tr>
+                 <tr ng-show="vm.policy.nntxPhi > 0">
                      <td>
                          <p class="bv-tile-templateSummary">Bảo hiểm tai nạn người ngồi trên xe</p></td>
                      <td>
@@ -150,7 +155,7 @@
                          </div>
                      </td>
                  </tr>
-                 <tr>
+                 <tr ng-show="vm.policy.vcxPhi > 0">
                      <td>
                          <p class="bv-tile-templateSummary">Bảo hiểm vật chất</p></td>
                      <td>

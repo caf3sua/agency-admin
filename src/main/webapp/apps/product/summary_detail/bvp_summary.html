@@ -60,10 +60,21 @@
             </div>
         </div>
         <div class="bv-title-from" ng-show="vm.isShowPolicyParent">
+            <p>Số HĐBH/GCNBH/Thẻ/Mã đơn hàng Bố(Mẹ)</p>
+        </div>
+        <div ng-show="vm.isShowPolicyParent">
+        	<p class="bv-tile-templateSummary">{{vm.policy.policyParent}}</p>
+        </div>
+        <div class="bv-title-from" ng-show="vm.isShowPolicyParent">
             <p>Giấy khai sinh</p>
         </div>
         <div ng-show="vm.isShowPolicyParent">
-        	<img src="data:image/*;base64,{{vm.gksFile.content}}" height="150px">
+        	<a ng-click="vm.downloadAttachment(vm.policy.imgGks)" ng-show="!vm.isImageFile(vm.policy.imgGks)">
+				<span>{{vm.policy.imgGks.filename}}</span> <i class="fas fa-paperclip"></i>		                	
+           	</a>
+            <a ng-click="vm.downloadAttachment(vm.policy.imgGks)" ng-show="vm.isImageFile(vm.policy.imgGks)">
+				<img src="data:image/*;base64,{{vm.policy.imgGks.content}}" height="150px" ng-show="vm.isImageFile(vm.policy.imgGks)">		                	
+            </a>
         </div>
     </div>
     <div class="bv-pading-30">

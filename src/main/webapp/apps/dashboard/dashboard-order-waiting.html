@@ -20,12 +20,12 @@
                         <p class="bv-home-table-stt margin-0">Chờ</p>
                     </td>
                     <td>
-                        <p class="margin-0 bv-table-sub-text">{{order.gycbhNumber}}</p>
+                        <p class="bv-table-text-colorBlue">{{order.gycbhNumber}}</p>
                         <p class="margin-0 bv-table-sub-text">{{order.inceptionDate}}</p>
                     </td>
                     <td>
                         <p class="margin-0 bv-table-sub-text">{{order.contactName}}</p>
-                        <p class="bv-table-text-colorBlack">{{order.statusPolicyName}}</p>
+                        <p class="bv-table-text-colorBlack"><span data-translate="global.policy.status.{{order.statusPolicyId}}">Đã thanh toán</span></p>
                     </td>
                 </tr>
                 <tr ng-if="order.expand" ng-repeat-end="">

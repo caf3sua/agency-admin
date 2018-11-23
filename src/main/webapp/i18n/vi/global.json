@@ -19,9 +19,16 @@
 		},
 		"policy" : {
         	"status" : {
-        		"89" : "Hủy hợp đồng",
-        		"90" : "Chưa thanh toán",
-        		"91" : "Đã thanh toán"
+        		"80" : "Đang soạn",
+        		"81" : "Chờ OTP",
+        		"83" : "Yêu cầu bổ sung thông tin",
+        		"89" : "Đại lý, Khách hàng hủy đơn",
+        		"90" : "Chờ thanh toán",
+        		"91" : "Chờ Bảo Việt cấp đơn",
+        		"92" : "Chờ Bảo Việt cấp GCNBH (bản cứng)",
+        		"93" : "Chờ BV giám định",
+        		"99" : "Bảo Việt từ chối",
+        		"100" : "Hoàn thành"
         	}
         },
 		"product" : {

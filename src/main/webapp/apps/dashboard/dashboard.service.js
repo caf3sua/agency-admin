@@ -15,7 +15,7 @@
 			},
 			'getAllWaitAgency' : {
                 method : 'GET',
-                url : 'api/agency/product/adminUser/get-wait-agreement',
+                url : 'api/agency/product/adminUser/get-wait-agency',
                 isArray : true
             },
 			'getAllWaitAgreement' : {

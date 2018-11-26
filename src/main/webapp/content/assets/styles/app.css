@@ -2279,7 +2279,7 @@ body {
     display: none;
     overflow: visible;
     max-height: 999px;
-    color: rgba(255, 255, 255, 0.87);
+    color: #5f8db5;
     background-color: #fff;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);

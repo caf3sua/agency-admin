@@ -9,6 +9,11 @@
 
 	function NavCommonService($resource) {
 		var service = $resource('', {}, {
+			'admGetCountAllOrder' : {
+				method : 'GET',
+				url : 'api/agency/agency-report/adm-get-count-all-order',
+				isArray : false
+			},
 			'getKcarePremium' : {
 				method : 'POST',
 				url : 'api/agency/product/kcare/premium'

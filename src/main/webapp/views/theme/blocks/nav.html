@@ -11,6 +11,7 @@
         <a ui-sref="app.cart"  class="bv-left-menu">
             <i class=icon-cart></i>
             <span class="nav-text">Giỏ hàng</span>
+            <span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countCart}}</span>
         </a>
     </li>
     
@@ -19,6 +20,7 @@
         <a ui-sref="app.trans" class="bv-left-menu">
             <i class="icon-paper"></i>
             <span class="nav-text">Vận đơn</span>
+            <span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countOrderDebit}}</span>
         </a>
     </li>
     
@@ -39,8 +41,11 @@
                 </a>
             </li> -->
             <li ui-sref-active="active">
-                <a ui-sref="order.baoviet">
-                    <span class="nav-text">Chờ bổ xung thông tin</span>
+            	<a ui-sref="order.baoviet">
+                	<div class="bv-menu-container">
+	                    <span class="">Chờ bổ xung thông tin</span>
+                    	<span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countBvWaiting}}</span>
+                    </div>
                 </a>
             </li>
         </ul>

@@ -25,6 +25,7 @@
         		"89" : "Đại lý, Khách hàng hủy đơn",
         		"90" : "Chờ thanh toán",
         		"91" : "Chờ Bảo Việt cấp đơn",
+        		"91_1" : "Thanh toán sau",
         		"92" : "Chờ Bảo Việt cấp GCNBH (bản cứng)",
         		"93" : "Chờ BV giám định",
         		"99" : "Bảo Việt từ chối",

@@ -814,6 +814,7 @@ body {
     margin-right: 5px;
     margin-left: 5px;
     color: #b4cfe4;
+    width: 22px;
 }
 .bv-left-menu-sp>span{
     font-size: 14px;
@@ -1634,7 +1635,7 @@ body {
     display: none;
 }
 .nav-dropup .nav > li > ul .nav-text, .folded.nav-dropdown .nav > li > ul .nav-text {
-    width: 90px;
+    /* width: 90px; */
 }
 .active-contact >i{
     color: #fff;
@@ -3073,11 +3074,17 @@ div#insideDiv{
 }
 
 .bv-menu-label-sum {
-    font-size: 13px;
-    margin-left: 5px;
+    font-size: 10px;
+    position: absolute;
+    top: 3px;
+    left: 25px;
 }
 .bv-menu-container {
 	margin-left: 5px;
     margin-top: 12px;
     margin-bottom: 12px;
+}
+
+.icon-order {
+	position: relative;
 }

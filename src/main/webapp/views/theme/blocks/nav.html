@@ -9,18 +9,16 @@
 	<!-- Giỏ hàng -->
     <li ui-sref-active="active">
         <a ui-sref="app.cart"  class="bv-left-menu">
-            <i class=icon-cart></i>
+            <i class=icon-cart><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countCart}}</span></i>
             <span class="nav-text">Giỏ hàng</span>
-            <span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countCart}}</span>
         </a>
     </li>
     
     <!-- Vận đơn -->
     <li ui-sref-active="active">
         <a ui-sref="app.trans" class="bv-left-menu">
-            <i class="icon-paper"></i>
+            <i class="icon-paper"><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countOrderDebit}}</span></i>
             <span class="nav-text">Vận đơn</span>
-            <span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countOrderDebit}}</span>
         </a>
     </li>
     
@@ -41,11 +39,9 @@
                 </a>
             </li> -->
             <li ui-sref-active="active">
-            	<a ui-sref="order.baoviet">
-                	<div class="bv-menu-container">
-	                    <span class="">Chờ bổ xung thông tin</span>
-                    	<span class="label rounded blue-100 bv-menu-label-sum">{{vm.countInfo.countBvWaiting}}</span>
-                    </div>
+            	<a class="bv-left-menu-sp icon-order" ui-sref="order.baoviet">
+                    <i class="icon-paper "><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countBvWaiting}}</span></i>
+                    <span class="nav-text">Chờ bổ xung thông tin</span>
                 </a>
             </li>
         </ul>

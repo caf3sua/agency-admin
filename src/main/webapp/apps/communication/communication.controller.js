@@ -47,20 +47,33 @@
 	  		    	  "gycbhNumber": ""
 		    };
 		    vm.gycbhNumber = $rootScope.communication_GycbhNumber;
+		    vm.order = $rootScope.communication_Order;
 		    
 		    // Edit
-		    if (vm.gycbhNumber != null) {
-  				CommunicationService.getOrderTransactions({gycbhNumber: vm.gycbhNumber}, onOrderSuccess, onOrderError);
+		    if (vm.gycbhNumber != null && vm.order.agentId) {
+  				vm.policy.title = "Bảo Việt: Giám định đơn hàng " + vm.gycbhNumber;
+  				
+  				CommunicationService.getOrderTransactions({gycbhNumber: vm.gycbhNumber}, onOrderSuccess, onError);
+  				
+  				// Load file
+  				loadFileInEditMode();
   				
   				function onOrderSuccess(result) {
   					vm.hisOrder = result;
-  					// Load file
-  					loadFileInEditMode();
+  					angular.element('#conversationContent').focus();
+  					CommunicationService.getAgency({id: vm.order.agentId}, onSuccess, onError);
+  					
+  					function onSuccess(data) {
+  						if (data.email != null && data.email != ""){
+  							vm.policy.sendEmail = data.email;	
+  						}
+  		  			}
   				}
 	  				
-	  			function onOrderError() {
+	  			function onError() {
 	  			}
 		    }
+		    
 		    
   		})();
   		
@@ -209,13 +222,13 @@
       			
       			function onError(data) {
       				vm.isLoading = false;
-      				toastr.error("Lỗi khi tạo trao đổi thông tin.");
+      				toastr.error("Lỗi khi gửi trao đổi thông tin.");
       			}
 	  		}
   		}
   		
   		function showSaveSuccess(data) {
-        	var message = "Trao đổi hợp đồng bảo hiểm đã tạo thành công";
+        	var message = "Trao đổi hợp đồng bảo hiểm đã gửi thành công";
         	
         	$ngConfirm({
                 title: 'Thông báo',

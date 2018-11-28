@@ -107,9 +107,10 @@
     	
     	function communication(order) {
   			$rootScope.communication_GycbhNumber = order.gycbhNumber;
+  			$rootScope.communication_Order = order;
             modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'apps/order/baoviet-wait/view/form-thongtingiamdinh.html',
+                templateUrl: 'apps/communication/view/communication-dialog.html',
                 controller: 'CommunicationController',
                 controllerAs: 'vm',
                 size: 'lg',

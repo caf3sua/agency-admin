@@ -19,6 +19,7 @@
                 isArray : true
             },
             'accessOrder': {url : 'api/agency/product/adminUser/admin-access-order', method: 'POST'},
+            'getAgency': {url : 'api/agency/account/get-agency-by-id/:id', method: 'GET'},
             'cancelOrder': {url : 'api/agency/product/adminUser/admin-cancel-order', method: 'POST'}
         });
 

@@ -68,6 +68,11 @@
 	        angular.element(document).ready(function () {
 	        	changeFilterDate("WEEK");
 	        });
+	        
+	        $scope.$on('saveCommunicationSuccess', function() {
+	  			getAllWaitAgency();
+	  			getAllWaitAgreement();
+            });
 
 	    	// Init controller
 	  		(function initController() {

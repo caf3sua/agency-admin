@@ -35,14 +35,27 @@
 	        		  "waitBaoviet" : []
     		};
 	        
+	        vm.searchBaoViet = {
+	  			  "pageable": {
+	  			    "page": 0,
+	  			    "size": 3
+	  			  },
+    			  "contactCode": "",
+    			  "contactName": "",
+    			  "email": "",
+    			  "fromDate": "",
+    			  "gycbhNumber": "",
+    			  "statusPolicy": "",
+    			  "phone": "",
+    			  "productCode": "",
+    			  "toDate": "",
+    			  "createType": "",
+    			  "agentId": "",
+	  			  "departmentId": ""
+	    	};
 	        
 	        vm.chartIncomeOptions = chartIncomeOptions;
-//	        vm.chartIncomeOptions.yAxis[0].show = false;
-//	        vm.chartIncomeOptions.xAxis[0].show = false;
-	        
 	        vm.chartCommissionOptions = chartCommissionOptions;
-//	        vm.chartCommissionOptions.yAxis[0].show = false;
-//	        vm.chartCommissionOptions.xAxis[0].show = false;
 	        
 	        // paging
 	        vm.page = 1;
@@ -77,6 +90,7 @@
 	    	// Init controller
 	  		(function initController() {
 	  			$controller('ProductBaseController', { vm: vm, $scope: $scope });
+	  			
 	  			getAllWaitAgency();
 	  			getAllWaitAgreement();
 	  		})();
@@ -112,10 +126,7 @@
 	  		
 	  		function getAllWaitAgreement() {
 	    		vm.AllWaitAgreement = [];
-	    		DashboardService.getAllWaitAgreement({
-	    			page: vm.page - 1,
-	                size: vm.itemsPerPage
-	            }, onSuccess, onError);
+	    		DashboardService.getAllWaitAgreement(vm.searchBaoViet, onSuccess, onError);
 	    		
 	    		function onSuccess(result, headers) {
 	    			vm.totalItemsAgreement = headers('X-Total-Count');
@@ -123,12 +134,10 @@
 	            }
 
 	            function onError(result) {
-	            	
 	            }
 	  		}
 	  		
 	  		function goOrder() {
-//	  			$state.go("order.me", {status: 81});
 	  			$state.go("order.agency");
 	  		}
 	  		

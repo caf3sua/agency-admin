@@ -18,9 +18,9 @@
                 url : 'api/agency/product/adminUser/get-wait-agency',
                 isArray : true
             },
-			'getAllWaitAgreement' : {
-                method : 'GET',
-                url : 'api/agency/product/adminUser/get-wait-agreement',
+            'getAllWaitAgreement' : {
+                method : 'POST',
+                url : 'api/agency/product/adminUser/search-admin-order',
                 isArray : true
             }
 		});

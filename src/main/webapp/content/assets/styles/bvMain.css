@@ -2861,6 +2861,13 @@ body {
    line-height: 30px !important;
 }
 
+.bv-btn-s {
+	width: 35px !important;
+    height: 35px !important;
+   line-height: 18px !important;
+}
+
+
 .bv-product-icon {
 	font-size: 20px;
     margin-bottom: 5px;
@@ -3087,4 +3094,40 @@ div#insideDiv{
 
 .icon-order {
 	position: relative;
+}
+
+.product-toolbar {
+	margin-top: 10px;
+	/* text-align: right; */
+}
+
+.product-btn-toolbar {
+	font-size: 20px;
+    margin-left: 10px;
+    color: #3368b770;
+}
+.product-btn-toolbar:hover {
+    color: #3368b7;
+}
+.color-337ab7 {
+	color: #337ab7;
+}
+.color-5cb85c {
+    color: #5cb85c9e !important;
+}
+
+.color-d9534f {
+    color: #d9534f96 !important;
+}
+
+.m-w-190 {
+    min-width: 190px;
+}
+
+.tvc-checkbox {
+    margin-bottom: 0px  !important;
+}
+
+.m-w-200 {
+	min-width: 200px;
 }

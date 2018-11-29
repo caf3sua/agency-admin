@@ -172,6 +172,10 @@
 			'checkOTP' : {
                 method : 'POST',
                 url : 'api/agency/product/agreement/check-OTP'
+            },
+            'processImportTvc' : {
+                method : 'POST',
+                url : 'api/agency/product/tvc/import-excel'
             }
         });
 

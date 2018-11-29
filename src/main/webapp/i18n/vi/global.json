@@ -1,13 +1,29 @@
 {
     "global": {
-        "title": "Bảo Việt Admin",
+        "title": "Bảo Việt Agency",
+        "contact" : {
+        	"label" : {
+        		"PERSON" : {
+	        		"name" : "Họ và tên",
+	        		"cmt_mst": "Số CMT/MST",
+	        		"occupation": "Nghề nghiệp"
+	        	},
+	        	"ORGANIZATION" : {
+	        		"name" : "Tên tổ chức",
+	        		"cmt_mst": "Mã số thuế",
+	        		"occupation": "Ngành nghề kinh doanh"
+	        	}
+        	}
+        }, 
         "person" : {
         	"relationship" : {
         		"30" : "Bản thân",
         		"31" : "Vợ/Chồng",
         		"32" : "Con",
-        		"34" : "Bố/Me",
-        		"39" : "Bố Me của vợ/chồng",
+        		"33" : "Bố/Me",
+        		"34" : "Bố Me của vợ/chồng",
+        		"39" : "Khách đoàn",
+        		"99" : "Khác",
         		"00" : "Không xác định"
         	}
         },
@@ -22,6 +38,7 @@
         		"80" : "Đang soạn",
         		"81" : "Chờ OTP",
         		"83" : "Yêu cầu bổ sung thông tin",
+        		"84" : "Đơn quá  hạn thanh toán",
         		"89" : "Đại lý, Khách hàng hủy đơn",
         		"90" : "Chờ thanh toán",
         		"91" : "Chờ Bảo Việt cấp đơn",
@@ -48,6 +65,12 @@
         		"TNC" : "Bảo hiểm tai nạn con người",
         		"TVC" : "Bảo hiểm du lịch quốc tế",
         		"TVI" : "Bảo hiểm du lịch Việt Nam"
+        	},
+        	"tvc" : {
+        		"label" : {
+        			"contact_name_PERSON" : "Họ tên người yêu cầu bảo hiểm",
+        			"contact_name_ORGANIZATION" : "Tên tổ chức yêu cầu bảo hiểm" 
+        		}
         	}
         },
         "page" : {
@@ -80,25 +103,28 @@
         		"PRINTED_PAPER_NEW" : "Danh sách ấn chỉ chưa sử dụng",
         		"PRINTED_PAPER_USED" : "Danh sách ấn chỉ đã sử dụng",
         		"CART" : "Giỏ hàng",
-        		"TRANSPORT" : "Vận đơn",
-        		"ORDER_ME" : "Danh sách đơn hàng",
+        		"ORDER_ME" : "Danh sách đơn hàng của tôi",
         		"ORDER_AGENCY" : "Danh sách đơn hàng chờ đại lý giải quyết",
         		"ORDER_BAOVIET" : "Danh sách đơn hàng chờ BV giải quyết",
         		"ORDER_OTHER" : "Danh sách yêu cầu bảo hiểm khác",
+        		"ORDER_EXPIRE" : "Danh sách đơn hàng quá hạn",
         		"ORDER_NOPHI" : "Danh sách đơn hàng nợ phí",
         		"ORDER_DETAIL" : "Chi tiết đơn hàng",
         		"REPORT_INCOME" : "Báo cáo doanh thu",
         		"REPORT_COMMISSION" : "Báo cáo hoa hồng",
         		"DOCUMENT" : "Tài liệu",
         		"PROMOTION" : "Khuyến mại",
-        		"CONTACT_NEW" : "Tạo khách hàng mới",
+        		"CONTACT_NEW" : "Tạo khách hàng",
         		"CONTACT_EDIT" : "Sửa thông tin khách hàng",
         		"ACCOUNT_CHANGE_PASSWORD" : "Đổi mật khẩu",
         		"ACCOUNT_PROFILE" : "Trang thông tin cá nhân",
         		"PRODUCT_YCBH_OFFLINE" : "Tạo yêu cầu bảo hiểm Offline",
+        		"COMMUNICATION" : "TRAO ĐỔI THÔNG TIN",
         		"PRODUCT_PRINTED_PAPER" : "Cấp đơn ấn chỉ",
         		"REMINDER" : "Thông báo",
-        		"REPORT_TRANSFER" : "Thống kê giao dịch chuyển tiền"
+        		"REPORT_TRANSFER" : "Thống kê giao dịch chuyển tiền",
+        		"ORGANIZATION" : "Tổ chức",     		
+        		"PERSON" : "Cá nhân"
         	}
         },
         "menu": {

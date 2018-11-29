@@ -5,16 +5,26 @@
                     <p>Thông tin người yêu cầu bảo hiểm</p>
                 </div>
                 <div class="margin-top-10">
-                    <p class="bv-title-from">Họ tên người yêu cầu bảo hiểm</p>
+                    <p class="bv-title-from" data-translate="global.product.tvc.label.contact_name_{{vm.policy.contactCategoryType || 'PERSON'}}">Họ tên người yêu cầu bảo hiểm</p>
                 </div>
                 <div>
                     <p class="bv-tile-templateSummary">{{vm.policy.contactName}}</p>
                 </div>
-                <div class="margin-top-10">
-                    <p class="bv-title-from">Ngày sinh</p>
+                <div ng-show="vm.policy.contactCategoryType != 'ORGANIZATION'">
+					<div class="margin-top-10">
+	                    <p class="bv-title-from">Ngày sinh</p>
+	                </div>
+	                <div>
+	                    <p class="bv-tile-templateSummary">{{vm.policy.contactDob}}</p>
+	                </div>                
                 </div>
-                <div>
-                    <p class="bv-tile-templateSummary">{{vm.policy.contactDob}}</p>
+                <div ng-show="vm.policy.contactCategoryType == 'ORGANIZATION'">
+                	<div class="margin-top-10">
+	                    <p class="bv-title-from">Địa chỉ</p>
+	                </div>
+	                <div>
+	                    <p class="bv-tile-templateSummary">{{vm.policy.contactAddress}}</p>
+	                </div>
                 </div>
             </div>
             <div class="bv-pading-30 width-100">
@@ -40,11 +50,11 @@
         </div>
         <div class="margin-top-10">
             <div class="table-responsive bv-home-block-left-table-responsive">
-                <table class="table bv-tvc-block-left-table" >
+                <table class="table" >
                     <thead>
                     <tr>
                     	<th><p>STT</p></th>
-                        <th><p>Họ và tên</p></th>
+                        <th class="m-w-200"><p>Họ và tên</p></th>
                         <th><p>Số hộ chiếu/CMND</p></th>
                         <th><p>Ngày sinh</p></th>
                         <th><p class="bv-table-th-db">Quan hệ người yêu cầu bảo hiểm</p></th>

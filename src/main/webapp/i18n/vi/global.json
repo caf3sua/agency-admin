@@ -12,6 +12,15 @@
 	        		"name" : "Tên tổ chức",
 	        		"cmt_mst": "Mã số thuế",
 	        		"occupation": "Ngành nghề kinh doanh"
+	        	},
+	        	"category" : {
+	        		"PERSON" : "Cá nhân",
+	        		"ORGANIZATION" : "Tổ chức"
+	        	},
+	        	"group" : {
+	        		"POTENTIAL" : "Tiềm năng",
+	        		"FAMILIAR" : "Thân thiết",
+	        		"VIP" : "VIP"
 	        	}
         	}
         }, 

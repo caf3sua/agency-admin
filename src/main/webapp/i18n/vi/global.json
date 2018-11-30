@@ -112,6 +112,7 @@
         		"PRINTED_PAPER_NEW" : "Danh sách ấn chỉ chưa sử dụng",
         		"PRINTED_PAPER_USED" : "Danh sách ấn chỉ đã sử dụng",
         		"CART" : "Giỏ hàng",
+        		"TRANSPORT" : "Danh sách vận đơn",
         		"ORDER_ME" : "Danh sách đơn hàng của tôi",
         		"ORDER_AGENCY" : "Danh sách đơn hàng chờ đại lý giải quyết",
         		"ORDER_BAOVIET" : "Danh sách đơn hàng chờ BV giải quyết",

@@ -86,6 +86,11 @@
 	  			getAllWaitAgency();
 	  			getAllWaitAgreement();
             });
+	        
+	        $scope.$on('orderUpdateSuccess', function() {
+	  			getAllWaitAgency();
+	  			getAllWaitAgreement();
+            });
 
 	    	// Init controller
 	  		(function initController() {

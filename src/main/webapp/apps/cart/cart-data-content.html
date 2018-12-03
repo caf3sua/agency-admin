@@ -1,9 +1,10 @@
 <div class="table-responsive col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
     <table class="table bv-home-block-left-table bv-table-kh">
 		<col width="5%">
-		<col width="3%">
-		<col width="18%">
+		<col width="10%">
 		<col width="15%">
+		<col width="10%">
+		<col width="10%">
 		<col width="10%">
 		<col width="10%">
 		<col width="10%">
@@ -15,6 +16,7 @@
 				<th></th>
 				<!-- <th></th> -->
 				<th>Mã đơn hàng</th>
+				<th>Mã/Tên đại lý</th>
 				<th>Tên khách hàng</th>
 				<th>Sản phẩm</th>
 				<th>Số điện thoại</th>
@@ -31,6 +33,9 @@
 	             </td>
                  <td>
                      <p class="bv-table-text-colorBlue">{{order.policyNumber}}</p>
+                 </td>
+                 <td>
+                     <p class="">{{order.agentId}} - {{order.agentName}}</p>
                  </td>
                  <td>
                      <p class="">{{order.receiverName}}</p>

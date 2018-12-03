@@ -2,7 +2,8 @@
     <table class="table bv-home-block-left-table bv-table-kh">
 		<col width="5%">
 		<col width="10%">
-		<col width="18%">
+		<col width="12%">
+		<col width="12%">
 		<col width="15%">
 		<col width="10%">
 		<col width="10%">
@@ -29,6 +30,7 @@
                    </div>
 				</th>
 				<th>Mã đơn hàng</th>
+				<th>Mã/Tên đại lý</th>
 				<th>Tên khách hàng</th>
 				<th>Sản phẩm</th>
 				<th>Số điện thoại</th>
@@ -58,6 +60,9 @@
                  </td>
                  <td>
                      <p class="bv-table-text-colorBlue">{{order.policyNumber}}</p>
+                 </td>
+                 <td>
+                     <p class="">{{order.agentId}} - {{order.agentName}}</p>
                  </td>
                  <td>
                      <p style="width: 150px">{{order.receiverName}}</p>

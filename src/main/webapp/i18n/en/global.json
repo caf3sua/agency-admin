@@ -44,10 +44,11 @@
 		},
 		"policy" : {
         	"status" : {
+        		"00" : "Không xác định trạng thái",
         		"80" : "Đang soạn",
         		"81" : "Chờ OTP",
         		"83" : "Yêu cầu bổ sung thông tin",
-        		"84" : "Đơn quá  hạn thanh toán",
+        		"84" : "Đơn quá hạn thanh toán",
         		"89" : "Đại lý, Khách hàng hủy đơn",
         		"90" : "Chờ thanh toán",
         		"91" : "Chờ Bảo Việt cấp đơn",

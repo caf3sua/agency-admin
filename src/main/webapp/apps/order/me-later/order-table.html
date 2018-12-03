@@ -7,6 +7,7 @@
             <tr>
                 <th></th>
                 <th>Mã đơn hàng</th>
+                <th>Mã/Tên đại lý</th>
                 <th>Tên khách hàng</th>
                 <th>Sản phẩm</th>
                 <th>Số điện thoại</th>
@@ -25,6 +26,9 @@
 	            <td>
 	                <p class="bv-table-text-colorBlue">{{order.gycbhNumber}}</p>
 	            </td>
+	            <td>
+                     <p class="">{{order.agentId}} - {{order.agentName}}</p>
+                 </td>
 	            <td>
 	                <p class="">{{order.contactName}}</p>
 	            </td>

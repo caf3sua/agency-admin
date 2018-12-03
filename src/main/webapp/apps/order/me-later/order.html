@@ -40,7 +40,6 @@
                         <option value="HOM">Bảo hiểm nhà tư nhân</option>
                         <option value="KHC">Bảo hiểm kết hợp con người</option>
                         <option value="TNC">Bảo hiểm tai nạn con người</option>
-                        <!-- <option value="HHV">Bảo hiểm Hàng hóa vận chuyển nội địa</option> -->
                     </select>
                 </div>
             </div>
@@ -91,19 +90,6 @@
             </div>
             <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
                 <div class="bv-title-from">
-                    <p>Trạng thái</p>
-                </div>
-                <div class="margin-top-5">
-                    <select class="bv-select-box-kh form-control" ng-model="vm.searchCriterial.statusPolicy">
-                    	<option value="">-- Trạng thái hợp đồng --</option>
-                    	<option value="91">Chờ Bảo Việt cấp đơn</option>
-                    	<option value="91_1">Thanh toán sau</option>
-                    	<option value="100">Hoàn thành</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
-                <div class="bv-title-from">
                     <p>Hình thức cấp</p>
                 </div>
                 <div class="margin-top-5">
@@ -115,10 +101,7 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <!-- Phòng/ban + Đại lý -->
-        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
-            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0">
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
                 <div class="bv-title-from">
                     <p>Đơn vị</p>
                 </div>
@@ -128,41 +111,34 @@
                     </select>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-10">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 padding0">
+	            <div class="bv-title-from">
+	                    <p>Ngày nhập</p>
+	                </div>
+	            <div class="margin-top-5">
+	                <div class="input-group date display-flex" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-autoclose="true">
+	                    <div class="width-100">
+	                        <input type="text" name="createDate" class="bv-input" placeholder="Ngày nhập" ng-model="vm.searchCriterial.createDate">
+	                    </div>
+	                    <div class="input-group-addon bv-date-icon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
             
-            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
-            	<div class="bv-title-from">
-                    <p>Đại lý</p>
-                </div>
-            	<div class="input-group display-flex">
-		         	<div class="width-100" id="bv-combobox-px" class="bv-autocomplete">
-		             	<ui-select ng-model="vm.selectedAgency" theme="bootstrap" on-select="vm.onChangeAgencyAutocomplete($item)">
-							<ui-select-match class="ui-select-match" placeholder="-- Chọn đại lý --">{{$select.selected.ten}}</ui-select-match>
-							<ui-select-choices class="ui-select-choices" repeat="item in vm.lstAgency | filter: $select.search | limitTo: 20">
-								<div ng-bind-html="item.ten | highlight: $select.search"></div>
-							</ui-select-choices>
-						</ui-select>
-		         	</div>
-		         	<div class="input-group-addon bv-date-icon" ng-click="vm.selectedAgency = null">
-		                    <span class="fas fa-times"></span>
-		         	</div>
-		        </div>
-            </div>
         </div>
 		<!-- Button -->
 		<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 padding0 margin-top-20">
-        	<div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
-	            <button class="bv-btn-step2" ng-click="vm.confirmTransport()" button-spinner="vm.isLoading" ng-disabled="vm.btnTransDisabled">
-	            	Chuyển đơn
-	            </button>
-            </div>
-        	
-        	<div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
-	            <button class="bv-btn-step2" ng-click="vm.searchTransport()" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading">
-	            	Tìm kiếm
-	            </button>
+            <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0 margin-top30" style="float: right;">
+                <button class="bv-btn-step2" ng-click="vm.searchOrderLater()" button-spinner="vm.isLoading" button-prepend="fa fa-search" ng-disabled="vm.isLoading">
+                    Tìm kiếm
+                </button>
             </div>
         </div>
         
-        <!-- Table content -->
-	<div ng-include="'apps/transport/transport-data-content.html'"></div>
+        <!-- Table data -->
+        <div ng-include="'apps/order/me-later/order-table.html'"></div>
     </div>

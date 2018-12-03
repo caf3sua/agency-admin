@@ -65,6 +65,40 @@
             }
         })
         
+        .state('order.later', {
+            parent: 'order',
+            url: '/later',
+            templateUrl: 'apps/order/me-later/order.html',
+            data : { 
+            	title: 'ORDER_ME',
+            	authorities : ['PERM_AGREEMENT_VIEW']
+            },
+            controller: "OrderLaterController",
+            controllerAs: 'vm',
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+            		translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+        				$translatePartialLoader.addPart('dashboard');
+        				return $translate.refresh();
+            		}],
+            		loadPlugin: function ($ocLazyLoad) {
+	            		return $ocLazyLoad.load([
+	            			'apps/order/me-later/order.controller.js', 'apps/product/product-base.controller.js', 'apps/product/product-base.service.js'
+	            		]);
+		        }
+            }
+        })
+        
         .state('order.agency', {
             parent: 'order',
             url: '/agency-waiting',

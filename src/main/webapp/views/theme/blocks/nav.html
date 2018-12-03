@@ -44,6 +44,12 @@
                     <span class="nav-text">Chờ giải quyết</span>
                 </a>
             </li>
+            <li ui-sref-active="active" has-authority="PERM_AGREEMENT_VIEW">
+            	<a class="bv-left-menu-sp icon-order" ui-sref="order.later">
+                    <i class="fas fa-anchor "><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countOrderLater}}</span></i>
+                    <span class="nav-text">Thanh toán sau</span>
+                </a>
+            </li>
         </ul>
     </li>
     

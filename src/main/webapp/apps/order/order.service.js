@@ -41,6 +41,11 @@
                 url : 'api/agency/product/adminUser/search-admin-order',
                 isArray : true
             },
+            'searchPaymentLater' : {
+                method : 'POST',
+                url : 'api/agency/product/adminUser/search-order-transport',
+                isArray : true
+            },
             'searchOrderOther' : {
                 method : 'POST',
                 url : 'api/agency/product/agreement/search-order-other',

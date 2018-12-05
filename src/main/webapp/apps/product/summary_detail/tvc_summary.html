@@ -23,7 +23,8 @@
 	                    <p class="bv-title-from">Địa chỉ</p>
 	                </div>
 	                <div>
-	                    <p class="bv-tile-templateSummary">{{vm.policy.contactAddress | address}}</p>
+	                    <p class="bv-tile-templateSummary edit-mode" ng-show="vm.isEditMode()">{{vm.policy.contactAddress | address}}</p>
+            			<p class="bv-tile-templateSummary none-edit-mode" ng-show="!vm.isEditMode()">{{vm.policy.contactAddress + ', ' + vm.policy.contactAddressDistrictData.pkDistrict | address}}</p>
 	                </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
         </div>
         <div class="margin-top-10">
             <div class="table-responsive bv-home-block-left-table-responsive">
-                <table class="table" >
+                <table class="table" st-table="vm.docsInitSummary" st-safe-src="vm.policy.listTvcAddBaseVM">
                     <thead>
                     <tr>
                     	<th><p>STT</p></th>
@@ -61,22 +62,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="person in  vm.policy.listTvcAddBaseVM">
-                        <td>{{$index + 1}}</td>
-                        <td>
-                            <p class="">{{person.insuredName}}</p>
-                        </td>
-                        <td>
-                            <p class="">{{person.idPasswport}}</p>
-                        </td>
-                        <td>
-                            <p class="">{{person.dob}}</p>
-                        </td>
-                        <td>
-                            <p class="" data-translate="global.person.relationship.{{person.relationship}}">Cá nhân</p>
-                        </td>
-                    </tr>
+	                    <tr ng-repeat="person in vm.docsInitSummary track by $index">
+	                        <td>{{$index + 1}}</td>
+	                        <td>
+	                            <p class="">{{person.insuredName}}</p>
+	                        </td>
+	                        <td>
+	                            <p class="">{{person.idPasswport}}</p>
+	                        </td>
+	                        <td>
+	                            <p class="">{{person.dob}}</p>
+	                        </td>
+	                        <td>
+	                            <p class="" data-translate="global.person.relationship.{{person.relationship}}">Cá nhân</p>
+	                        </td>
+	                    </tr>
                     </tbody>
+                    <tfoot>
+						<tr>
+							<td colspan="5" class="text-left">
+				            	<div st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+				          	</td>
+				        </tr>
+					</tfoot>
                 </table>
             </div>
         </div>

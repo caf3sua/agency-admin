@@ -7,20 +7,20 @@
     </li>
 
 	<!-- Giỏ hàng -->
-    <li ui-sref-active="active">
+    <!-- <li ui-sref-active="active">
         <a ui-sref="app.cart"  class="bv-left-menu">
             <i class=icon-cart><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countCart}}</span></i>
             <span class="nav-text">Giỏ hàng</span>
         </a>
-    </li>
+    </li> -->
     
     <!-- Vận đơn -->
-    <li ui-sref-active="active">
+    <!-- <li ui-sref-active="active">
         <a ui-sref="app.trans" class="bv-left-menu">
             <i class="icon-paper"><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countOrderDebit}}</span></i>
             <span class="nav-text">Đơn hàng đã cấp</span>
         </a>
-    </li>
+    </li> -->
     
 	<!-- Đơn hàng -->
 	<!-- <li ng-class="{active:$state.includes('order')}" has-authority="PERM_AGREEMENT_VIEW"> -->
@@ -33,11 +33,19 @@
             <span class="nav-text">Đơn hàng</span>
         </a>
         <ul class="nav-sub">
-            <!-- <li ui-sref-active="active">
-                <a ui-sref="order.me">
-                    <span class="nav-text">Danh sách đơn hàng</span>
+            <li ui-sref-active="active">
+            	<a class="bv-left-menu-sp icon-order" ui-sref="app.cart">
+                    <i class="icon-cart "><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countCart}}</span></i>
+                    <span class="nav-text">Chưa thanh toán</span>
                 </a>
-            </li> -->
+            </li>
+            <!-- Vận đơn -->
+            <li ui-sref-active="active">
+            	<a class="bv-left-menu-sp icon-order" ui-sref="app.trans">
+                    <i class="icon-paper "><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countOrderDebit}}</span></i>
+                    <span class="nav-text">Đơn hàng đã cấp</span>
+                </a>
+            </li>
             <li ui-sref-active="active">
             	<a class="bv-left-menu-sp icon-order" ui-sref="order.baoviet">
                     <i class="icon-paper "><span class="label rounded red bv-menu-label-sum">{{vm.countInfo.countBvWaiting}}</span></i>

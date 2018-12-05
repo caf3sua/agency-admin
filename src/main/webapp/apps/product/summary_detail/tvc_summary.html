@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="text-header-sp" style="margin-bottom: 10px">
-            <p>Thông tin người được bảo hiểm</p>
+            <p>Thông tin người được bảo hiểm (Số lượng người tham gia: {{vm.policy.listTvcAddBaseVM.length}})</p>
         </div>
         <div class="margin-top-10">
             <div class="table-responsive bv-home-block-left-table-responsive">
@@ -81,7 +81,7 @@
                     <tfoot>
 						<tr>
 							<td colspan="5" class="text-left">
-				            	<div st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+				            	<div st-template="views/theme/components/pagination.html" st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
 				          	</td>
 				        </tr>
 					</tfoot>

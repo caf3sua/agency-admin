@@ -11,7 +11,7 @@
                             <i class="fas fa-file-alt"></i>
                         </td>
                         <td class="bv-icon-order-blockOne">
-                            <p class="bv-icon-order-blockOne-number">{{vm.report.totalOrder | number:0}}</p>
+                            <p class="bv-icon-order-blockOne-number">{{vm.report.numberOrderPaid | number:0}}</p>
                             <p>Đơn hàng <span data-translate="global.time.{{vm.filterDate}}">trong tuần</span></p>
                         </td>
                     </tr>
@@ -20,7 +20,7 @@
                             <i class="fas fa-dollar-sign"></i>
                         </td>
                         <td class="bv-icon-order-blockOne">
-                            <p class="bv-icon-order-blockOne-number">{{vm.report.totalPremmium | number:0}}</p>
+                            <p class="bv-icon-order-blockOne-number">{{vm.report.premiumPaid | number:0}}</p>
                             <p>Tổng số phí bảo hiểm  <span data-translate="global.time.{{vm.filterDate}}"> trong tuần</span></p>
                         </td>
                     </tr>

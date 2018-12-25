@@ -20,7 +20,7 @@
         <tbody>
 	        <tr ng-repeat-start="order in vm.orders track by $index" ng-click="order.expand = !order.expand">
 	            <td>
-	                <p class="bv-home-table-stt margin-0">{{$index + 1}}</p>
+	                <p class="bv-home-table-stt margin-0">{{(vm.page -1)*vm.itemsPerPage+$index + 1}}</p>
 	            </td>
 	            <td>
 	                <p class="bv-table-text-colorBlue">{{order.gycbhNumber}}</p>

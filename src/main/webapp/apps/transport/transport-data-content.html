@@ -30,6 +30,7 @@
                    </div>
 				</th>
 				<th>Mã đơn hàng</th>
+				<th style="width: 100px">Số Hợp đồng/ Số GCNBH</th>
 				<th>Mã/Tên đại lý</th>
 				<th>Tên khách hàng</th>
 				<th>Sản phẩm</th>
@@ -61,6 +62,9 @@
                  <td>
                      <p class="bv-table-text-colorBlue">{{order.gycbhNumber}}</p>
                  </td>
+                 <td>
+	                <p class="bv-table-text-colorBlue">{{order.policyNumber}}</p>
+	             </td>
                  <td>
                      <p class="">{{order.agentId}} - {{order.agentName}}</p>
                  </td>

@@ -77,16 +77,8 @@
                      <p class="">{{order.receiverMoible}}</p>
                  </td>
                  <td>
-                 	<div ng-switch="order.statusPolicyId">
-		              <div ng-switch-when ="91">
-		                  <p style="width: 150px" ng-show="order.checkPaymentLater">Thanh toán sau</p>
-		                  <p style="width: 150px" ng-hide="order.checkPaymentLater"><span data-translate="global.policy.status.{{order.statusPolicyId}}">Đã thanh toán</span></p>
-		              </div>
-		              <div ng-switch-when ="100">
-		                  <p style="width: 150px"><span data-translate="global.policy.status.{{order.statusPolicyId}}">Đã thanh toán</span></p>
-		              </div>
-		            </div>
-                     
+	                 <!-- <p style="width: 150px"><span data-translate="global.policy.status.{{order.statusPolicyId}}">Đã thanh toán</span></p> -->
+	                 <p style="width: 150px">{{order.statusPolicyName}}</p>
                 </td>
                 <td>
                     <p>{{order.inceptionDate}}</p>

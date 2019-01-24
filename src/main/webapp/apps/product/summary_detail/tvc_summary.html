@@ -38,6 +38,12 @@
                 <div>
                     <p class="bv-tile-templateSummary">{{vm.policy.netPremium | number:0 }}</p>
                 </div>
+                <div class="margin-top-10" ng-show="vm.policy.changePremium > 0">
+                    <p class="bv-title-from">Giảm phí</p>
+                </div>
+                <div ng-show="vm.policy.changePremium > 0">
+                    <p class="bv-tile-templateSummary">{{vm.policy.changePremium | number:0 }} %</p>
+                </div>
                 <div class="margin-top-10">
                     <p class="bv-title-from">Tổng phí cần thanh toán</p>
                 </div>
@@ -63,7 +69,7 @@
                     </thead>
                     <tbody>
 	                    <tr ng-repeat="person in vm.docsInitSummary track by $index">
-	                        <td>{{$index + 1}}</td>
+	                        <td>{{(vm.current_page-1)*5 + $index + 1}}</td>
 	                        <td>
 	                            <p class="">{{person.insuredName}}</p>
 	                        </td>
@@ -81,7 +87,7 @@
                     <tfoot>
 						<tr>
 							<td colspan="5" class="text-left">
-				            	<div st-template="views/theme/components/pagination.html" st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
+				            	<div st-page-change="vm.rembemberCurrentPage(newPage)" st-template="views/theme/components/pagination.html" st-pagination="" st-items-by-page="5" st-displayed-pages="7" class="m-a-0"></div>
 				          	</td>
 				        </tr>
 					</tfoot>
@@ -89,7 +95,7 @@
             </div>
         </div>
         <div class="text-header-sp">
-            <p>Thông tin báo hiểm</p>
+            <p>Thông tin bảo hiểm</p>
         </div>
         <div class="margin-top-10">
             <p class="bv-title-from">Thời gian bảo hiểm</p>
@@ -98,10 +104,19 @@
             <p class="bv-tile-templateSummary">Từ {{vm.policy.inceptionDate}} đến {{vm.policy.expiredDate}}</p>
         </div>
         <div class="margin-top-10">
+            <p class="bv-title-from">Số ngày bảo hiểm</p>
+        </div>
+        <div>
+            <p class="bv-tile-templateSummary">{{vm.policy.songay}} ngày</p>
+        </div>
+        <div class="margin-top-10">
             <p class="bv-title-from">Phạm vi lãnh thổ được bảo hiểm</p>
         </div>
         <div>
             <div ng-switch="vm.policy.destinationId">
+            	<div ng-switch-when="1">
+                    <p class="bv-tile-templateSummary">Việt Nam</p>
+                </div>
                 <div ng-switch-when="2">
                     <p class="bv-tile-templateSummary">ASEAN</p>
                 </div>
@@ -112,6 +127,12 @@
                     <p class="bv-tile-templateSummary">Toàn cầu</p>
                 </div>
             </div>
+        </div>
+        <div class="margin-top-10" ng-show="vm.policy.destinationDetail != '' && vm.policy.destinationDetail != null">
+            <p class="bv-title-from">Nơi đến</p>
+        </div>
+        <div ng-show="vm.policy.destinationDetail != '' && vm.policy.destinationDetail != null">
+            <p class="bv-tile-templateSummary">{{vm.policy.destinationDetail}}</p>
         </div>
         <div class="margin-top-10">
             <p class="bv-title-from">Gói bảo hiểm</p>
@@ -134,6 +155,9 @@
         </div>
         <div>
         	<div ng-switch="vm.policy.planId">
+                <div ng-switch-when="1">
+                    <p class="bv-tile-templateSummary">Chương trình bảo hiểm Đồng</p>
+                </div>
                 <div ng-switch-when="2">
                     <p class="bv-tile-templateSummary">Chương trình bảo hiểm Bạc</p>
                 </div>
@@ -150,6 +174,9 @@
         </div>
         <div>
 	        <div ng-switch="vm.policy.planId">
+	         	<div ng-switch-when="1">
+	                <p class="bv-tile-templateSummary">1.Tai nạn cá nhân: 400.000.000 VND</p>
+	            </div>
 	         	<div ng-switch-when="2">
 	                <p class="bv-tile-templateSummary">1.Tai nạn cá nhân: 2.000.000.000 VND</p>
 	            </div>
@@ -161,6 +188,9 @@
 	            </div>
            	</div>
            	<div ng-switch="vm.policy.planId">
+	         	<div ng-switch-when="1">
+	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 400.000.000 VND</p>
+	            </div>
 	         	<div ng-switch-when="2">
 	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 1.000.000.000 VND</p>
 	            </div>
@@ -171,10 +201,10 @@
 	                <p class="bv-tile-templateSummary">2.Chi phí y tế: 3.000.000.000 VND</p>
 	            </div>
            	</div>
-            <p class="bv-tile-templateSummary">3.Vân chuyển y tế cấp cứu: Chi trả toàn bộ</p>
+            <p class="bv-tile-templateSummary">3.Vận chuyển y tế cấp cứu: Chi trả toàn bộ</p>
             <p class="bv-tile-templateSummary">4.Chi phí khác từ mục 3 đến 12 trong bảng quyền lợi không áp dụng</p>
-            <p class="bv-title-from">(Chi tiết hơn và riêng vơi trẻ em dưới 17 tuổi,người 76 tuổi trở lên quyền lợi bảo hiểm có quy đinh riêng. Qúy khách vui lòng xem tại bảng <a>Bảng quyền lợi bảo hiểm</a>)</p>
-            <p class="bv-title-from">Điều khoản điều kiện : Qúy khách vui lòng xem <a>Điều khoản,điều kiện</a></p>
+            <p class="bv-title-from">(Chi tiết hơn và riêng với trẻ em dưới 17 tuổi, người 76 tuổi trở lên quyền lợi bảo hiểm có quy định riêng. Qúy khách vui lòng xem tại <a>Bảng quyền lợi bảo hiểm</a>)</p>
+            <p class="bv-title-from">Điều khoản điều kiện : Qúy khách vui lòng xem <a>Điều khoản, điều kiện</a></p>
         </div>
     </div>
 

@@ -18,6 +18,7 @@
     	vm.insuranceEndDate;
     	vm.gotoBack = gotoBack;
     	vm.isEditMode = isEditMode;
+    	vm.checkDongYHD = false;
     	
         angular.element(document).ready(function () {
         });

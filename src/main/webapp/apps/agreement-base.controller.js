@@ -20,23 +20,64 @@
 		vm.searchOrder = searchOrder;
 		vm.currentAccount;
 		vm.lstAgency;
+		vm.lstDepartment;
+		vm.showDepartment = false;
+		vm.showAgency = false;
+		vm.getLstDepartment = getLstDepartment;
+		vm.getLstAgency = getLstAgency;
 		
 		// Init controller
   		(function initController() {
   			// instantiate base controller
   		    getAccount();
   		    
-  		    getLstAgency();
   		})();
   		
-  		function getLstAgency() {
-			OrderService.searchAgency({}, onSuccess, onError);
+  		function getLstAgency(department) {
+  			vm.lstAgency = [];
+  			vm.selectedAgency = null;
   			
-  			function onSuccess(result) {
-  				vm.lstAgency = result;
+  			if (department != null && department != "" && department != undefined){
+  				vm.searchAgency = {
+  	  				  "departmentId": department.departmentId
+  	  	  		};
+  				
+    			OrderService.searchAgency(vm.searchAgency, onSuccess, onError);
+    			
+    			function onSuccess(result) {
+    				vm.lstAgency = result;
+    				vm.showAgency = true;
+    			}
+    			
+    			function onError() {
+    				vm.showAgency = false;
+    			}
   			}
+  		}
+  		
+  		function getLstDepartment(companyId) {
+  			vm.lstDepartment = [];
+  			vm.lstAgency = [];
+  			vm.selectedDepartmentId = null;
+  			vm.selectedAgency = null;
   			
-  			function onError() {
+  			if (companyId != null && companyId != "" && companyId != undefined){
+  				vm.searchDepartment = {
+  	  				  "departmentId": companyId
+  	  	  		};
+  	  			
+  				OrderService.searchDepartment(vm.searchDepartment, onSuccess, onError);
+  	  			
+  	  			function onSuccess(result) {
+  	  				vm.lstDepartment = result;
+  	  				vm.showDepartment = true;
+  	  			}
+  	  			
+  	  			function onError() {
+  	  				vm.showDepartment = false;
+  	  			}	
+  			} else{
+  				vm.showDepartment = false;
   			}
   		}
   		

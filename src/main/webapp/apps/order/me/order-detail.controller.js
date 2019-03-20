@@ -6,10 +6,10 @@
         .controller('OrderDetailController', OrderDetailController);
 
     OrderDetailController.$inject = ['$scope', 'Principal', '$state'
-    	, '$stateParams', '$rootScope', 'OrderService', '$ngConfirm', '$timeout', '$window'];
+    	, '$stateParams', '$rootScope', 'OrderService', '$ngConfirm', '$timeout', '$window', 'DateUtils', '$controller'];
 
     function OrderDetailController ($scope, Principal, $state
-    		, $stateParams, $rootScope, OrderService, $ngConfirm, $timeout, $window) {
+    		, $stateParams, $rootScope, OrderService, $ngConfirm, $timeout, $window, DateUtils, $controller) {
     	var vm = this;
         
     	vm.policy;
@@ -18,20 +18,25 @@
     	vm.insuranceEndDate;
     	vm.gotoBack = gotoBack;
     	vm.isEditMode = isEditMode;
+    	vm.gksFile = {
+    		"content": ""
+	    };
+    	vm.isShowPolicyParent = false;
     	vm.checkDongYHD = false;
+    	vm.isImageFile = isImageFile;
     	
         angular.element(document).ready(function () {
         });
 
     	// Init controller
   		(function initController() {
+  			// instantiate base controller
   			OrderService.getById({id: $stateParams.id}, onSuccess, onError);
   			
   			function onSuccess(data) {
   				vm.policy = data;
   				// Load contact
   				loadContactInfo(data.contactCode);
-  				
   				switch (data.lineId) {
   					case 'BVP':
   						formatBvpData(data);
@@ -66,21 +71,40 @@
 					default:
 						break;
   				}
-  				
+  				vm.checkDongYHD = false;
   				toastr.success('Tải thông tin chi tiết hợp đồng thành công');
   			}
   			
-  			function onError(result) {
-  				let message = result.data.message || 'Lỗi khi tải thông tin chi tiết hợp đồng';
-  				toastr.error(message);
+  			function onError() {
   			}
   		})();
+  		
+  		function isImageFile(f) {
+        	if (f == null || f == undefined || f.fileType == null || f.fileType == undefined ) {
+        		return false;
+        	}
+        	
+        	if (f.fileType.indexOf('image/') != -1) {
+    			return true;
+    		}
+        	
+        	return false;
+        }
   		
   		function isEditMode() {
   			return true;
   		}
   		
   		function formatBvpData(data) {
+  			var now = new Date();
+            var nowStr = DateUtils.convertDate(now);
+            var tuoi = DateUtils.yearDiff(data.nguoidbhNgaysinh, nowStr);
+            if (tuoi < 18) {
+            	vm.isShowPolicyParent = true;
+            } else {
+            	vm.isShowPolicyParent = false;
+            }
+  			vm.gksFile.content = data.files;
   			vm.policy.premiumNet = data.chuongtrinhPhi + data.ngoaitruPhi + data.tncnPhi + data.sinhmangPhi + data.nhakhoaPhi + data.thaisanPhi;
 			vm.policy.phiBH = data.chuongtrinhPhi + data.ngoaitruPhi + data.tncnPhi + data.sinhmangPhi + data.nhakhoaPhi + data.thaisanPhi - data.tanggiamPhi;
   		}
@@ -129,6 +153,9 @@
   		}
   		
   		function formatTvcData(data) {
+  			var a = moment(vm.policy.inceptionDate, 'DD/MM/YYYY');
+			var b = moment(vm.policy.expiredDate, 'DD/MM/YYYY');
+			vm.policy.songay = b.diff(a, 'days') + 1;
   		}
   		
   		function formatTviData(data) {

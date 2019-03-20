@@ -14,6 +14,11 @@
                 url : 'api/agency/product/adminUser/search-agency',
                 isArray : true
             },
+            'searchDepartment' : {
+                method : 'POST',
+                url : 'api/agency/product/adminUser/search-department',
+                isArray : true
+            },
         	'createNophi' : {
                 method : 'POST',
                 url : 'api/agency/product/agreement/create-agreement-nophi'

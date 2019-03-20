@@ -35,7 +35,8 @@
   			  "toDate": "",
   			  "createType": "",
   			  "departmentId": "",
-  			  "createDate": ""
+  			  "createDate": "",
+  			  "companyId": ""
   		};
   		vm.sotiennophi;
   		
@@ -92,10 +93,16 @@
 					vm.searchCriterial.agentId = "";
 				}
 				
-				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
-					vm.searchCriterial.departmentId = vm.selectedDepartmentId.ma;	
+  	  			if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
+					vm.searchCriterial.departmentId = vm.selectedDepartmentId.departmentId;	
 				} else {
 					vm.searchCriterial.departmentId = "";
+				}
+				
+				if (vm.selectedCompanyId != null && vm.selectedCompanyId != undefined){
+					vm.searchCriterial.companyId = vm.selectedCompanyId;	
+				} else {
+					vm.searchCriterial.companyId = "";
 				}
 
   	  			OrderService.searchPaymentLater(vm.searchCriterial, onSearchSuccess, onSearchError);

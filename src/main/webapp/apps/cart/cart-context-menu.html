@@ -5,4 +5,17 @@
 		</div>
         <span class="bv-detail-text-table">Xem</span>
 	</div>
+	
+	<div ng-show="order.statusPolicyId == 100 && order.lineId == 'BVP'" ng-click="vm.downloadOrder(order)">
+        <div class="bv-detail-icon-table">
+            <i class="fas fa-download"></i>
+        </div>
+        <span class="bv-detail-text-table">Tải hợp đồng</span>
+    </div>
+    <div ng-show="order.statusPolicyId == 100 && order.lineId == 'BVP'" ng-click="vm.downloadOrderGYCBH(order)">
+        <div class="bv-detail-icon-table">
+            <i class="fas fa-download"></i>
+        </div>
+        <span class="bv-detail-text-table">Tải GYCBH</span>
+    </div>
 </div>

@@ -5,9 +5,9 @@
         .module('app')
         .controller('TransController', TransController);
 
-    TransController.$inject = ['$scope', '$stateParams', '$location', '$window', 'Principal', '$state', '$rootScope', 'TransService', 'DateUtils', 'PAGINATION_CONSTANTS', '$controller', '$ngConfirm', 'OrderService'];
+    TransController.$inject = ['$scope', '$stateParams', '$location', '$window', 'Principal', '$state', '$rootScope', 'TransService', 'DateUtils', 'PAGINATION_CONSTANTS', '$controller', '$ngConfirm', 'OrderService', 'API_SERVICE_URL'];
 
-    function TransController ($scope, $stateParams, $location, $window, Principal, $state, $rootScope, TransService, DateUtils, PAGINATION_CONSTANTS, $controller, $ngConfirm, OrderService) {
+    function TransController ($scope, $stateParams, $location, $window, Principal, $state, $rootScope, TransService, DateUtils, PAGINATION_CONSTANTS, $controller, $ngConfirm, OrderService, API_SERVICE_URL) {
     	var vm = this;
         
         // paging
@@ -36,7 +36,8 @@
     			  "toDate": "",
     			  "createType": "",
     			  "agentId": "",
-    			  "departmentId": ""
+    			  "departmentId": "",
+    			  "companyId": ""
     		};
         
         vm.newDate = null;
@@ -62,6 +63,10 @@
         
         vm.selectedDepartmentId;
         vm.selectedAgency;
+        vm.selectedCompanyId;
+        
+        vm.downloadOrder = downloadOrder;
+  		vm.downloadOrderGYCBH = downloadOrderGYCBH;
         
     	angular.element(document).ready(function () {
         });
@@ -83,6 +88,16 @@
         function nextStep() {
         	vm.showPayment = true;
         }
+        
+        function downloadOrder(order) {
+  			var templateRoute = API_SERVICE_URL + '/api/agency/document/download/bvp/' + order.agreementId;
+            $window.location = templateRoute;
+  		}
+  		
+  		function downloadOrderGYCBH(order) {
+  			var templateRoute = API_SERVICE_URL + '/api/agency/document/download/bvpGYCBH/' + order.agreementId;
+            $window.location = templateRoute;
+  		}
         
         function checkBoxCartAllChange() {
         	let value = vm.checkAll;
@@ -114,7 +129,7 @@
         }
 
         function changeDate(){
-  			if (vm.searchCriterial.fromDate != "" && vm.searchCriterial.toDate != ""){
+  			if (vm.searchCriterial.fromDate != undefined && vm.searchCriterial.fromDate != "" && vm.searchCriterial.toDate != "" && vm.searchCriterial.toDate != undefined){
   				if(!vm.checkDate(vm.searchCriterial.fromDate, vm.searchCriterial.toDate)){
   					toastr.error("Thời gian từ ngày - đến ngày không phù hợp");
   					return false;
@@ -132,9 +147,15 @@
   				}
   				
   				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
-  					vm.searchCriterial.departmentId = vm.selectedDepartmentId.ma;	
+  					vm.searchCriterial.departmentId = vm.selectedDepartmentId.departmentId;	
   				} else {
   					vm.searchCriterial.departmentId = "";
+  				}
+  				
+  				if (vm.selectedCompanyId != null && vm.selectedCompanyId != undefined){
+  					vm.searchCriterial.companyId = vm.selectedCompanyId;	
+  				} else {
+  					vm.searchCriterial.companyId = "";
   				}
   				
   				TransService.searchTransport(vm.searchCriterial, onSearchOrderSuccess, onSearchOrderError);

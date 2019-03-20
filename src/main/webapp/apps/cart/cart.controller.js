@@ -36,7 +36,8 @@
 			  "toDate": "",
 			  "createType": "",
 			  "agentId": "",
-			  "departmentId": ""
+			  "departmentId": "",
+			  "companyId": ""
     		};
         
   		vm.processPayment = processPayment;
@@ -109,10 +110,17 @@
   				}
   				
   				if (vm.selectedDepartmentId != null && vm.selectedDepartmentId != undefined){
-  					vm.searchCriterial.departmentId = vm.selectedDepartmentId;	
+  					vm.searchCriterial.departmentId = vm.selectedDepartmentId.departmentId;	
   				} else {
   					vm.searchCriterial.departmentId = "";
   				}
+  				
+  				if (vm.selectedCompanyId != null && vm.selectedCompanyId != undefined){
+  					vm.searchCriterial.companyId = vm.selectedCompanyId;	
+  				} else {
+  					vm.searchCriterial.companyId = "";
+  				}
+  				
   				CartService.searchCart(vm.searchCriterial, onGetAllOrderSuccess, onGetAllOrderError);
   			}
   		}

@@ -132,26 +132,15 @@
                 </div>
             </div>
             
-            <!-- <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0" ng-show="vm.showDepartment">
-                <div class="bv-title-from">
-                    <p>Đơn vị</p>
-                </div>
-                <div class="margin-top-5">
-                    <select class="bv-select-box-kh form-control" ng-model="vm.selectedDepartmentId" ng-options="selected.departmentId as selected.departmentName for selected in vm.currentAccount.lstDepartment">
-                    	<option value="">-- Chọn đơn vị --</option>
-                    </select>
-                </div>
-            </div> -->
-            
             <div class="col-lg-3 bv-kh-padding-left col-md-12 col-sm-12 col-xs-12 padding0">
             	<div class="bv-title-from">
                     <p>Đơn vị</p>
                 </div>
             	<div class="input-group display-flex">
 		         	<div class="width-100" id="bv-combobox-px" class="bv-autocomplete">
-		             	<ui-select ng-model="vm.selectedDepartmentId" theme="bootstrap" on-select="vm.onChangeDepartmentAutocomplete($item)" ng-change="vm.getLstAgency(vm.selectedDepartmentId)">
+		             	<ui-select ng-model="vm.selectedDepartmentId" theme="bootstrap" on-select="vm.onChangeDepartmentAutocomplete($item)" reset-search-input="true" ng-change="vm.getLstAgency(vm.selectedDepartmentId)">
 							<ui-select-match class="ui-select-match" placeholder="-- Chọn đơn vị --">{{$select.selected.departmentName}}</ui-select-match>
-							<ui-select-choices class="ui-select-choices" repeat="item in vm.lstDepartment | filter: $select.search | limitTo: 20">
+							<ui-select-choices class="ui-select-choices" repeat="item in vm.lstDepartment | filter: $select.search | limitTo: 200">
 								<div ng-bind-html="item.departmentName | highlight: $select.search"></div>
 							</ui-select-choices>
 						</ui-select>
@@ -168,9 +157,9 @@
                 </div>
             	<div class="input-group display-flex">
 		         	<div class="width-100" id="bv-combobox-px" class="bv-autocomplete">
-		             	<ui-select ng-model="vm.selectedAgency" theme="bootstrap" on-select="vm.onChangeAgencyAutocomplete($item)">
+		             	<ui-select ng-model="vm.selectedAgency" theme="bootstrap" on-select="vm.onChangeAgencyAutocomplete($item)" reset-search-input="true">
 							<ui-select-match class="ui-select-match" placeholder="-- Chọn đại lý --">{{$select.selected.ten}}</ui-select-match>
-							<ui-select-choices class="ui-select-choices" repeat="item in vm.lstAgency | filter: $select.search | limitTo: 20">
+							<ui-select-choices class="ui-select-choices" repeat="item in vm.lstAgency | filter: $select.search | limitTo: 200">
 								<div ng-bind-html="item.ten | highlight: $select.search"></div>
 							</ui-select-choices>
 						</ui-select>

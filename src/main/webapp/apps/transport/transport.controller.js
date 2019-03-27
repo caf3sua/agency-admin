@@ -255,7 +255,7 @@
   			}
   			
   			function onError() {
-  				toastr.error("Lỗi khi chuyển đơn hàng!");
+  				toastr.error("Lỗi khi chuyển đơn hàng - Bạn không có quyền!");
   			}
   		}
     }

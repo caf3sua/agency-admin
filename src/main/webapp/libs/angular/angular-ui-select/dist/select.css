@@ -91,7 +91,7 @@
 
 .ui-select-bootstrap > .ui-select-match {
   /* Instead of center because of .btn */
-  text-align: left;
+  text-align: inherit;
 }
 
 .ui-select-bootstrap > .ui-select-match > .caret {
@@ -136,7 +136,7 @@
     font-weight: 400;
     line-height: 1.42857143;
     color: #333;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .ui-select-bootstrap .ui-select-choices-row>a:hover, .ui-select-bootstrap .ui-select-choices-row>a:focus {

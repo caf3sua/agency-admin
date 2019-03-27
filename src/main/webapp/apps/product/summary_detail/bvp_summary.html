@@ -290,7 +290,7 @@
             <p>5. Thông tin tình trạng sức khỏe</p>
         </div>
      <div class="margin-top-10">
-         <p class="bv-title-from">1) Người được bảo hiểm kê khai trên đã từng phải điều trị, nằm viện hay phẫu thuật trong một bệnh viện, viện điều dưỡng, phòng khám hoặc các tổ chức y tế khác trong vòng 3 năm gần đây không? (*)</p>
+         <p class="bv-title-from">1. Trong 03 năm qua, bạn hoặc bất kỳ thành viên nào trong gia đình đã từng phải điều trị, nằm viện, hay phẫu thuật trong một bệnh viện, viện điều dưỡng, phòng khám hoặc các tổ chức y tế khác không? Hoặc ở trong tình trạng cần phải điều trị trong bệnh viện trong vòng 12 tháng tới? (*)</p>
      </div>
      <div class=" display-flex">
          <div class="cntr margin-right-5">
@@ -319,7 +319,8 @@
          </div>
      </div>
      <div class="margin-top-10">
-         <p class="bv-title-from">2) Người được bảo hiểm có đang được theo dõi hoặc điều trị thương tật, bệnh hoặc có triệu chứng sức khỏe không ổn định hoặc cần phải điều trị bệnh viện trong vòng 12 tháng tới không? (*)</p>
+                <p class="bv-title-from">2. Trong 03 năm qua, bạn hoặc bất kỳ thành viên nào trong gia đình đã mắc hoặc điều trị một hay nhiều trong các chứng bệnh sau: viêm hệ thần kinh trung ương (não); Parkinson; thoái hóa khác của hệ thần kinh; mất trí nhớ, hôn mê, bại não, bại liệt; suy phổi, tràn khí phổi, suy hô hấp mãn tính; mạch máu não, đột quỵ (xuất huyết não/ xơ cứng động mạch); nhồi máu cơ tim; xơ gan; suy thận, teo thận, sỏi thận cả 2 bên; chạy thận nhân tạo; u ác, u xơ tiền liệt; u thượng thận trái (cắt hoặc chưa cắt); ghép tủy; Lupus ban đỏ; lao các loại; phong; ung thư các loại; suy tủy; bạch cầu; các bệnh lây qua đường sinh dục, giang mai, lậu, hội chứng suy giảm miễn dịch; bệnh bẩm sinh, di truyền, dị dạng về gen; Down?
+Nếu bất kỳ câu hỏi nào ở trên được trả lời là CÓ, xin hãy nêu chi tiết (họ và tên Người được bảo hiểm, tên bệnh, thời điểm chẩn đoán bệnh, phương pháp điều trị, tình trạng hiện tại, cơ sở điều trị) (*)</p>
      </div>
      <div class=" display-flex">
          <div class="cntr margin-right-5">
@@ -348,7 +349,8 @@
          </div>
      </div>
      <div class="margin-top-10">
-         <p class="bv-title-from">3) Trong 3 năm qua, Người được bảo hiểm có mắc hay điều trị một hay nhiều triệu chứng các bệnh sau: ung thư, u các loại, huyết áp, tim mạch, loét dạ dày, viêm đa khớp mãn tính, loét ruột, viêm gan, viêm màng trong dạ con, trĩ, sỏi trong các hệ thống tiết niệu và đường mật, lao, đục nhân mắt, viêm xoang, tiểu đường, thoát vị đĩa đệm hay các bệnh khác không? (*)</p>
+                <p class="bv-title-from">3. Bạn hoặc bất kỳ thành viên nào trong gia đình đã từng được Bảo Việt giải quyết bồi thường theo một Hợp đồng bảo hiểm y tế tương tự; hoặc bị Bảo Việt/Công ty bảo hiểm khác từ chối bảo hiểm/ từ chối tái tục Hợp đồng bảo hiểm y tế tương tự; hoặc được chấp nhận nhưng với điều kiện áp dụng các điều khoản bổ sung đặc biệt?
+Nếu câu trả lời là CÓ, xin hãy nêu chi tiết (Công ty bảo hiểm, từ chối/chấp nhận bảo hiểm với điều khoản bổ sung đặc biệt, lý do...) (*)</p>
      </div>
      <div class=" display-flex">
          <div class="cntr margin-right-5">
@@ -452,6 +454,9 @@
 	                <div ng-switch-when="34">
 	                    <p class="bv-tile-templateSummary">Bố mẹ của vợ/chồng</p>
 	                </div>
+	                <div ng-switch-when="99">
+	                    <p class="bv-tile-templateSummary">Khác</p>
+	                </div>
 	            </div>
 	        </div>
 	    </div>
@@ -498,6 +503,9 @@
 	                <div ng-switch-when="34">
 	                    <p class="bv-tile-templateSummary">Bố mẹ của vợ/chồng</p>
 	                </div>
+	                <div ng-switch-when="99">
+	                    <p class="bv-tile-templateSummary">Khác</p>
+	                </div>
 	            </div>
 	        </div>
     	</div>
@@ -514,11 +522,14 @@
                 <polyline points="4 11 8 15 16 6"></polyline>
             </svg>
         </div>
-        <span><b>Bên yêu cầu bảo hiểm cam kết và đồng ý rằng:</b></span>
+        <span><b>Đại lý/Cán bộ tư vấn bảo hiểm đồng ý và cam kết rằng:</b></span>
     </label>
     <div style="margin-top: 10px">
-	    <p class="bv-tile-templateSummary display-inline-block">1. Tôi/chúng tôi cam đoan rằng hiện tại tôi/chúng tôi hoàn toàn khỏe mạnh; không bị bệnh thần kinh, tâm thần, phong; không trong thời gian điều trị bệnh tật, thương tật; không bị thương tật vĩnh viễn từ 50% trở lên.</p>
-	    <p class="bv-tile-templateSummary display-inline-block">2. Tôi/chúng tôi xác nhận rằng các thông tin nêu trên là đầy đủ và xác thực theo sự hiểu biết cao nhất của tôi/chúng tôi và sẽ thông báo ngay cho Bảo Việt về bất kỳ sự thay đổi nào có liên quan. Tôi/chúng tôi đồng ý rằng Yêu cầu bảo hiểm này cùng với việc cung cấp mã OTP cho cán bộ tư vấn và đóng đầy đủ phí bảo hiểm sẽ làm cơ sở cho Hợp đồng bảo hiểm giữa tôi/chúng tôi và Bảo Việt và chấp nhận các điều kiện bảo hiểm quy định tại Hợp đồng bảo hiểm.</p>
-	    <p class="bv-tile-templateSummary display-inline-block">3. Tôi/chúng tôi thừa nhận rằng, trường hợp tôi/chúng tôi không thực hiện đầy đủ trách nhiệm khai báo mọi thông tin, Bảo Việt có toàn quyền giảm trách nhiệm một phần hoặc toàn bộ đối với khiếu nại Hợp đồng này. Nếu việc không khai báo nhằm mục đích trục lợi bảo hiểm, Bảo Việt có quyền hủy/vô hiệu hóa Hợp đồng bảo hiểm ngay từ ngày bắt đầu có hiệu lực.</p>
+	    <p class="bv-tile-templateSummary display-inline-block"><b><i>1. Thông tin yêu cầu bảo hiểm trên là đúng và đầy đủ theo kê khai của bên yêu cầu bảo hiểm.</i></b></p>
+	    <p class="bv-tile-templateSummary display-inline-block"><b><i>2. Bên yêu cầu bảo hiểm đã được tư vấn đầy đủ, hiểu và chấp nhận quy tắc, điều kiện điều khoản của sản phẩm bảo hiểm tham gia.</p></i></b></br>
+	    <p class="bv-tile-templateSummary display-inline-block"><b><i>3. Bên yêu cầu bảo hiểm đã cam kết và đồng ý rằng:</i></b></p>
+	    <p class="bv-tile-templateSummary display-inline-block">&nbsp&nbsp&nbsp - Hiện tại, Người yêu cầu bảo hiểm và tất cả những Người được bảo hiểm trong danh sách hoàn toàn khỏe mạnh; không bị bệnh thần kinh, tâm thần, phong; không trong thời gian điều trị bệnh tật, thương tật; không bị thương tật vĩnh viễn từ 50% trở lên.</p>
+	    <p class="bv-tile-templateSummary display-inline-block">&nbsp&nbsp&nbsp - Các thông tin nêu trên là đầy đủ và xác thực theo sự hiểu biết cao nhất của Người yêu cầu bảo hiểm/Người được bảo hiểm, và Người yêu cầu bảo hiểm/Người được bảo hiểm sẽ thông báo ngay cho Bảo Việt về bất kỳ sự thay đổi nào có liên quan. Người yêu cầu bảo hiểm/Người được bảo hiểm đồng ý rằng Yêu cầu bảo hiểm này cùng với việc cung cấp mã OTP cho cán bộ tư vấn và đóng đầy đủ phí bảo hiểm sẽ làm cơ sở cho Hợp đồng bảo hiểm giữa Người yêu cầu bảo hiểm/Người được bảo hiểm và Bảo Việt và chấp nhận các điều kiện bảo hiểm quy định tại Hợp đồng bảo hiểm/Quy tắc bảo hiểm.</p>
+	    <p class="bv-tile-templateSummary display-inline-block">&nbsp&nbsp&nbsp - Trường hợp Người yêu cầu bảo hiểm/Người được bảo hiểm không thực hiện đầy đủ trách nhiệm khai báo mọi thông tin, Bảo Việt có toàn quyền giảm trách nhiệm một phần hoặc toàn bộ đối với khiếu nại Hợp đồng này. Nếu việc không khai báo nhằm mục đích trục lợi bảo hiểm, Bảo Việt có quyền hủy/vô hiệu hóa Hợp đồng bảo hiểm ngay từ ngày bắt đầu có hiệu lực.</p>
     </div>
 </div>
